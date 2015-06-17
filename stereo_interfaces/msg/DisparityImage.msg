@@ -1,18 +1,18 @@
 # Separate header for compatibility with current TimeSynchronizer.
 # Likely to be removed in a later release, use image.header instead.
-Header header
+std_interfaces/Header header
 
 # Floating point disparity image. The disparities are pre-adjusted for any
 # x-offset between the principal points of the two cameras (in the case
 # that they are verged). That is: d = x_l - x_r - (cx_l - cx_r)
-sensor_msgs/Image image
+sensor_interfaces/Image image
 
 # Stereo geometry. For disparity d, the depth from the camera is Z = fT/d.
 float32 f # Focal length, pixels
 float32 T # Baseline, world units
 
 # Subwindow of (potentially) valid disparity values.
-sensor_msgs/RegionOfInterest valid_window
+sensor_interfaces/RegionOfInterest valid_window
 
 # The range of disparities searched.
 # In the disparity image, any disparity less than min_disparity is invalid.
