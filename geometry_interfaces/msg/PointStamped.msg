@@ -1,3 +1,4 @@
 # This represents a Point with reference coordinate frame and timestamp
-Header header
+
+std_interfaces/Header header
 Point point

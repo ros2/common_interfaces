@@ -1,3 +1,4 @@
 # This represents an estimated twist with reference coordinate frame and timestamp.
-Header header
+
+std_interfaces/Header header
 TwistWithCovariance twist

@@ -1,5 +1,5 @@
 # An array of poses with a header for global reference.
 
-Header header
+std_interfaces/Header header
 
 Pose[] poses
