@@ -7,15 +7,15 @@
 # and to use the data a covariance will have to be assumed or gotten from some
 # other source.
 
-Header header                        # timestamp is the time the
-                                     # field was measured
-                                     # frame_id is the location and orientation
-                                     # of the field measurement
+std_interfaces/Header header               # timestamp is the time the
+                                           # field was measured
+                                           # frame_id is the location and orientation
+                                           # of the field measurement
 
-geometry_msgs/Vector3 magnetic_field # x, y, and z components of the
-                                     # field vector in Tesla
-                                     # If your sensor does not output 3 axes,
-                                     # put NaNs in the components not reported.
+geometry_interfaces/Vector3 magnetic_field # x, y, and z components of the
+                                           # field vector in Tesla
+                                           # If your sensor does not output 3 axes,
+                                           # put NaNs in the components not reported.
 
-float64[9] magnetic_field_covariance # Row major about x, y, z axes
-                                     # 0 is interpreted as variance unknown
+float64[9] magnetic_field_covariance       # Row major about x, y, z axes
+                                           # 0 is interpreted as variance unknown

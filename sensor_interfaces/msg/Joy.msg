@@ -1,7 +1,7 @@
 # Reports the state of a joystick's axes and buttons.
 
 # The timestamp is the time at which data is received from the joystick.
-Header header
+std_interfaces/Header header
 
 # The axes measurements from a joystick.
 float32[] axes

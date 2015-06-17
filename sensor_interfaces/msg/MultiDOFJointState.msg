@@ -18,9 +18,9 @@
 # This is the only way to uniquely associate the joint name with the correct
 # states.
 
-Header header
+std_interfaces/Header header
 
 string[] joint_names
-geometry_msgs/Transform[] transforms
-geometry_msgs/Twist[] twist
-geometry_msgs/Wrench[] wrench
+geometry_interfaces/Transform[] transforms
+geometry_interfaces/Twist[] twist
+geometry_interfaces/Wrench[] wrench

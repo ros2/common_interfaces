@@ -12,13 +12,13 @@
 # If you are interpreting this message, please check for a value of -1 in the first element of each
 # covariance matrix, and disregard the associated estimate.
 
-Header header
+std_interfaces/Header header
 
-geometry_msgs/Quaternion orientation
+geometry_interfaces/Quaternion orientation
 float64[9] orientation_covariance # Row major about x, y, z axes
 
-geometry_msgs/Vector3 angular_velocity
+geometry_interfaces/Vector3 angular_velocity
 float64[9] angular_velocity_covariance # Row major about x, y, z axes
 
-geometry_msgs/Vector3 linear_acceleration
+geometry_interfaces/Vector3 linear_acceleration
 float64[9] linear_acceleration_covariance # Row major x, y z

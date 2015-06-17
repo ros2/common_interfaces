@@ -17,7 +17,7 @@
 # This is the only way to uniquely associate the joint name with the correct
 # states.
 
-Header header
+std_interfaces/Header header
 
 string[] name
 float64[] position

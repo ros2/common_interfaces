@@ -6,16 +6,15 @@
 # Photometric illuminance is the measure of the human eye's sensitivity of the
 # intensity of light encountering or passing through a surface.
 
-# All other Photometric and Radiometric measurements should
-# not use this message.
+# All other Photometric and Radiometric measurements should not use this message.
 # This message cannot represent:
-# Luminous intensity (candela/light source output)
-# Luminance (nits/light output per area)
-# Irradiance (watt/area), etc.
+#  - Luminous intensity (candela/light source output)
+#  - Luminance (nits/light output per area)
+#  - Irradiance (watt/area), etc.
 
-Header header           # timestamp is the time the illuminance was measured
-                        # frame_id is the location and direction of the reading
+std_interfaces/Header header # timestamp is the time the illuminance was measured
+                             # frame_id is the location and direction of the reading
 
-float64 illuminance     # Measurement of the Photometric Illuminance in Lux.
+float64 illuminance          # Measurement of the Photometric Illuminance in Lux.
 
-float64 variance        # 0 is interpreted as variance unknown
+float64 variance             # 0 is interpreted as variance unknown

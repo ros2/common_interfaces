@@ -4,13 +4,13 @@
 
 # header.stamp specifies the ROS time for this measurement (the
 #        corresponding satellite time may be reported using the
-#        sensor_msgs/TimeReference message).
+#        sensor_interfaces/TimeReference message).
 #
 # header.frame_id is the frame of reference reported by the satellite
 #        receiver, usually the location of the antenna.  This is a
 #        Euclidean frame relative to the vehicle, not a reference
 #        ellipsoid.
-Header header
+std_interfaces/Header header
 
 # Satellite fix status information.
 NavSatStatus status
@@ -30,7 +30,6 @@ float64 altitude
 # Up (ENU), in row-major order.
 #
 # Beware: this coordinate system exhibits singularities at the poles.
-
 float64[9] position_covariance
 
 # If the covariance of the fix is known, fill it in completely. If the

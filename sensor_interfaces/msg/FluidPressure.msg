@@ -4,9 +4,9 @@
 
 # This message is not appropriate for force/pressure contact sensors.
 
-Header header           # timestamp of the measurement
-                        # frame_id is the location of the pressure sensor
+std_interfaces/Header header # timestamp of the measurement
+                             # frame_id is the location of the pressure sensor
 
-float64 fluid_pressure  # Absolute pressure reading in Pascals.
+float64 fluid_pressure       # Absolute pressure reading in Pascals.
 
-float64 variance        # 0 is interpreted as variance unknown
+float64 variance             # 0 is interpreted as variance unknown

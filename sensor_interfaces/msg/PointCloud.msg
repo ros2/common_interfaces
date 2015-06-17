@@ -2,11 +2,11 @@
 # information about each point.
 
 # Time of sensor data acquisition, coordinate frame ID.
-Header header
+std_interfaces/Header header
 
 # Array of 3d points. Each Point32 should be interpreted as a 3d point
 # in the frame given in the header.
-geometry_msgs/Point32[] points
+geometry_interfaces/Point32[] points
 
 # Each channel should have the same number of elements as points array,
 # and the data in each channel should correspond 1:1 with each point.
