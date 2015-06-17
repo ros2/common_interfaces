@@ -43,8 +43,8 @@ set(msg_files
   "msg/UInt8MultiArray.msg"
 )
 set(srv_files
-  "srv/Empty.msg"
-  "srv/Trigger.msg"
+  "srv/Empty.srv"
+  "srv/Trigger.srv"
 )
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
