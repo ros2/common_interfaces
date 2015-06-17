@@ -6,7 +6,7 @@
 uint32 seq
 
 # Two-integer timestamp that is expressed as seconds and nanoseconds.
-Time stamp
+builtin_interfaces/Time stamp
 
 # Transform frame with which this data is associated.
 string frame_id
