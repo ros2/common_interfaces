@@ -13,15 +13,15 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(std_interfaces REQUIRED)
 
 set(msg_files
-  "GridCells.msg"
-  "MapMetaData.msg"
-  "OccupancyGrid.msg"
-  "Odometry.msg"
-  "Path.msg"
+  "msg/GridCells.msg"
+  "msg/MapMetaData.msg"
+  "msg/OccupancyGrid.msg"
+  "msg/Odometry.msg"
+  "msg/Path.msg"
 )
 set(srv_files
-  "GetMap.srv"
-  "GetPlan.srv"
+  "srv/GetMap.srv"
+  "srv/GetPlan.srv"
 )
 # TODO(wjwwood): port the action GetMap from ROS 1, once actions are supported.
 rosidl_generate_interfaces(${PROJECT_NAME}

@@ -12,7 +12,7 @@ find_package(sensor_interfaces REQUIRED)
 find_package(std_interfaces REQUIRED)
 
 set(msg_files
-  "DisparityImage.msg"
+  "msg/DisparityImage.msg"
 )
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}

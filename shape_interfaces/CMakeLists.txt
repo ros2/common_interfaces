@@ -11,10 +11,10 @@ find_package(geometry_interfaces REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 set(msg_files
-  "Mesh.msg"
-  "MeshTriangle.msg"
-  "Plane.msg"
-  "SolidPrimitive.msg"
+  "msg/Mesh.msg"
+  "msg/MeshTriangle.msg"
+  "msg/Plane.msg"
+  "msg/SolidPrimitive.msg"
 )
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
