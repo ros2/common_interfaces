@@ -1,10 +1,10 @@
 # Each multi-dof joint can specify a transform (up to 6 DOF).
-geometry_msgs/Transform[] transforms
+geometry_interfaces/Transform[] transforms
 
 # There can be a velocity specified for the origin of the joint.
-geometry_msgs/Twist[] velocities
+geometry_interfaces/Twist[] velocities
 
 # There can be an acceleration specified for the origin of the joint.
-geometry_msgs/Twist[] accelerations
+geometry_interfaces/Twist[] accelerations
 
-duration time_from_start
+builtin_interfaces/Duration time_from_start

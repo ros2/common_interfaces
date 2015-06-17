@@ -1,5 +1,5 @@
 # The header is used to specify the coordinate frame and the reference time for the trajectory durations
-Header header
+std_interfaces/Header header
 
 # A representation of a multi-dof joint trajectory (each point is a transformation)
 # Each point along the trajectory will include an array of positions/velocities/accelerations
