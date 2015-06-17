@@ -10,7 +10,7 @@ uint8 CONE=4
 uint8 type
 
 # The dimensions of the shape
-float64[] dimensions
+float64[<=3] dimensions  # At no point will dimensions have a length > 3.
 
 # The meaning of the shape dimensions: each constant defines the index in the 'dimensions' array.
 

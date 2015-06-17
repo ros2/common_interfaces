@@ -4,4 +4,4 @@
 MeshTriangle[] triangles
 
 # The actual vertices that make up the mesh.
-geometry_msgs/Point[] vertices
+geometry_interfaces/Point[] vertices
