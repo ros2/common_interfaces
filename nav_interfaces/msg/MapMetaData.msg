@@ -1,7 +1,7 @@
 # This hold basic information about the characterists of the OccupancyGrid
 
 # The time at which the map was loaded
-time map_load_time
+builtin_interfaces/Time map_load_time
 
 # The map resolution [m/cell]
 float32 resolution
@@ -14,4 +14,4 @@ uint32 height
 
 # The origin of the map [m, m, rad].  This is the real-world pose of the
 # cell (0,0) in the map.
-geometry_msgs/Pose origin
+geometry_interfaces/Pose origin
