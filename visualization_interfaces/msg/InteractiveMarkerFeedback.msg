@@ -1,5 +1,5 @@
 # Time/frame info.
-Header header
+std_interfaces/Header header
 
 # Identifying string. Must be unique in the topic namespace.
 string client_id
@@ -28,7 +28,7 @@ uint8 event_type
 
 # Current pose of the marker
 # Note: Has to be valid for all feedback types.
-geometry_msgs/Pose pose
+geometry_interfaces/Pose pose
 
 # Contains the ID of the selected menu entry
 # Only valid for MENU_SELECT events.
@@ -38,5 +38,5 @@ uint32 menu_entry_id
 # may contain the 3 dimensional position of the event on the
 # control.  If it does, mouse_point_valid will be true.  mouse_point
 # will be relative to the frame listed in the header.
-geometry_msgs/Point mouse_point
+geometry_interfaces/Point mouse_point
 bool mouse_point_valid

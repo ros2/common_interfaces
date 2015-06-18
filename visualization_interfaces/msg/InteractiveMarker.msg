@@ -4,10 +4,10 @@
 # in the same frame.
 # Otherwise, you might receive feedback in a different frame.
 # For rviz, this will be the current 'fixed frame' set by the user.
-Header header
+std_interfaces/Header header
 
 # Initial pose. Also, defines the pivot point for rotations.
-geometry_msgs/Pose pose
+geometry_interfaces/Pose pose
 
 # Identifying string. Must be globally unique in
 # the topic that this message is sent through.

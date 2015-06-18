@@ -9,7 +9,7 @@ string name
 # Defines the local coordinate frame (relative to the pose of the parent
 # interactive marker) in which is being rotated and translated.
 # Default: Identity
-geometry_msgs/Quaternion orientation
+geometry_interfaces/Quaternion orientation
 
 
 # Orientation mode: controls how orientation changes.

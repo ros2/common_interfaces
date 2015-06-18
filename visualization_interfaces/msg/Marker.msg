@@ -23,7 +23,7 @@ uint8 DELETE=2
 uint8 DELETEALL=3
 
 # Header for timestamp and frame id.
-Header header
+std_interfaces/Header header
 # Namespace in which to place the object.
 # Used in conjunction with id to create a unique name for the object.
 string ns
@@ -38,23 +38,23 @@ int32 type
 #  - 3 deletes all objects
 int32 action
 # Pose of the object with respect the frame_id specified in the header.
-geometry_msgs/Pose pose
+geometry_interfaces/Pose pose
 # Scale of the object; 1,1,1 means default (usually 1 meter square).
-geometry_msgs/Vector3 scale
+geometry_interfaces/Vector3 scale
 # Color of the object; in the range: [0.0-1.0]
-std_msgs/ColorRGBA color
+std_interfaces/ColorRGBA color
 # How long the object should last before being automatically deleted.
 # 0 indicates forever.
-duration lifetime
+builtin_interfaces/Duration lifetime
 # If this marker should be frame-locked, i.e. retransformed into its frame every timestep.
 bool frame_locked
 
 # Only used if the type specified has some use for them (eg. POINTS, LINE_STRIP, etc.)
-geometry_msgs/Point[] points
+geometry_interfaces/Point[] points
 # Only used if the type specified has some use for them (eg. POINTS, LINE_STRIP, etc.)
 # The number of colors provided must either be 0 or equal to the number of points provided.
 # NOTE: alpha is not yet used
-std_msgs/ColorRGBA[] colors
+std_interfaces/ColorRGBA[] colors
 
 # Only used for text markers
 string text
