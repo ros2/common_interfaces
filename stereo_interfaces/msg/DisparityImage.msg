@@ -9,7 +9,7 @@ sensor_interfaces/Image image
 
 # Stereo geometry. For disparity d, the depth from the camera is Z = fT/d.
 float32 f # Focal length, pixels
-float32 T # Baseline, world units
+float32 t # Baseline, world units
 
 # Subwindow of (potentially) valid disparity values.
 sensor_interfaces/RegionOfInterest valid_window
