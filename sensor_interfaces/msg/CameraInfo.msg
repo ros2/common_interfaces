@@ -61,7 +61,7 @@ string distortion_model
 
 # The distortion parameters, size depending on the distortion model.
 # For "plumb_bob", the 5 parameters are: (k1, k2, t1, t2, k3).
-float64[] D
+float64[] d
 
 # Intrinsic camera matrix for the raw (distorted) images.
 #     [fx  0 cx]
@@ -70,13 +70,13 @@ float64[] D
 # Projects 3D points in the camera coordinate frame to 2D pixel
 # coordinates using the focal lengths (fx, fy) and principal point
 # (cx, cy).
-float64[9]  K # 3x3 row-major matrix
+float64[9]  k # 3x3 row-major matrix
 
 # Rectification matrix (stereo cameras only)
 # A rotation matrix aligning the camera coordinate system to the ideal
 # stereo image plane so that epipolar lines in both stereo images are
 # parallel.
-float64[9]  R # 3x3 row-major matrix
+float64[9]  r # 3x3 row-major matrix
 
 # Projection/camera matrix
 #     [fx'  0  cx' Tx]
@@ -102,7 +102,7 @@ float64[9]  R # 3x3 row-major matrix
 #         x = u / w
 #         y = v / w
 #  This holds for both images of a stereo pair.
-float64[12] P # 3x4 row-major matrix
+float64[12] p # 3x4 row-major matrix
 
 
 #######################################################################
