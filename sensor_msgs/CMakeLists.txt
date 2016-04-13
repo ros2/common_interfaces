@@ -25,7 +25,7 @@ set(msg_files
   "msg/Image.msg"
   "msg/Imu.msg"
   # "msg/JointState.msg"
-  # "msg/Joy.msg"
+  "msg/Joy.msg"
   # "msg/JoyFeedback.msg"
   # "msg/JoyFeedbackArray.msg"
   # "msg/LaserEcho.msg"
