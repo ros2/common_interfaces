@@ -20,7 +20,7 @@ set(msg_files
   # "msg/ByteMultiArray.msg"
   # "msg/Char.msg"
   # "msg/ColorRGBA.msg"
-  # "msg/Empty.msg"
+  "msg/Empty.msg"
   "msg/Float32.msg"
   # "msg/Float32MultiArray.msg"
   "msg/Float64.msg"
