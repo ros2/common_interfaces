@@ -12,6 +12,7 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Duration.msg"
   "msg/Time.msg"
+  ADD_LINTER_TESTS
 )
 
 ament_package()
