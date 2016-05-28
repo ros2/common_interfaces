@@ -17,6 +17,7 @@ set(msg_files
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
   DEPENDENCIES sensor_msgs std_msgs
+  ADD_LINTER_TESTS
 )
 
 ament_package()
