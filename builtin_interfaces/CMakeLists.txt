@@ -15,4 +15,6 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   ADD_LINTER_TESTS
 )
 
+ament_export_dependencies(rosidl_default_runtime)
+
 ament_package()
