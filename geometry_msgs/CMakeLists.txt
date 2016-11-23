@@ -36,7 +36,7 @@ set(msg_files
   # "msg/TwistWithCovarianceStamped.msg"
   "msg/Vector3.msg"
   # "msg/Vector3Stamped.msg"
-  # "msg/Wrench.msg"
+  "msg/Wrench.msg"
   # "msg/WrenchStamped.msg"
 )
 rosidl_generate_interfaces(${PROJECT_NAME}
