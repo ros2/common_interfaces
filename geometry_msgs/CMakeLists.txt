@@ -11,10 +11,6 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
 
 set(msg_files
-# TODO(wjwwood): re-enable all messages when build time is not so important.
-#                This will likely be the case when we have a proper build farm
-#                and/or we reduce the number of middlewares or languages we
-#                build for by default.
   "msg/Point.msg"
   "msg/Point32.msg"
   "msg/PointStamped.msg"
