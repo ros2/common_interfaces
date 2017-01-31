@@ -11,6 +11,7 @@ find_package(rosidl_default_generators REQUIRED)
 
 set(srv_files
   "srv/Empty.srv"
+  "srv/SetBool.srv"
   "srv/Trigger.srv"
 )
 rosidl_generate_interfaces(${PROJECT_NAME}
