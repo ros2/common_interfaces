@@ -17,6 +17,7 @@ set(msg_files
 )
 set(srv_files
   "srv/SelfTest.srv"
+  "srv/AddDiagnostics.srv"
 )
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
