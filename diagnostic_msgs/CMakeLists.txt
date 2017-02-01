@@ -16,8 +16,8 @@ set(msg_files
   "msg/KeyValue.msg"
 )
 set(srv_files
-  "srv/SelfTest.srv"
   "srv/AddDiagnostics.srv"
+  "srv/SelfTest.srv"
 )
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
