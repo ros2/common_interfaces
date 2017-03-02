@@ -11,6 +11,12 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
 
 set(msg_files
+  "msg/Accel.msg"
+  "msg/AccelStamped.msg"
+  "msg/AccelWithCovariance.msg"
+  "msg/AccelWithCovarianceStamped.msg"
+  "msg/Inertia.msg"
+  "msg/InertiaStamped.msg"
   "msg/Point.msg"
   "msg/Point32.msg"
   "msg/PointStamped.msg"
