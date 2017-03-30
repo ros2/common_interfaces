@@ -19,48 +19,48 @@
 #include <utility>
 #include <vector>
 
-#include "test_communication/srv/empty.hpp"
-#include "test_communication/srv/primitives.hpp"
+#include "test_msgs/srv/empty.hpp"
+#include "test_msgs/srv/primitives.hpp"
 
 
 std::vector<
   std::pair<
-    test_communication::srv::Empty::Request::SharedPtr,
-    test_communication::srv::Empty::Response::SharedPtr
+    test_msgs::srv::Empty::Request::SharedPtr,
+    test_msgs::srv::Empty::Response::SharedPtr
   >
 >
 get_services_empty()
 {
   std::vector<
     std::pair<
-      test_communication::srv::Empty::Request::SharedPtr,
-      test_communication::srv::Empty::Response::SharedPtr
+      test_msgs::srv::Empty::Request::SharedPtr,
+      test_msgs::srv::Empty::Response::SharedPtr
     >
   > services;
   auto request = std::make_shared<
-    test_communication::srv::Empty::Request>();
+    test_msgs::srv::Empty::Request>();
   auto reply = std::make_shared<
-    test_communication::srv::Empty::Response>();
+    test_msgs::srv::Empty::Response>();
   services.emplace_back(request, reply);
   return services;
 }
 
 std::vector<
   std::pair<
-    test_communication::srv::Primitives::Request::SharedPtr,
-    test_communication::srv::Primitives::Response::SharedPtr
+    test_msgs::srv::Primitives::Request::SharedPtr,
+    test_msgs::srv::Primitives::Response::SharedPtr
   >
 >
 get_services_primitives()
 {
   std::vector<
     std::pair<
-      test_communication::srv::Primitives::Request::SharedPtr,
-      test_communication::srv::Primitives::Response::SharedPtr
+      test_msgs::srv::Primitives::Request::SharedPtr,
+      test_msgs::srv::Primitives::Response::SharedPtr
     >
   > services;
   {
-    auto request = std::make_shared<test_communication::srv::Primitives::Request>();
+    auto request = std::make_shared<test_msgs::srv::Primitives::Request>();
     request->bool_value = false;
     request->byte_value = 0;
     request->char_value = '\0';
@@ -75,7 +75,7 @@ get_services_primitives()
     request->int64_value = 0;
     request->uint64_value = 0;
     request->string_value = "request";
-    auto reply = std::make_shared<test_communication::srv::Primitives::Response>();
+    auto reply = std::make_shared<test_msgs::srv::Primitives::Response>();
     reply->bool_value = false;
     reply->byte_value = 0;
     reply->char_value = '\0';
@@ -93,7 +93,7 @@ get_services_primitives()
     services.emplace_back(request, reply);
   }
   {
-    auto request = std::make_shared<test_communication::srv::Primitives::Request>();
+    auto request = std::make_shared<test_msgs::srv::Primitives::Request>();
     request->bool_value = true;
     request->byte_value = 1;
     request->char_value = 0x1;
@@ -112,7 +112,7 @@ get_services_primitives()
     for (size_t i = 0; i < 20000; ++i) {
       request->string_value += std::to_string(i % 10);
     }
-    auto reply = std::make_shared<test_communication::srv::Primitives::Response>();
+    auto reply = std::make_shared<test_msgs::srv::Primitives::Response>();
     reply->bool_value = true;
     reply->byte_value = 11;
     reply->char_value = 0x11;
