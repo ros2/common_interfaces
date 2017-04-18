@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef SENSOR_MSG_UTILS__DISTORTION_MODELS_HPP_
-#define SENSOR_MSG_UTILS__DISTORTION_MODELS_HPP_
+#ifndef SENSOR_MSGS__DISTORTION_MODELS_HPP_
+#define SENSOR_MSGS__DISTORTION_MODELS_HPP_
 
 #include <string>
 
@@ -26,4 +26,4 @@ const char * RATIONAL_POLYNOMIAL = "rational_polynomial";
 }
 }
 
-#endif  // SENSOR_MSG_UTILS__DISTORTION_MODELS_HPP_
+#endif  // SENSOR_MSGS__DISTORTION_MODELS_HPP_
