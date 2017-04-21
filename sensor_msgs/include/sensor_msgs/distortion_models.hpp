@@ -21,8 +21,8 @@ namespace sensor_msgs
 {
 namespace distortion_models
 {
-const std::string PLUMB_BOB = "plumb_bob";
-const std::string RATIONAL_POLYNOMIAL = "rational_polynomial";
+const char PLUMB_BOB[] = "plumb_bob";
+const char RATIONAL_POLYNOMIAL[] = "rational_polynomial";
 }
 }
 
