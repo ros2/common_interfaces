@@ -15,8 +15,6 @@
 #ifndef SENSOR_MSGS__DISTORTION_MODELS_HPP_
 #define SENSOR_MSGS__DISTORTION_MODELS_HPP_
 
-#include <string>
-
 namespace sensor_msgs
 {
 namespace distortion_models
