@@ -55,6 +55,14 @@ install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION include/${PROJECT_NAME}
 )
 
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+
+  # Prevent copyright from being found, since it doesn't support BSD.
+  set(ament_cmake_copyright_FOUND TRUE)
+  ament_lint_auto_find_test_dependencies()
+endif()
+
 ament_export_dependencies(rosidl_default_runtime)
 ament_export_include_directories(include)
 
