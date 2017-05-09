@@ -56,11 +56,11 @@ inline int sizeOfPointField(int datatype)
     (datatype == sensor_msgs::msg::PointField::UINT8))
   {
     return 1;
-  } else if ((datatype == sensor_msgs::msg::PointField::INT16) ||
+  } else if ((datatype == sensor_msgs::msg::PointField::INT16) ||  // NOLINT
     (datatype == sensor_msgs::msg::PointField::UINT16))
   {
     return 2;
-  } else if ((datatype == sensor_msgs::msg::PointField::INT32) ||
+  } else if ((datatype == sensor_msgs::msg::PointField::INT32) ||  // NOLINT
     (datatype == sensor_msgs::msg::PointField::UINT32) ||
     (datatype == sensor_msgs::msg::PointField::FLOAT32))
   {
@@ -81,7 +81,7 @@ inline int sizeOfPointField(int datatype)
  * @param count the number of elements in the PointField
  * @param datatype the datatype of the elements
  * @param offset the offset of that element
- * @return the offset of the next PointField that will be added to the PointCLoud2
+ * @return the offset of the next PointField that will be added to the PointCloud2
  */
 inline int addPointField(sensor_msgs::msg::PointCloud2 & cloud_msg,
   const std::string & name, int count, int datatype,
