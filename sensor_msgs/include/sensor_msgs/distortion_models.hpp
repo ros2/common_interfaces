@@ -1,8 +1,8 @@
-// Software License Agreement (BSD License)
-//
 // Copyright (c) 2010, Willow Garage, Inc.
 // Copyright (c) 2017, Open Source Robotics Foundation, Inc.
 // All rights reserved.
+//
+// Software License Agreement (BSD License 2.0)
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions
