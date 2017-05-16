@@ -31,7 +31,7 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
-// This file is originally ported from ROS1:
+// This file is originally from:
 // https://github.com/ros/common_msgs/blob/jade-devel/sensor_msgs/include/sensor_msgs/distortion_models.h
 
 #ifndef SENSOR_MSGS__DISTORTION_MODELS_HPP_
