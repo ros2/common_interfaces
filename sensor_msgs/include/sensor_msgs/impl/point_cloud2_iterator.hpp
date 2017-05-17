@@ -31,7 +31,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 
 // This file is originally from:
-// https://github.com/ros/common_msgs/blob/jade-devel/sensor_msgs/include/sensor_msgs/impl/point_cloud2_iterator.h
+// https://github.com/ros/common_msgs/blob/50ee957/sensor_msgs/include/sensor_msgs/impl/point_cloud2_iterator.h
 
 #ifndef SENSOR_MSGS__IMPL__POINT_CLOUD2_ITERATOR_HPP_
 #define SENSOR_MSGS__IMPL__POINT_CLOUD2_ITERATOR_HPP_
