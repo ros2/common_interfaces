@@ -30,8 +30,8 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
-// This file is originally ported from ROS1:
-// https://github.com/ros/common_msgs/blob/jade-devel/sensor_msgs/include/sensor_msgs/point_cloud2_iterator.h
+// This file is originally from:
+// https://github.com/ros/common_msgs/blob/275b09a/sensor_msgs/include/sensor_msgs/point_cloud2_iterator.h
 
 #ifndef SENSOR_MSGS__POINT_CLOUD2_ITERATOR_HPP_
 #define SENSOR_MSGS__POINT_CLOUD2_ITERATOR_HPP_
