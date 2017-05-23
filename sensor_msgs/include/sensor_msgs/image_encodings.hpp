@@ -52,8 +52,8 @@ namespace image_encodings
   const char BGRA8[] = "bgra8";
   const char BGR16[] = "bgr16";
   const char BGRA16[] = "bgra16";
-  const std::string MONO8="mono8";
-  const std::string MONO16="mono16";
+  const char MONO8[] = "mono8";
+  const char MONO16[] = "mono16";
 
   // OpenCV CvMat types
   const char TYPE_8UC1[] = "8UC1";
