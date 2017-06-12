@@ -1,8 +1,8 @@
-// Software License Agreement (BSD License)
-//
 // Copyright (c) 2010, Willow Garage, Inc.
 // Copyright (c) 2017, Open Source Robotics Foundation, Inc.
 // All rights reserved.
+//
+// Software License Agreement (BSD License 2.0)
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions
@@ -30,6 +30,9 @@
 // LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
+
+// This file is originally from:
+// https://github.com/ros/common_msgs/blob/7dea912/sensor_msgs/include/sensor_msgs/distortion_models.h
 
 #ifndef SENSOR_MSGS__DISTORTION_MODELS_HPP_
 #define SENSOR_MSGS__DISTORTION_MODELS_HPP_
