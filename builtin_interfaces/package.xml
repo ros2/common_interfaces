@@ -11,6 +11,8 @@
 
   <buildtool_depend>rosidl_default_generators</buildtool_depend>
 
+  <build_depend>rosidl_runtime_cpp</build_depend>
+
   <exec_depend>rosidl_default_runtime</exec_depend>
   <exec_depend>rosidl_runtime_cpp</exec_depend>
 

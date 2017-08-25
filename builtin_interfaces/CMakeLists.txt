@@ -14,6 +14,9 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+find_package(rosidl_runtime_cpp REQUIRED)
+
+include_directories(${rosidl_runtime_cpp_INCLUDE_DIRS})
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Duration.msg"
