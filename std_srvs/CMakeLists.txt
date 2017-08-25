@@ -14,6 +14,8 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+find_package(rosidl_runtime_cpp REQUIRED)
+include_directories(${rosidl_runtime_cpp_INCLUDE_DIRS})
 
 set(srv_files
   "srv/Empty.srv"
@@ -25,6 +27,6 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   ADD_LINTER_TESTS
 )
 
-ament_export_dependencies(rosidl_default_runtime)
+ament_export_dependencies(rosidl_default_runtime rosidl_runtime_cpp)
 
 ament_package()
