@@ -84,7 +84,8 @@ inline int sizeOfPointField(int datatype)
  * @param offset the offset of that element
  * @return the offset of the next PointField that will be added to the PointCloud2
  */
-inline int addPointField(sensor_msgs::msg::PointCloud2 & cloud_msg,
+inline int addPointField(
+  sensor_msgs::msg::PointCloud2 & cloud_msg,
   const std::string & name, int count, int datatype,
   int offset)
 {
@@ -263,10 +264,9 @@ PointCloud2IteratorBase<T, TT, U, C, V>::PointCloud2IteratorBase()
  * @param cloud_msg_ The PointCloud2 to iterate upon
  * @param field_name The field to iterate upon
  */
-template<typename T, typename TT, typename U, typename C,
-template<typename> class V>
-PointCloud2IteratorBase<T, TT, U, C, V>::PointCloud2IteratorBase(C & cloud_msg,
-  const std::string & field_name)
+template<typename T, typename TT, typename U, typename C, template<typename> class V>
+PointCloud2IteratorBase<T, TT, U, C, V>::PointCloud2IteratorBase(
+  C & cloud_msg, const std::string & field_name)
 {
   int offset = set_field(cloud_msg, field_name);
 
@@ -279,8 +279,7 @@ PointCloud2IteratorBase<T, TT, U, C, V>::PointCloud2IteratorBase(C & cloud_msg,
  * @param iter the iterator to copy data from
  * @return a reference to *this
  */
-template<typename T, typename TT, typename U, typename C,
-template<typename> class V>
+template<typename T, typename TT, typename U, typename C, template<typename> class V>
 V<T> & PointCloud2IteratorBase<T, TT, U, C, V>::operator=(const V<T> & iter)
 {
   if (this != &iter) {
@@ -299,8 +298,7 @@ V<T> & PointCloud2IteratorBase<T, TT, U, C, V>::operator=(const V<T> & iter)
  * @param i
  * @return a reference to the i^th value from the current position
  */
-template<typename T, typename TT, typename U, typename C,
-template<typename> class V>
+template<typename T, typename TT, typename U, typename C, template<typename> class V>
 TT & PointCloud2IteratorBase<T, TT, U, C, V>::operator[](size_t i) const
 {
   return *(data_ + i);
@@ -309,8 +307,7 @@ TT & PointCloud2IteratorBase<T, TT, U, C, V>::operator[](size_t i) const
 /** Dereference the iterator. Equivalent to accessing it through [0]
  * @return the value to which the iterator is pointing
  */
-template<typename T, typename TT, typename U, typename C,
-template<typename> class V>
+template<typename T, typename TT, typename U, typename C, template<typename> class V>
 TT & PointCloud2IteratorBase<T, TT, U, C, V>::operator*() const
 {
   return *data_;
@@ -319,8 +316,7 @@ TT & PointCloud2IteratorBase<T, TT, U, C, V>::operator*() const
 /** Increase the iterator to the next element
  * @return a reference to the updated iterator
  */
-template<typename T, typename TT, typename U, typename C,
-template<typename> class V>
+template<typename T, typename TT, typename U, typename C, template<typename> class V>
 V<T> & PointCloud2IteratorBase<T, TT, U, C, V>::operator++()
 {
   data_char_ += point_step_;
@@ -332,8 +328,7 @@ V<T> & PointCloud2IteratorBase<T, TT, U, C, V>::operator++()
  * @param i the amount to increase the iterator by
  * @return an iterator with an increased position
  */
-template<typename T, typename TT, typename U, typename C,
-template<typename> class V>
+template<typename T, typename TT, typename U, typename C, template<typename> class V>
 V<T> PointCloud2IteratorBase<T, TT, U, C, V>::operator+(int i)
 {
   V<T> res = *static_cast<V<T> *>(this);
@@ -347,8 +342,7 @@ V<T> PointCloud2IteratorBase<T, TT, U, C, V>::operator+(int i)
 /** Increase the iterator by a certain amount
  * @return a reference to the updated iterator
  */
-template<typename T, typename TT, typename U, typename C,
-template<typename> class V>
+template<typename T, typename TT, typename U, typename C, template<typename> class V>
 V<T> & PointCloud2IteratorBase<T, TT, U, C, V>::operator+=(int i)
 {
   data_char_ += i * point_step_;
@@ -359,8 +353,7 @@ V<T> & PointCloud2IteratorBase<T, TT, U, C, V>::operator+=(int i)
 /** Compare to another iterator
  * @return whether the current iterator points to a different address than the other one
  */
-template<typename T, typename TT, typename U, typename C,
-template<typename> class V>
+template<typename T, typename TT, typename U, typename C, template<typename> class V>
 bool PointCloud2IteratorBase<T, TT, U, C, V>::operator!=(const V<T> & iter) const
 {
   return iter.data_ != data_;
@@ -369,8 +362,7 @@ bool PointCloud2IteratorBase<T, TT, U, C, V>::operator!=(const V<T> & iter) cons
 /** Return the end iterator
  * @return the end iterator (useful when performing normal iterator processing with ++)
  */
-template<typename T, typename TT, typename U, typename C,
-template<typename> class V>
+template<typename T, typename TT, typename U, typename C, template<typename> class V>
 V<T> PointCloud2IteratorBase<T, TT, U, C, V>::end() const
 {
   V<T> res = *static_cast<const V<T> *>(this);
@@ -383,8 +375,7 @@ V<T> PointCloud2IteratorBase<T, TT, U, C, V>::end() const
   * @param field_name the name of the field to iterate upon
   * @return the offset at which the field is found
   */
-template<typename T, typename TT, typename U, typename C,
-template<typename> class V>
+template<typename T, typename TT, typename U, typename C, template<typename> class V>
 int PointCloud2IteratorBase<T, TT, U, C, V>::set_field(
   const sensor_msgs::msg::PointCloud2 & cloud_msg, const std::string & field_name)
 {

@@ -280,33 +280,39 @@ private:
  * and then access R,G,B through  iter_rgb[0], iter_rgb[1], iter_rgb[2]
  */
 template<typename T>
-class PointCloud2Iterator : public impl::PointCloud2IteratorBase<T, T,
-  unsigned char, sensor_msgs::msg::PointCloud2, PointCloud2Iterator>
+class PointCloud2Iterator
+  : public impl::PointCloud2IteratorBase<
+    T, T, unsigned char, sensor_msgs::msg::PointCloud2, PointCloud2Iterator>
 {
 public:
-  PointCloud2Iterator(sensor_msgs::msg::PointCloud2 & cloud_msg,
+  PointCloud2Iterator(
+    sensor_msgs::msg::PointCloud2 & cloud_msg,
     const std::string & field_name)
-  : impl::PointCloud2IteratorBase<T, T, unsigned char,
-    sensor_msgs::msg::PointCloud2,
-    sensor_msgs::PointCloud2Iterator>::PointCloud2IteratorBase(cloud_msg,
-      field_name) {}
+  : impl::PointCloud2IteratorBase<
+      T, T, unsigned char,
+      sensor_msgs::msg::PointCloud2,
+      sensor_msgs::PointCloud2Iterator
+  >::PointCloud2IteratorBase(cloud_msg, field_name) {}
 };
 
 /**
  * \brief Same as a PointCloud2Iterator but for const data
  */
 template<typename T>
-class PointCloud2ConstIterator : public impl::PointCloud2IteratorBase<T,
-  const T, const unsigned char, const sensor_msgs::msg::PointCloud2,
-  PointCloud2ConstIterator>
+class PointCloud2ConstIterator
+  : public impl::PointCloud2IteratorBase<
+    T, const T, const unsigned char, const sensor_msgs::msg::PointCloud2,
+    PointCloud2ConstIterator>
 {
 public:
-  PointCloud2ConstIterator(const sensor_msgs::msg::PointCloud2 & cloud_msg,
+  PointCloud2ConstIterator(
+    const sensor_msgs::msg::PointCloud2 & cloud_msg,
     const std::string & field_name)
-  : impl::PointCloud2IteratorBase<T, const T, const unsigned char,
-    const sensor_msgs::msg::PointCloud2,
-    sensor_msgs::PointCloud2ConstIterator>::PointCloud2IteratorBase(cloud_msg,
-      field_name) {}
+  : impl::PointCloud2IteratorBase<
+      T, const T, const unsigned char,
+      const sensor_msgs::msg::PointCloud2,
+      sensor_msgs::PointCloud2ConstIterator
+  >::PointCloud2IteratorBase(cloud_msg, field_name) {}
 };
 }  // namespace sensor_msgs
 
