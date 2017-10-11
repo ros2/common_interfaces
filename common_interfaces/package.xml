@@ -4,7 +4,7 @@
   <name>common_interfaces</name>
   <version>0.0.2</version>
   <description>A package containing some message definitions used in the implementation or actions.</description>
-  <maintainer email="william@osrfoundation.org">William Woodall</maintainer>
+  <maintainer email="mikael@osrfoundation.org">Mikael Arguedas</maintainer>
   <license>Apache License 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
