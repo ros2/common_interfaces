@@ -22,8 +22,6 @@
   <exec_depend>trajectory_msgs</exec_depend>
   <exec_depend>visualization_msgs</exec_depend>
 
-  <test_depend>ament_lint_common</test_depend>
-
   <export>
     <build_type>ament_cmake</build_type>
   </export>
