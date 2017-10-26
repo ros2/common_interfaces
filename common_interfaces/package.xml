@@ -7,7 +7,7 @@
   <maintainer email="mikael@osrfoundation.org">Mikael Arguedas</maintainer>
   <license>Apache License 2.0</license>
 
-  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
 
   <exec_depend>actionlib_msgs</exec_depend>
   <exec_depend>builtin_interfaces</exec_depend>
