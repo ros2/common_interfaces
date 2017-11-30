@@ -15,7 +15,7 @@
 
   <test_depend>ament_lint_common</test_depend>
 
-  <member_of_group>rosidl_interfaces_packages</member_of_group>
+  <member_of_group>rosidl_interface_packages</member_of_group>
 
   <export>
     <build_type>ament_cmake</build_type>
