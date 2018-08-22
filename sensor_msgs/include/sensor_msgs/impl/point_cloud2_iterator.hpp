@@ -38,6 +38,7 @@
 
 #include <sensor_msgs/msg/point_cloud2.hpp>
 #include <cstdarg>
+#include <sstream>
 #include <string>
 #include <vector>
 
