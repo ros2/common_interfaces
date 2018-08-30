@@ -262,7 +262,7 @@ PointCloud2IteratorBase<T, TT, U, C, V>::PointCloud2IteratorBase()
 }
 
 /**
- * @param cloud_msg_ The PointCloud2 to iterate upon
+ * @param cloud_msg The PointCloud2 to iterate upon
  * @param field_name The field to iterate upon
  */
 template<typename T, typename TT, typename U, typename C, template<typename> class V>
