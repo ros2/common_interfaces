@@ -46,7 +46,7 @@
  *
  * This file provides two sets of utilities to modify and parse PointCloud2
  * The first set allows you to conveniently set the fields by hand:
- * <PRE>
+ * \verbatim
  *   #include <sensor_msgs/point_cloud_iterator.h>
  *   // Create a PointCloud2
  *   sensor_msgs::msg::PointCloud2 cloud_msg;
@@ -67,10 +67,10 @@
  *   modifier.setPointCloud2FieldsByString(2, "xyz", "rgb");
  *   // You can then reserve / resize as usual
  *   modifier.resize(100);
- * </PRE>
+ * \endverbatim
  *
  * The second set allow you to traverse your PointCloud using an iterator:
- * <PRE>
+ * \verbatim
  *   // Define some raw data we'll put in the PointCloud2
  *   float point_data[] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0};
  *   uint8_t color_data[] = {40, 80, 120, 160, 200, 240, 20, 40, 60, 80, 100, 120};
@@ -95,7 +95,7 @@
  *     *iter_g = color_data[3*i+1];
  *     *iter_b = color_data[3*i+2];
  *   }
- * </PRE>
+ * \endverbatim
  */
 
 namespace sensor_msgs
@@ -140,12 +140,12 @@ public:
    *        field, the datatype of the elements in the field
    *
    * E.g, you create your PointCloud2 message with XYZ/RGB as follows:
-   * <PRE>
+   * \verbatim
    *   setPointCloud2Fields(cloud_msg, 4, "x", 1, sensor_msgs::msg::PointField::FLOAT32,
    *                                              "y", 1, sensor_msgs::msg::PointField::FLOAT32,
    *                                              "z", 1, sensor_msgs::msg::PointField::FLOAT32,
    *                                              "rgb", 1, sensor_msgs::msg::PointField::FLOAT32);
-   * </PRE>
+   * \endverbatim
    * WARNING: THIS DOES NOT TAKE INTO ACCOUNT ANY PADDING AS DONE UNTIL HYDRO
    * For simple usual cases, the overloaded setPointCloud2FieldsByString is what you want.
    */
@@ -261,22 +261,22 @@ private:
  *
  * T type of the element being iterated upon
  * E.g, you create your PointClou2 message as follows:
- * <PRE>
+ * \verbatim
  *   setPointCloud2FieldsByString(cloud_msg, 2, "xyz", "rgb");
- * </PRE>
+ * \endverbatim
  *
  * For iterating over XYZ, you do :
- * <PRE>
+ * \verbatim
  *   sensor_msgs::msg::PointCloud2Iterator<float> iter_x(cloud_msg, "x");
- * </PRE>
+ * \endverbatim
  * and then access X through iter_x[0] or *iter_x
  * You could create an iterator for Y and Z too but as they are consecutive,
  * you can just use iter_x[1] and iter_x[2]
  *
  * For iterating over RGB, you do:
- * <PRE>
+ * \verbatim
  * sensor_msgs::msg::PointCloud2Iterator<uint8_t> iter_rgb(cloud_msg, "rgb");
- * </PRE>
+ * \endverbatim
  * and then access R,G,B through  iter_rgb[0], iter_rgb[1], iter_rgb[2]
  */
 template<typename T>
