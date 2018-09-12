@@ -32,6 +32,9 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *********************************************************************/
 
+// This file is originally ported from ROS1:
+// https://github.com/ros/common_msgs/blob/89069bc/sensor_msgs/include/sensor_msgs/fill_image.h
+
 #ifndef FILLIMAGE_HH
 #define FILLIMAGE_HH
 
