@@ -1,3 +1,4 @@
+
 # Declare of the type of feedback
 uint8 TYPE_LED    = 0
 uint8 TYPE_RUMBLE = 1
