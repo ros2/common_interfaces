@@ -4,7 +4,7 @@
   <name>common_interfaces</name>
   <version>0.5.1</version>
   <description>common_interfaces contains messages and services that are widely used by other ROS packages.</description>
-  <maintainer email="mikael@osrfoundation.org">Mikael Arguedas</maintainer>
+  <maintainer email="scott@openrobotics.org">Scott K Logan</maintainer>
   <license>Apache License 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
