@@ -1,6 +1,6 @@
 # This service requests that a camera stores the given CameraInfo as that
 # camera's calibration information.
-
+#
 # The width and height in the camera_info field should match what the
 # camera is currently outputting on its camera_info topic, and the camera
 # will assume that the region of the imager that is being referred to is

@@ -1,10 +1,7 @@
 # The multiarray declares a generic multi-dimensional array of a
 # particular data type.  Dimensions are ordered from outer most
 # to inner most.
-
-MultiArrayDimension[] dim # Array of dimension properties
-uint32 data_offset        # padding bytes at front of data
-
+#
 # Accessors should ALWAYS be written in terms of dimension stride
 # and specified outer-most dimension first.
 #
@@ -24,3 +21,6 @@ uint32 data_offset        # padding bytes at front of data
 # dim[2].stride = 3
 #
 # multiarray(i,j,k) refers to the ith row, jth column, and kth channel.
+
+MultiArrayDimension[] dim # Array of dimension properties
+uint32 data_offset        # padding bytes at front of data
