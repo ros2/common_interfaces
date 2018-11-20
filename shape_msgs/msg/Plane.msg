@@ -1,5 +1,5 @@
 # Representation of a plane, using the plane equation ax + by + cz + d = 0.
-
+#
 # a := coef[0]
 # b := coef[1]
 # c := coef[2]

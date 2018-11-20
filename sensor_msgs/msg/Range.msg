@@ -2,7 +2,7 @@
 # one range reading that is valid along an arc at the distance measured.
 # This message is  not appropriate for laser scanners. See the LaserScan
 # message if you are working with a laser scanner.
-
+#
 # This message also can represent a fixed-distance (binary) ranger.  This
 # sensor will have min_range===max_range===distance of detection.
 # These sensors follow REP 117 and will output -Inf if the object is detected

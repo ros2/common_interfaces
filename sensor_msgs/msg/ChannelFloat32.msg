@@ -3,7 +3,7 @@
 # array should be the same as the length of the points array in the
 # PointCloud, and each value should be associated with the corresponding
 # point.
-
+#
 # Channel names in existing practice include:
 #   "u", "v" - row and column (respectively) in the left stereo image.
 #              This is opposite to usual conventions but remains for

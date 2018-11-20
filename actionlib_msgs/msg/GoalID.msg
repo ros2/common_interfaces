@@ -1,3 +1,4 @@
+
 # The stamp should store the time at which this goal was requested.
 # It is used by an action server when it tries to preempt all
 # goals that were requested before a certain time

@@ -1,5 +1,5 @@
 # Measurement of the Magnetic Field vector at a specific location.
-
+#
 # If the covariance of the measurement is known, it should be filled in.
 # If all you know is the variance of each measurement, e.g. from the datasheet,
 # just put those along the diagonal.

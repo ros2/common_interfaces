@@ -1,5 +1,5 @@
 # Navigation Satellite fix status for any Global Navigation Satellite System.
-
+#
 # Whether to output an augmented fix is determined by both the fix
 # type and the last time differential corrections were received.  A
 # fix is valid when status >= STATUS_FIX.
