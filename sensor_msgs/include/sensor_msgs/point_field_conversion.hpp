@@ -1,4 +1,5 @@
 // Copyright (c) 2015, University of Osnabrück
+// All rights reserved.
 //
 // Software License Agreement (BSD License 2.0)
 //
@@ -37,6 +38,9 @@
 #ifndef SENSOR_MSGS__POINT_FIELD_CONVERSION_HPP_
 #define SENSOR_MSGS__POINT_FIELD_CONVERSION_HPP_
 
+#include <sensor_msgs/msg/point_field.hpp>
+#include <cstdint>
+
 /**
   * \brief  This file provides a type to enum mapping for the different
   *         PointField types and methods to read and write in
@@ -51,21 +55,21 @@ namespace sensor_msgs
 template<int>
 struct pointFieldTypeAsType {};
 template<>
-struct pointFieldTypeAsType<sensor_msgs::PointField::INT8>{ typedef int8_t type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::INT8>{ typedef int8_t type; };
 template<>
-struct pointFieldTypeAsType<sensor_msgs::PointField::UINT8>{ typedef uint8_t type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::UINT8>{ typedef uint8_t type; };
 template<>
-struct pointFieldTypeAsType<sensor_msgs::PointField::INT16>{ typedef int16_t type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::INT16>{ typedef int16_t type; };
 template<>
-struct pointFieldTypeAsType<sensor_msgs::PointField::UINT16>{ typedef uint16_t type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::UINT16>{ typedef uint16_t type; };
 template<>
-struct pointFieldTypeAsType<sensor_msgs::PointField::INT32>{ typedef int32_t type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::INT32>{ typedef int32_t type; };
 template<>
-struct pointFieldTypeAsType<sensor_msgs::PointField::UINT32>{ typedef uint32_t type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::UINT32>{ typedef uint32_t type; };
 template<>
-struct pointFieldTypeAsType<sensor_msgs::PointField::FLOAT32>{ typedef float type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::FLOAT32>{ typedef float type; };
 template<>
-struct pointFieldTypeAsType<sensor_msgs::PointField::FLOAT64>{ typedef double type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::FLOAT64>{ typedef double type; };
 
 /*!
  * \Type to enum mapping.
@@ -73,28 +77,29 @@ struct pointFieldTypeAsType<sensor_msgs::PointField::FLOAT64>{ typedef double ty
 template<typename T>
 struct typeAsPointFieldType {};
 template<>
-struct typeAsPointFieldType<int8_t>{ static const uint8_t value = sensor_msgs::PointField::INT8; };
+struct typeAsPointFieldType<int8_t>{ static const uint8_t value =
+    sensor_msgs::msg::PointField::INT8; };
 template<>
-struct typeAsPointFieldType<uint8_t>{ static const uint8_t value = sensor_msgs::PointField::UINT8;
-};
+struct typeAsPointFieldType<uint8_t>{ static const uint8_t value =
+    sensor_msgs::msg::PointField::UINT8;};
 template<>
-struct typeAsPointFieldType<int16_t>{ static const uint8_t value = sensor_msgs::PointField::INT16;
-};
+struct typeAsPointFieldType<int16_t>{ static const uint8_t value =
+    sensor_msgs::msg::PointField::INT16;};
 template<>
-struct typeAsPointFieldType<uint16_t>{ static const uint8_t value = sensor_msgs::PointField::UINT16;
-};
+struct typeAsPointFieldType<uint16_t>{ static const uint8_t value =
+    sensor_msgs::msg::PointField::UINT16;};
 template<>
-struct typeAsPointFieldType<int32_t>{ static const uint8_t value = sensor_msgs::PointField::INT32;
-};
+struct typeAsPointFieldType<int32_t>{ static const uint8_t value =
+    sensor_msgs::msg::PointField::INT32;};
 template<>
-struct typeAsPointFieldType<uint32_t>{ static const uint8_t value = sensor_msgs::PointField::UINT32;
-};
+struct typeAsPointFieldType<uint32_t>{ static const uint8_t value =
+    sensor_msgs::msg::PointField::UINT32;};
 template<>
-struct typeAsPointFieldType<float>{ static const uint8_t value = sensor_msgs::PointField::FLOAT32;
-};
+struct typeAsPointFieldType<float>{ static const uint8_t value =
+    sensor_msgs::msg::PointField::FLOAT32;};
 template<>
-struct typeAsPointFieldType<double>{ static const uint8_t value = sensor_msgs::PointField::FLOAT64;
-};
+struct typeAsPointFieldType<double>{ static const uint8_t value =
+    sensor_msgs::msg::PointField::FLOAT64;};
 
 /*!
  * \Converts a value at the given pointer position, interpreted as the datatype
@@ -122,22 +127,22 @@ template<typename T>
 inline T readPointCloud2BufferValue(const unsigned char * data_ptr, const unsigned char datatype)
 {
   switch (datatype) {
-    case sensor_msgs::PointField::INT8:
-      return readPointCloud2BufferValue<sensor_msgs::PointField::INT8, T>(data_ptr);
-    case sensor_msgs::PointField::UINT8:
-      return readPointCloud2BufferValue<sensor_msgs::PointField::UINT8, T>(data_ptr);
-    case sensor_msgs::PointField::INT16:
-      return readPointCloud2BufferValue<sensor_msgs::PointField::INT16, T>(data_ptr);
-    case sensor_msgs::PointField::UINT16:
-      return readPointCloud2BufferValue<sensor_msgs::PointField::UINT16, T>(data_ptr);
-    case sensor_msgs::PointField::INT32:
-      return readPointCloud2BufferValue<sensor_msgs::PointField::INT32, T>(data_ptr);
-    case sensor_msgs::PointField::UINT32:
-      return readPointCloud2BufferValue<sensor_msgs::PointField::UINT32, T>(data_ptr);
-    case sensor_msgs::PointField::FLOAT32:
-      return readPointCloud2BufferValue<sensor_msgs::PointField::FLOAT32, T>(data_ptr);
-    case sensor_msgs::PointField::FLOAT64:
-      return readPointCloud2BufferValue<sensor_msgs::PointField::FLOAT64, T>(data_ptr);
+    case sensor_msgs::msg::PointField::INT8:
+      return readPointCloud2BufferValue<sensor_msgs::msg::PointField::INT8, T>(data_ptr);
+    case sensor_msgs::msg::PointField::UINT8:
+      return readPointCloud2BufferValue<sensor_msgs::msg::PointField::UINT8, T>(data_ptr);
+    case sensor_msgs::msg::PointField::INT16:
+      return readPointCloud2BufferValue<sensor_msgs::msg::PointField::INT16, T>(data_ptr);
+    case sensor_msgs::msg::PointField::UINT16:
+      return readPointCloud2BufferValue<sensor_msgs::msg::PointField::UINT16, T>(data_ptr);
+    case sensor_msgs::msg::PointField::INT32:
+      return readPointCloud2BufferValue<sensor_msgs::msg::PointField::INT32, T>(data_ptr);
+    case sensor_msgs::msg::PointField::UINT32:
+      return readPointCloud2BufferValue<sensor_msgs::msg::PointField::UINT32, T>(data_ptr);
+    case sensor_msgs::msg::PointField::FLOAT32:
+      return readPointCloud2BufferValue<sensor_msgs::msg::PointField::FLOAT32, T>(data_ptr);
+    case sensor_msgs::msg::PointField::FLOAT64:
+      return readPointCloud2BufferValue<sensor_msgs::msg::PointField::FLOAT64, T>(data_ptr);
   }
   // This should never be reached, but return statement added to avoid compiler warning. (#84)
   return T();
@@ -167,33 +172,34 @@ inline void writePointCloud2BufferValue(unsigned char * data_ptr, T value)
  * \tparam T          type of the value to insert
  */
 template<typename T>
-inline void writePointCloud2BufferValue(unsigned char * data_ptr, const unsigned char datatype,
+inline void writePointCloud2BufferValue(
+  unsigned char * data_ptr, const unsigned char datatype,
   T value)
 {
   switch (datatype) {
-    case sensor_msgs::PointField::INT8:
-      writePointCloud2BufferValue<sensor_msgs::PointField::INT8, T>(data_ptr, value);
+    case sensor_msgs::msg::PointField::INT8:
+      writePointCloud2BufferValue<sensor_msgs::msg::PointField::INT8, T>(data_ptr, value);
       break;
-    case sensor_msgs::PointField::UINT8:
-      writePointCloud2BufferValue<sensor_msgs::PointField::UINT8, T>(data_ptr, value);
+    case sensor_msgs::msg::PointField::UINT8:
+      writePointCloud2BufferValue<sensor_msgs::msg::PointField::UINT8, T>(data_ptr, value);
       break;
-    case sensor_msgs::PointField::INT16:
-      writePointCloud2BufferValue<sensor_msgs::PointField::INT16, T>(data_ptr, value);
+    case sensor_msgs::msg::PointField::INT16:
+      writePointCloud2BufferValue<sensor_msgs::msg::PointField::INT16, T>(data_ptr, value);
       break;
-    case sensor_msgs::PointField::UINT16:
-      writePointCloud2BufferValue<sensor_msgs::PointField::UINT16, T>(data_ptr, value);
+    case sensor_msgs::msg::PointField::UINT16:
+      writePointCloud2BufferValue<sensor_msgs::msg::PointField::UINT16, T>(data_ptr, value);
       break;
-    case sensor_msgs::PointField::INT32:
-      writePointCloud2BufferValue<sensor_msgs::PointField::INT32, T>(data_ptr, value);
+    case sensor_msgs::msg::PointField::INT32:
+      writePointCloud2BufferValue<sensor_msgs::msg::PointField::INT32, T>(data_ptr, value);
       break;
-    case sensor_msgs::PointField::UINT32:
-      writePointCloud2BufferValue<sensor_msgs::PointField::UINT32, T>(data_ptr, value);
+    case sensor_msgs::msg::PointField::UINT32:
+      writePointCloud2BufferValue<sensor_msgs::msg::PointField::UINT32, T>(data_ptr, value);
       break;
-    case sensor_msgs::PointField::FLOAT32:
-      writePointCloud2BufferValue<sensor_msgs::PointField::FLOAT32, T>(data_ptr, value);
+    case sensor_msgs::msg::PointField::FLOAT32:
+      writePointCloud2BufferValue<sensor_msgs::msg::PointField::FLOAT32, T>(data_ptr, value);
       break;
-    case sensor_msgs::PointField::FLOAT64:
-      writePointCloud2BufferValue<sensor_msgs::PointField::FLOAT64, T>(data_ptr, value);
+    case sensor_msgs::msg::PointField::FLOAT64:
+      writePointCloud2BufferValue<sensor_msgs::msg::PointField::FLOAT64, T>(data_ptr, value);
       break;
   }
 }
