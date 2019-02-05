@@ -125,7 +125,6 @@ static inline bool convertPointCloud2ToPointCloud(
   const sensor_msgs::msg::PointCloud2 & input,
   sensor_msgs::msg::PointCloud & output)
 {
-
   output.header = input.header;
   output.points.resize(input.width * input.height);
   output.channels.resize(input.fields.size() - 3);
@@ -135,7 +134,7 @@ static inline bool convertPointCloud2ToPointCloud(
   int z_idx = getPointCloud2FieldIndex(input, "z");
   if (x_idx == -1 || y_idx == -1 || z_idx == -1) {
     std::cerr << "x/y/z coordinates not found! Cannot convert to sensor_msgs::msg::PointCloud!" <<
-        std::endl;
+      std::endl;
     return false;
   }
   int x_offset = input.fields[x_idx].offset;
@@ -148,8 +147,9 @@ static inline bool convertPointCloud2ToPointCloud(
   // Convert the fields to channels
   int cur_c = 0;
   for (size_t d = 0; d < input.fields.size(); ++d) {
-    if ((int)input.fields[d].offset == x_offset || (int)input.fields[d].offset == y_offset ||
-      (int)input.fields[d].offset == z_offset)
+    if (static_cast<int>(input.fields[d].offset) == x_offset ||
+      static_cast<int>(input.fields[d].offset == y_offset) ||
+      static_cast<int>(input.fields[d].offset) == z_offset)
     {
       continue;
     }
@@ -173,8 +173,9 @@ static inline bool convertPointCloud2ToPointCloud(
     // Copy the rest of the data
     int cur_c = 0;
     for (size_t d = 0; d < input.fields.size(); ++d) {
-      if ((int)input.fields[d].offset == x_offset || (int)input.fields[d].offset == y_offset ||
-        (int)input.fields[d].offset == z_offset)
+      if (static_cast<int>(input.fields[d].offset) == x_offset ||
+        static_cast<int>(input.fields[d].offset) == y_offset ||
+        static_cast<int>(input.fields[d].offset == z_offset))
       {
         continue;
       }
