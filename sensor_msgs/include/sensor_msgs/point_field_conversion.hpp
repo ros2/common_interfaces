@@ -55,21 +55,21 @@ namespace sensor_msgs
 template<int>
 struct pointFieldTypeAsType {};
 template<>
-struct pointFieldTypeAsType<sensor_msgs::msg::PointField::INT8>{ typedef int8_t type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::INT8> { typedef int8_t type; };
 template<>
-struct pointFieldTypeAsType<sensor_msgs::msg::PointField::UINT8>{ typedef uint8_t type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::UINT8> { typedef uint8_t type; };
 template<>
-struct pointFieldTypeAsType<sensor_msgs::msg::PointField::INT16>{ typedef int16_t type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::INT16> { typedef int16_t type; };
 template<>
-struct pointFieldTypeAsType<sensor_msgs::msg::PointField::UINT16>{ typedef uint16_t type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::UINT16> { typedef uint16_t type; };
 template<>
-struct pointFieldTypeAsType<sensor_msgs::msg::PointField::INT32>{ typedef int32_t type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::INT32> { typedef int32_t type; };
 template<>
-struct pointFieldTypeAsType<sensor_msgs::msg::PointField::UINT32>{ typedef uint32_t type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::UINT32> { typedef uint32_t type; };
 template<>
-struct pointFieldTypeAsType<sensor_msgs::msg::PointField::FLOAT32>{ typedef float type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::FLOAT32> { typedef float type; };
 template<>
-struct pointFieldTypeAsType<sensor_msgs::msg::PointField::FLOAT64>{ typedef double type; };
+struct pointFieldTypeAsType<sensor_msgs::msg::PointField::FLOAT64> { typedef double type; };
 
 /*!
  * \Type to enum mapping.
@@ -77,28 +77,28 @@ struct pointFieldTypeAsType<sensor_msgs::msg::PointField::FLOAT64>{ typedef doub
 template<typename T>
 struct typeAsPointFieldType {};
 template<>
-struct typeAsPointFieldType<int8_t>{ static const uint8_t value =
+struct typeAsPointFieldType<int8_t> { static const uint8_t value =
     sensor_msgs::msg::PointField::INT8; };
 template<>
-struct typeAsPointFieldType<uint8_t>{ static const uint8_t value =
+struct typeAsPointFieldType<uint8_t> { static const uint8_t value =
     sensor_msgs::msg::PointField::UINT8;};
 template<>
-struct typeAsPointFieldType<int16_t>{ static const uint8_t value =
+struct typeAsPointFieldType<int16_t> { static const uint8_t value =
     sensor_msgs::msg::PointField::INT16;};
 template<>
-struct typeAsPointFieldType<uint16_t>{ static const uint8_t value =
+struct typeAsPointFieldType<uint16_t> { static const uint8_t value =
     sensor_msgs::msg::PointField::UINT16;};
 template<>
-struct typeAsPointFieldType<int32_t>{ static const uint8_t value =
+struct typeAsPointFieldType<int32_t> { static const uint8_t value =
     sensor_msgs::msg::PointField::INT32;};
 template<>
-struct typeAsPointFieldType<uint32_t>{ static const uint8_t value =
+struct typeAsPointFieldType<uint32_t> { static const uint8_t value =
     sensor_msgs::msg::PointField::UINT32;};
 template<>
-struct typeAsPointFieldType<float>{ static const uint8_t value =
+struct typeAsPointFieldType<float> { static const uint8_t value =
     sensor_msgs::msg::PointField::FLOAT32;};
 template<>
-struct typeAsPointFieldType<double>{ static const uint8_t value =
+struct typeAsPointFieldType<double> { static const uint8_t value =
     sensor_msgs::msg::PointField::FLOAT64;};
 
 /*!
