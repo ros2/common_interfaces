@@ -36,12 +36,14 @@
 #ifndef SENSOR_MSGS__POINT_CLOUD_CONVERSION_HPP_
 #define SENSOR_MSGS__POINT_CLOUD_CONVERSION_HPP_
 
-#include <sensor_msgs/PointCloud.h>
-#include <sensor_msgs/PointCloud2.h>
-#include <sensor_msgs/point_field_conversion.h>
+#include <sensor_msgs/msg/point_cloud.hpp>
+#include <sensor_msgs/msg/point_cloud2.hpp>
+#include <sensor_msgs/point_field_conversion.hpp>
+
+#include <string>
 
 /**
-  * \brief Convert between the old (sensor_msgs::PointCloud) and the new (sensor_msgs::PointCloud2) format.
+  * \brief Convert between the old (sensor_msgs::msg::PointCloud) and the new (sensor_msgs::msg::PointCloud2) format.
   * \author Radu Bogdan Rusu
   */
 namespace sensor_msgs
@@ -52,7 +54,7 @@ namespace sensor_msgs
   * \param field_name the string defining the field name
   */
 static inline int getPointCloud2FieldIndex(
-  const sensor_msgs::PointCloud2 & cloud,
+  const sensor_msgs::msg::PointCloud2 & cloud,
   const std::string & field_name)
 {
   // Get the index we need
@@ -65,13 +67,13 @@ static inline int getPointCloud2FieldIndex(
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/** \brief Convert a sensor_msgs::PointCloud message to a sensor_msgs::PointCloud2 message.
-  * \param input the message in the sensor_msgs::PointCloud format
-  * \param output the resultant message in the sensor_msgs::PointCloud2 format
+/** \brief Convert a sensor_msgs::msg::PointCloud message to a sensor_msgs::msg::PointCloud2 message.
+  * \param input the message in the sensor_msgs::msg::PointCloud format
+  * \param output the resultant message in the sensor_msgs::msg::PointCloud2 format
   */
 static inline bool convertPointCloudToPointCloud2(
-  const sensor_msgs::PointCloud & input,
-  sensor_msgs::PointCloud2 & output)
+  const sensor_msgs::msg::PointCloud & input,
+  sensor_msgs::msg::PointCloud2 & output)
 {
   output.header = input.header;
   output.width = input.points.size();
@@ -83,7 +85,7 @@ static inline bool convertPointCloudToPointCloud2(
   // All offsets are *4, as all field data types are float32
   for (size_t d = 0; d < output.fields.size(); ++d, offset += 4) {
     output.fields[d].offset = offset;
-    output.fields[d].datatype = sensor_msgs::PointField::FLOAT32;
+    output.fields[d].datatype = sensor_msgs::msg::PointField::FLOAT32;
     output.fields[d].count = 1;
   }
   output.point_step = offset;
@@ -115,13 +117,13 @@ static inline bool convertPointCloudToPointCloud2(
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/** \brief Convert a sensor_msgs::PointCloud2 message to a sensor_msgs::PointCloud message.
-  * \param input the message in the sensor_msgs::PointCloud2 format
-  * \param output the resultant message in the sensor_msgs::PointCloud format
+/** \brief Convert a sensor_msgs::msg::PointCloud2 message to a sensor_msgs::msg::PointCloud message.
+  * \param input the message in the sensor_msgs::msg::PointCloud2 format
+  * \param output the resultant message in the sensor_msgs::msg::PointCloud format
   */
 static inline bool convertPointCloud2ToPointCloud(
-  const sensor_msgs::PointCloud2 & input,
-  sensor_msgs::PointCloud & output)
+  const sensor_msgs::msg::PointCloud2 & input,
+  sensor_msgs::msg::PointCloud & output)
 {
 
   output.header = input.header;
@@ -132,7 +134,7 @@ static inline bool convertPointCloud2ToPointCloud(
   int y_idx = getPointCloud2FieldIndex(input, "y");
   int z_idx = getPointCloud2FieldIndex(input, "z");
   if (x_idx == -1 || y_idx == -1 || z_idx == -1) {
-    std::cerr << "x/y/z coordinates not found! Cannot convert to sensor_msgs::PointCloud!" <<
+    std::cerr << "x/y/z coordinates not found! Cannot convert to sensor_msgs::msg::PointCloud!" <<
         std::endl;
     return false;
   }
