@@ -1,48 +1,46 @@
-/*
- * Software License Agreement (BSD License)
- *
- *  Copyright (c) 2010, Willow Garage, Inc.
- *  All rights reserved.
- *
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions
- *  are met:
- *
- *   * Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *   * Redistributions in binary form must reproduce the above
- *     copyright notice, this list of conditions and the following
- *     disclaimer in the documentation and/or other materials provided
- *     with the distribution.
- *   * Neither the name of Willow Garage, Inc. nor the names of its
- *     contributors may be used to endorse or promote products derived
- *     from this software without specific prior written permission.
- *
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
- *  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
- *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
- *  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
- *  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- *  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
- *  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
- *  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
- *  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- *  POSSIBILITY OF SUCH DAMAGE.
- *
- * $Id$
- *
- */
+// Copyright (c) 2010, Willow Garage
+// All rights reserved.
+//
+// Software License Agreement (BSD License 2.0)
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions
+// are met:
+//
+//  * Redistributions of source code must retain the above copyright
+//    notice, this list of conditions and the following disclaimer.
+//  * Redistributions in binary form must reproduce the above
+//    copyright notice, this list of conditions and the following
+//    disclaimer in the documentation and/or other materials provided
+//    with the distribution.
+//  * Neither the name of the copyright holder nor the names of its
+//    contributors may be used to endorse or promote products derived
+//    from this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+// COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+// LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+// ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+// POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef SENSOR_MSGS_POINT_CLOUD_CONVERSION_H
-#define SENSOR_MSGS_POINT_CLOUD_CONVERSION_H
+// this file is originally ported from ROS1:
+// https://raw.githubusercontent.com/ros/common_msgs/ef18af000759bf15c7ea036356dbdce631c75577/sensor_msgs/include/sensor_msgs/point_cloud_conversion.h_
+//
+#ifndef SENSOR_MSGS__POINT_CLOUD_CONVERSION_HPP_
+#define SENSOR_MSGS__POINT_CLOUD_CONVERSION_HPP_
 
 #include <sensor_msgs/PointCloud.h>
 #include <sensor_msgs/PointCloud2.h>
 #include <sensor_msgs/point_field_conversion.h>
 
-/** 
+/**
   * \brief Convert between the old (sensor_msgs::PointCloud) and the new (sensor_msgs::PointCloud2) format.
   * \author Radu Bogdan Rusu
   */
@@ -66,7 +64,7 @@ static inline int getPointCloud2FieldIndex (const sensor_msgs::PointCloud2 &clou
   /** \brief Convert a sensor_msgs::PointCloud message to a sensor_msgs::PointCloud2 message.
     * \param input the message in the sensor_msgs::PointCloud format
     * \param output the resultant message in the sensor_msgs::PointCloud2 format
-    */ 
+    */
 static inline bool convertPointCloudToPointCloud2 (const sensor_msgs::PointCloud &input, sensor_msgs::PointCloud2 &output)
 {
   output.header = input.header;
@@ -113,7 +111,7 @@ static inline bool convertPointCloudToPointCloud2 (const sensor_msgs::PointCloud
   /** \brief Convert a sensor_msgs::PointCloud2 message to a sensor_msgs::PointCloud message.
     * \param input the message in the sensor_msgs::PointCloud2 format
     * \param output the resultant message in the sensor_msgs::PointCloud format
-    */ 
+    */
 static inline bool convertPointCloud2ToPointCloud (const sensor_msgs::PointCloud2 &input, sensor_msgs::PointCloud &output)
 {
 
@@ -135,7 +133,7 @@ static inline bool convertPointCloud2ToPointCloud (const sensor_msgs::PointCloud
   uint8_t x_datatype = input.fields[x_idx].datatype;
   uint8_t y_datatype = input.fields[y_idx].datatype;
   uint8_t z_datatype = input.fields[z_idx].datatype;
-   
+
   // Convert the fields to channels
   int cur_c = 0;
   for (size_t d = 0; d < input.fields.size (); ++d)
@@ -165,5 +163,6 @@ static inline bool convertPointCloud2ToPointCloud (const sensor_msgs::PointCloud
   }
   return (true);
 }
-}
-#endif// SENSOR_MSGS_POINT_CLOUD_CONVERSION_H
+}  // namespace sensor_msgs
+
+#endif  // SENSOR_MSGS__POINT_CLOUD_CONVERSION_HPP_
