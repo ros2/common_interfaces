@@ -60,9 +60,15 @@ install(DIRECTORY include/${PROJECT_NAME}/
 )
 
 if(BUILD_TESTING)
+  find_package(ament_cmake_gtest REQUIRED)
   find_package(ament_lint_auto REQUIRED)
-
   ament_lint_auto_find_test_dependencies()
+
+  include_directories(include)
+  ament_add_gtest(test_pointcloud test/test_pointcloud.cpp)
+  if(TARGET test_pointcloud)
+    rosidl_target_interfaces(test_pointcloud ${PROJECT_NAME} "rosidl_typesupport_cpp")
+  endif()
 endif()
 
 ament_export_dependencies(rosidl_default_runtime)

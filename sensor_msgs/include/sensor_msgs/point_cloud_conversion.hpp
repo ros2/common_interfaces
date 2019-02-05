@@ -148,7 +148,7 @@ static inline bool convertPointCloud2ToPointCloud(
   int cur_c = 0;
   for (size_t d = 0; d < input.fields.size(); ++d) {
     if (static_cast<int>(input.fields[d].offset) == x_offset ||
-      static_cast<int>(input.fields[d].offset == y_offset) ||
+      static_cast<int>(input.fields[d].offset) == y_offset ||
       static_cast<int>(input.fields[d].offset) == z_offset)
     {
       continue;
@@ -175,7 +175,7 @@ static inline bool convertPointCloud2ToPointCloud(
     for (size_t d = 0; d < input.fields.size(); ++d) {
       if (static_cast<int>(input.fields[d].offset) == x_offset ||
         static_cast<int>(input.fields[d].offset) == y_offset ||
-        static_cast<int>(input.fields[d].offset == z_offset))
+        static_cast<int>(input.fields[d].offset) == z_offset)
       {
         continue;
       }
