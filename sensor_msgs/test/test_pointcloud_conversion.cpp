@@ -36,13 +36,13 @@ TEST(sensor_msgs, PointCloudConversion)
 
   for (size_t ii = 0; ii < 100; ++ii) {
     auto pt = geometry_msgs::msg::Point32();
-    pt.x = ii;
-    pt.y = 2 * ii;
-    pt.z = 3 * ii;
+    pt.x = static_cast<float>(1 * ii);
+    pt.y = static_cast<float>(2 * ii);
+    pt.z = static_cast<float>(3 * ii);
     cloud.points.push_back(pt);
 
-    intensity.values.push_back(4 * ii);
-    range.values.push_back(5 * ii);
+    intensity.values.push_back(static_cast<float>(4 * ii));
+    range.values.push_back(static_cast<float>(5 * ii));
   }
   cloud.channels.push_back(intensity);
   cloud.channels.push_back(range);

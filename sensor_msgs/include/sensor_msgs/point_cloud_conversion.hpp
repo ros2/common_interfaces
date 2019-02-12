@@ -60,7 +60,7 @@ static inline int getPointCloud2FieldIndex(
   // Get the index we need
   for (size_t d = 0; d < cloud.fields.size(); ++d) {
     if (cloud.fields[d].name == field_name) {
-      return d;
+      return static_cast<int>(d);
     }
   }
   return -1;
@@ -76,7 +76,7 @@ static inline bool convertPointCloudToPointCloud2(
   sensor_msgs::msg::PointCloud2 & output)
 {
   output.header = input.header;
-  output.width = input.points.size();
+  output.width = static_cast<uint32_t>(input.points.size());
   output.height = 1;
   output.fields.resize(3 + input.channels.size());
   // Convert x/y/z to fields
