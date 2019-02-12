@@ -21,7 +21,7 @@
 #include "sensor_msgs/point_cloud_conversion.hpp"
 #include "sensor_msgs/point_field_conversion.hpp"
 
-TEST(PointCloudConversions, CloudToCloud2)
+TEST(sensor_msgs, PointCloudConversion)
 {
   // Build a PointCloud
   sensor_msgs::msg::PointCloud cloud;

@@ -65,7 +65,9 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 
   include_directories(include)
-  ament_add_gtest(test_pointcloud test/test_pointcloud.cpp)
+  ament_add_gtest(test_pointcloud
+    test/test_pointcloud_conversion.cpp
+    test/test_pointcloud_iterator.cpp)
   if(TARGET test_pointcloud)
     rosidl_target_interfaces(test_pointcloud ${PROJECT_NAME} "rosidl_typesupport_cpp")
   endif()
