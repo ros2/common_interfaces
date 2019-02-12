@@ -133,8 +133,6 @@ static inline bool convertPointCloud2ToPointCloud(
   int y_idx = getPointCloud2FieldIndex(input, "y");
   int z_idx = getPointCloud2FieldIndex(input, "z");
   if (x_idx == -1 || y_idx == -1 || z_idx == -1) {
-    std::cerr << "x/y/z coordinates not found! Cannot convert to sensor_msgs::msg::PointCloud!" <<
-      std::endl;
     return false;
   }
   int x_offset = input.fields[x_idx].offset;
