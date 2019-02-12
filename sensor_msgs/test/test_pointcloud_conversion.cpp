@@ -42,7 +42,7 @@ TEST(sensor_msgs, PointCloudConversion)
     cloud.points.push_back(pt);
 
     intensity.values.push_back(4 * ii);
-    range.values.push_back(5* ii);
+    range.values.push_back(5 * ii);
   }
   cloud.channels.push_back(intensity);
   cloud.channels.push_back(range);
