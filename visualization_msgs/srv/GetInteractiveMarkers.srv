@@ -1,7 +1,4 @@
 ---
-# Identifier for the interactive marker server.
-string server_id
-
 # Sequence number.
 # Set to the sequence number of the latest update message
 # at the time the server received the request.
