@@ -1,0 +1,9 @@
+---
+# Sequence number.
+# Set to the sequence number of the latest update message
+# at the time the server received the request.
+# Clients use this to detect if any updates were missed.
+uint64 sequence_number
+
+# All interactive markers provided by the server.
+InteractiveMarker[] markers
