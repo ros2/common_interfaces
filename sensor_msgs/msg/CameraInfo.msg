@@ -55,7 +55,7 @@ uint32 height
 uint32 width
 
 # The distortion model used. Supported models are listed in
-# sensor_msgs/distortion_models.h. For most cameras, "plumb_bob" - a
+# sensor_msgs/distortion_models.hpp. For most cameras, "plumb_bob" - a
 # simple model of radial and tangential distortion - is sufficent.
 string distortion_model
 
