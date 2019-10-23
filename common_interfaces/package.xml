@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
   <name>common_interfaces</name>
-  <version>0.8.0</version>
+  <version>0.8.1</version>
   <description>common_interfaces contains messages and services that are widely used by other ROS packages.</description>
   <maintainer email="scott@openrobotics.org">Scott K Logan</maintainer>
   <license>Apache License 2.0</license>
