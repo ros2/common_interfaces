@@ -52,6 +52,8 @@ TEST(sensor_msgs, NumChannels)
   ASSERT_EQ(sensor_msgs::image_encodings::numChannels("64FC"), 1);
   ASSERT_EQ(sensor_msgs::image_encodings::numChannels("64FC3"), 3);
   ASSERT_EQ(sensor_msgs::image_encodings::numChannels("64FC10"), 10);
+  ASSERT_EQ(sensor_msgs::image_encodings::numChannels("yuv422"), 2);
+  ASSERT_EQ(sensor_msgs::image_encodings::numChannels("yuv422_yuy2"), 2);
 }
 
 TEST(sensor_msgs, bitDepth)
@@ -70,4 +72,6 @@ TEST(sensor_msgs, bitDepth)
   ASSERT_EQ(sensor_msgs::image_encodings::bitDepth("64FC"), 64);
   ASSERT_EQ(sensor_msgs::image_encodings::bitDepth("64FC3"), 64);
   ASSERT_EQ(sensor_msgs::image_encodings::bitDepth("64FC10"), 64);
+  ASSERT_EQ(sensor_msgs::image_encodings::bitDepth("yuv422"), 8);
+  ASSERT_EQ(sensor_msgs::image_encodings::bitDepth("yuv422_yuy2"), 8);
 }
