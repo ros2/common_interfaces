@@ -38,6 +38,7 @@
 
 #include <sensor_msgs/msg/point_cloud2.hpp>
 #include <cstdarg>
+#include <cstring>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -272,8 +273,9 @@ PointCloud2IteratorBase<T, TT, U, C, V>::PointCloud2IteratorBase(
   int offset = set_field(cloud_msg, field_name);
 
   data_char_ = &(cloud_msg.data.front()) + offset;
-  data_ = reinterpret_cast<TT *>(data_char_);
-  data_end_ = reinterpret_cast<TT *>(&(cloud_msg.data.back()) + 1 + offset);
+  std::memcpy(&data_, &data_char_, sizeof data_char_);
+  auto tmpcloud = &(cloud_msg.data.back()) + 1 + offset;
+  std::memcpy(&data_end_, &tmpcloud, sizeof tmpcloud);
 }
 
 /** Assignment operator
@@ -321,7 +323,7 @@ template<typename T, typename TT, typename U, typename C, template<typename> cla
 V<T> & PointCloud2IteratorBase<T, TT, U, C, V>::operator++()
 {
   data_char_ += point_step_;
-  data_ = reinterpret_cast<TT *>(data_char_);
+  std::memcpy(&data_, &data_char_, sizeof data_char_);
   return *static_cast<V<T> *>(this);
 }
 
@@ -347,7 +349,7 @@ template<typename T, typename TT, typename U, typename C, template<typename> cla
 V<T> & PointCloud2IteratorBase<T, TT, U, C, V>::operator+=(int i)
 {
   data_char_ += i * point_step_;
-  data_ = reinterpret_cast<TT *>(data_char_);
+  std::memcpy(&data_, &data_char_, sizeof data_char_);
   return *static_cast<V<T> *>(this);
 }
 
