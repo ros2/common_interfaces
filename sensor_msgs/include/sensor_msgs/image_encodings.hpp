@@ -96,9 +96,11 @@ const char BAYER_GBRG16[] = "bayer_gbrg16";
 const char BAYER_GRBG16[] = "bayer_grbg16";
 
 // Miscellaneous
-// This is the UYVY version of YUV422 codec http://www.fourcc.org/yuv.php#UYVY
-// with an 8-bit depth
+// YUV 4:2:2 encodings with an 8-bit depth
+// UYUV version: http://www.fourcc.org/pixel-format/yuv-uyvy
 const char YUV422[] = "yuv422";
+// YUYV version: http://www.fourcc.org/pixel-format/yuv-yuy2/
+const char YUV422_YUY2[] = "yuv422_yuy2";
 
 // Prefixes for abstract image encodings
 const char ABSTRACT_ENCODING_PREFIXES[][5] = {
@@ -186,7 +188,9 @@ static inline int numChannels(const std::string & encoding)
     }
   }
 
-  if (encoding == YUV422) {
+  if (encoding == YUV422 ||
+    encoding == YUV422_YUY2)
+  {
     return 2;
   }
 
@@ -244,7 +248,9 @@ static inline int bitDepth(const std::string & encoding)
     }
   }
 
-  if (encoding == YUV422) {
+  if (encoding == YUV422 ||
+    encoding == YUV422_YUY2)
+  {
     return 8;
   }
 
