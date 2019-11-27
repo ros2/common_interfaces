@@ -130,15 +130,15 @@ inline void PointCloud2Modifier::resize(size_t size)
 
   // Update height/width
   if (cloud_msg_.height == 1) {
-    cloud_msg_.width = static_cast<uint32_t>(size);
-    cloud_msg_.row_step = static_cast<uint32_t>(size * cloud_msg_.point_step);
+    cloud_msg_.width = size;
+    cloud_msg_.row_step = size * cloud_msg_.point_step;
   } else {
     if (cloud_msg_.width == 1) {
-      cloud_msg_.height = static_cast<uint32_t>(size);
+      cloud_msg_.height = size;
     } else {
       cloud_msg_.height = 1;
-      cloud_msg_.width = static_cast<uint32_t>(size);
-      cloud_msg_.row_step = static_cast<uint32_t>(size * cloud_msg_.point_step);
+      cloud_msg_.width = size;
+      cloud_msg_.row_step = size * cloud_msg_.point_step;
     }
   }
 }
