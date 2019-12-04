@@ -274,7 +274,7 @@ PointCloud2IteratorBase<T, TT, U, C, V>::PointCloud2IteratorBase(
 
   data_char_ = &(cloud_msg.data.front()) + offset;
   std::memcpy(&data_, &data_char_, sizeof data_char_);
-  auto tmpcloud = &(cloud_msg.data.back()) + 1 + offset;
+  U * tmpcloud = &(cloud_msg.data.back()) + 1 + offset;
   std::memcpy(&data_end_, &tmpcloud, sizeof tmpcloud);
 }
 
