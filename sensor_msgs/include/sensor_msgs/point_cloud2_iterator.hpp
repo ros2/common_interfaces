@@ -125,8 +125,8 @@ public:
   /**
    * @param size The number of T's to change the size of the original sensor_msgs::msg::PointCloud2 by
    */
-  template <typename T = void>
-  auto resize(std::size_t size) -> std::enable_if_t<std::is_same<std::size_t, uint64_t>::value, T>
+  template<typename T = void>
+  auto resize(std::size_t size)->std::enable_if_t<std::is_same<std::size_t, uint64_t>::value, T>
   {
     cloud_msg_.data.resize(size * cloud_msg_.point_step);
 
@@ -145,8 +145,8 @@ public:
     }
   }
 
-  template <typename T = void>
-  auto resize(std::size_t size) -> std::enable_if_t<std::is_same<std::size_t, uint32_t>::value, T>
+  template<typename T = void>
+  auto resize(std::size_t size)->std::enable_if_t<std::is_same<std::size_t, uint32_t>::value, T>
   {
     cloud_msg_.data.resize(size * cloud_msg_.point_step);
 
