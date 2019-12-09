@@ -125,7 +125,45 @@ public:
   /**
    * @param size The number of T's to change the size of the original sensor_msgs::msg::PointCloud2 by
    */
-  void resize(size_t size);
+  template <typename T = void>
+  auto resize(std::size_t size) -> std::enable_if_t<std::is_same<std::size_t, uint64_t>::value, T>
+  {
+    cloud_msg_.data.resize(size * cloud_msg_.point_step);
+
+    // Update height/width
+    if (cloud_msg_.height == 1) {
+      cloud_msg_.width = static_cast<uint32_t>(size);
+      cloud_msg_.row_step = static_cast<uint32_t>(size * cloud_msg_.point_step);
+    } else {
+      if (cloud_msg_.width == 1) {
+        cloud_msg_.height = static_cast<uint32_t>(size);
+      } else {
+        cloud_msg_.height = 1;
+        cloud_msg_.width = static_cast<uint32_t>(size);
+        cloud_msg_.row_step = static_cast<uint32_t>(size * cloud_msg_.point_step);
+      }
+    }
+  }
+
+  template <typename T = void>
+  auto resize(std::size_t size) -> std::enable_if_t<std::is_same<std::size_t, uint32_t>::value, T>
+  {
+    cloud_msg_.data.resize(size * cloud_msg_.point_step);
+
+    // Update height/width
+    if (cloud_msg_.height == 1) {
+      cloud_msg_.width = size;
+      cloud_msg_.row_step = size * cloud_msg_.point_step;
+    } else {
+      if (cloud_msg_.width == 1) {
+        cloud_msg_.height = size;
+      } else {
+        cloud_msg_.height = 1;
+        cloud_msg_.width = size;
+        cloud_msg_.row_step = size * cloud_msg_.point_step;
+      }
+    }
+  }
 
   /**
    * @brief remove all T's from the original sensor_msgs::msg::PointCloud2
