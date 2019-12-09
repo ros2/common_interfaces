@@ -132,7 +132,7 @@ public:
    * compiler will complain about possible loss of data.
    */
   template<typename T = void>
-  auto resize(std::size_t size)->std::enable_if_t<std::is_same<std::size_t, uint64_t>::value, T>
+  std::enable_if_t<std::is_same<std::size_t, uint64_t>::value, T> resize(std::size_t size)
   {
     cloud_msg_.data.resize(size * cloud_msg_.point_step);
 
@@ -152,7 +152,7 @@ public:
   }
 
   template<typename T = void>
-  auto resize(std::size_t size)->std::enable_if_t<std::is_same<std::size_t, uint32_t>::value, T>
+  std::enable_if_t<std::is_same<std::size_t, uint32_t>::value, T> resize(std::size_t size)
   {
     cloud_msg_.data.resize(size * cloud_msg_.point_step);
 
