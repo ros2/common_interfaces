@@ -124,6 +124,12 @@ public:
 
   /**
    * @param size The number of T's to change the size of the original sensor_msgs::msg::PointCloud2 by
+   *
+   * We have two versions of resize(), one for when size_t is the same as uint64_t and the other for when
+   * it is uint32_t. The first version includes casts for size_t to uint32_t, whereas the second doesn't.
+   * This is needed because on platforms where uint32_t and size_t are the same, the compiler complains
+   * about useless casts, whereas if the casts are not present in platforms whose size_t is 64-bit, the
+   * compiler will complain about possible loss of data.
    */
   template<typename T = void>
   auto resize(std::size_t size)->std::enable_if_t<std::is_same<std::size_t, uint64_t>::value, T>
