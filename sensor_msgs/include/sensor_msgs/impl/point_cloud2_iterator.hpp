@@ -124,6 +124,11 @@ inline void PointCloud2Modifier::reserve(size_t size)
   cloud_msg_.data.reserve(size * cloud_msg_.point_step);
 }
 
+inline void PointCloud2Modifier::resize(size_t size)
+{
+  resize_impl<size_t>::resize(cloud_msg_, size);
+}
+
 inline void PointCloud2Modifier::clear()
 {
   cloud_msg_.data.clear();

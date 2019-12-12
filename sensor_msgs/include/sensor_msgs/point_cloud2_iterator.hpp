@@ -124,52 +124,8 @@ public:
 
   /**
    * @param size The number of T's to change the size of the original sensor_msgs::msg::PointCloud2 by
-   *
-   * We have two versions of resize(), one for when size_t is the same as uint64_t and the other for when
-   * it is uint32_t. The first version includes casts for size_t to uint32_t, whereas the second doesn't.
-   * This is needed because on platforms where uint32_t and size_t are the same, the compiler complains
-   * about useless casts, whereas if the casts are not present in platforms whose size_t is 64-bit, the
-   * compiler will complain about possible loss of data.
    */
-  template<typename T = void>
-  std::enable_if_t<std::is_same<std::size_t, uint64_t>::value, T> resize(std::size_t size)
-  {
-    cloud_msg_.data.resize(size * cloud_msg_.point_step);
-
-    // Update height/width
-    if (cloud_msg_.height == 1) {
-      cloud_msg_.width = static_cast<uint32_t>(size);
-      cloud_msg_.row_step = static_cast<uint32_t>(size * cloud_msg_.point_step);
-    } else {
-      if (cloud_msg_.width == 1) {
-        cloud_msg_.height = static_cast<uint32_t>(size);
-      } else {
-        cloud_msg_.height = 1;
-        cloud_msg_.width = static_cast<uint32_t>(size);
-        cloud_msg_.row_step = static_cast<uint32_t>(size * cloud_msg_.point_step);
-      }
-    }
-  }
-
-  template<typename T = void>
-  std::enable_if_t<std::is_same<std::size_t, uint32_t>::value, T> resize(std::size_t size)
-  {
-    cloud_msg_.data.resize(size * cloud_msg_.point_step);
-
-    // Update height/width
-    if (cloud_msg_.height == 1) {
-      cloud_msg_.width = size;
-      cloud_msg_.row_step = size * cloud_msg_.point_step;
-    } else {
-      if (cloud_msg_.width == 1) {
-        cloud_msg_.height = size;
-      } else {
-        cloud_msg_.height = 1;
-        cloud_msg_.width = size;
-        cloud_msg_.row_step = size * cloud_msg_.point_step;
-      }
-    }
-  }
+  void resize(size_t size);
 
   /**
    * @brief remove all T's from the original sensor_msgs::msg::PointCloud2
@@ -210,6 +166,63 @@ public:
 protected:
   /** A reference to the original sensor_msgs::msg::PointCloud2 that we read */
   sensor_msgs::msg::PointCloud2 & cloud_msg_;
+
+  /**
+   * We have two versions of resize_impl, one for when size_t is the same as uint64_t and the other
+   * for when it is uint32_t. The first version includes casts for size_t to uint32_t, whereas the
+   * second doesn't.
+   * This is needed because on platforms where uint32_t and size_t are the same, the compiler
+   * complains about useless casts, whereas if the casts are not present in platforms whose size_t
+   * is 64-bit, the compiler will complain about possible loss of data.
+   */
+  template<typename T, typename T2 = void>
+  struct resize_impl;
+};
+
+template<typename T>
+struct PointCloud2Modifier::resize_impl<T, typename std::enable_if_t<std::is_same<T, uint64_t>::value>>
+{
+  static void resize(sensor_msgs::msg::PointCloud2 & cloud_msg_, std::size_t size)
+  {
+    cloud_msg_.data.resize(size * cloud_msg_.point_step);
+
+    // Update height/width
+    if (cloud_msg_.height == 1) {
+      cloud_msg_.width = static_cast<uint32_t>(size);
+      cloud_msg_.row_step = static_cast<uint32_t>(size * cloud_msg_.point_step);
+    } else {
+      if (cloud_msg_.width == 1) {
+        cloud_msg_.height = static_cast<uint32_t>(size);
+      } else {
+        cloud_msg_.height = 1;
+        cloud_msg_.width = static_cast<uint32_t>(size);
+        cloud_msg_.row_step = static_cast<uint32_t>(size * cloud_msg_.point_step);
+      }
+    }
+  }
+};
+
+template<typename T>
+struct PointCloud2Modifier::resize_impl<T, typename std::enable_if_t<std::is_same<T, uint32_t>::value>>
+{
+  static void resize(sensor_msgs::msg::PointCloud2 & cloud_msg_, std::size_t size)
+  {
+    cloud_msg_.data.resize(size * cloud_msg_.point_step);
+
+    // Update height/width
+    if (cloud_msg_.height == 1) {
+      cloud_msg_.width = size;
+      cloud_msg_.row_step = size * cloud_msg_.point_step;
+    } else {
+      if (cloud_msg_.width == 1) {
+        cloud_msg_.height = size;
+      } else {
+        cloud_msg_.height = 1;
+        cloud_msg_.width = size;
+        cloud_msg_.row_step = size * cloud_msg_.point_step;
+      }
+    }
+  }
 };
 
 namespace impl
