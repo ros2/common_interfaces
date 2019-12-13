@@ -177,12 +177,19 @@ protected:
    */
   template<typename T, typename T2 = void>
   struct resize_impl;
+
+};
+
+template<typename T, typename T2 = void>
+struct PointCloud2Modifier::resize_impl
+{
+  static void resize_cloud(sensor_msgs::msg::PointCloud2 & cloud_msg_, std::size_t size);
 };
 
 template<typename T>
 struct PointCloud2Modifier::resize_impl<T, typename std::enable_if_t<std::is_same<T, uint64_t>::value>>
 {
-  static void resize(sensor_msgs::msg::PointCloud2 & cloud_msg_, std::size_t size)
+  static void resize_cloud(sensor_msgs::msg::PointCloud2 & cloud_msg_, std::size_t size)
   {
     cloud_msg_.data.resize(size * cloud_msg_.point_step);
 
@@ -205,7 +212,7 @@ struct PointCloud2Modifier::resize_impl<T, typename std::enable_if_t<std::is_sam
 template<typename T>
 struct PointCloud2Modifier::resize_impl<T, typename std::enable_if_t<std::is_same<T, uint32_t>::value>>
 {
-  static void resize(sensor_msgs::msg::PointCloud2 & cloud_msg_, std::size_t size)
+  static void resize_cloud(sensor_msgs::msg::PointCloud2 & cloud_msg_, std::size_t size)
   {
     cloud_msg_.data.resize(size * cloud_msg_.point_step);
 
