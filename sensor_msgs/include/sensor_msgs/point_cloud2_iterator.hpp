@@ -180,7 +180,7 @@ protected:
 
 };
 
-template<typename T, typename T2 = void>
+template<typename T, typename T2>
 struct PointCloud2Modifier::resize_impl
 {
   static void resize_cloud(sensor_msgs::msg::PointCloud2 & cloud_msg_, std::size_t size);
