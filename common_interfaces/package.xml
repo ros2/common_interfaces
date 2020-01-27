@@ -9,9 +9,6 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <test_depend>ament_lint_common</test_depend>
-  <test_depend>ament_lint_auto</test_depend>
-  
   <exec_depend>actionlib_msgs</exec_depend>
   <exec_depend>builtin_interfaces</exec_depend>
   <exec_depend>diagnostic_msgs</exec_depend>
@@ -24,6 +21,9 @@
   <exec_depend>stereo_msgs</exec_depend>
   <exec_depend>trajectory_msgs</exec_depend>
   <exec_depend>visualization_msgs</exec_depend>
+
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
