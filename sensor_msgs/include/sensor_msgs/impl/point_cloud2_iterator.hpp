@@ -222,17 +222,18 @@ inline void PointCloud2Modifier::setPointCloud2FieldsByString(int n_fields, ...)
     if (field_name == "xyz") {
       sensor_msgs::msg::PointField point_field;
       // Do x, y and z
-      offset = addPointField(cloud_msg_, "x", 1, sensor_msgs::msg::PointField::FLOAT32,
-          offset);
-      offset = addPointField(cloud_msg_, "y", 1, sensor_msgs::msg::PointField::FLOAT32,
-          offset);
-      offset = addPointField(cloud_msg_, "z", 1, sensor_msgs::msg::PointField::FLOAT32,
-          offset);
+      offset = addPointField(
+        cloud_msg_, "x", 1, sensor_msgs::msg::PointField::FLOAT32, offset);
+      offset = addPointField(
+        cloud_msg_, "y", 1, sensor_msgs::msg::PointField::FLOAT32, offset);
+      offset = addPointField(
+        cloud_msg_, "z", 1, sensor_msgs::msg::PointField::FLOAT32, offset);
       offset += sizeOfPointField(sensor_msgs::msg::PointField::FLOAT32);
     } else {
       if ((field_name == "rgb") || (field_name == "rgba")) {
-        offset = addPointField(cloud_msg_, field_name, 1, sensor_msgs::msg::PointField::FLOAT32,
-            offset);
+        offset = addPointField(
+          cloud_msg_, field_name, 1, sensor_msgs::msg::PointField::FLOAT32,
+          offset);
         offset += 3 * sizeOfPointField(sensor_msgs::msg::PointField::FLOAT32);
       } else {
         va_end(vl);

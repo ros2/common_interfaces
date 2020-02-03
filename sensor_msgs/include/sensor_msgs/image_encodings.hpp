@@ -181,8 +181,10 @@ static inline int numChannels(const std::string & encoding)
     if (encoding.size() == prefix.size()) {
       return 1;  // ex. 8UC -> 1
     }
-    int n_channel = atoi(encoding.substr(prefix.size(),
-        encoding.size() - prefix.size()).c_str());  // ex. 8UC5 -> 5
+    int n_channel = atoi(
+      encoding.substr(
+        prefix.size(), encoding.size() - prefix.size()
+      ).c_str());  // ex. 8UC5 -> 5
     if (n_channel != 0) {
       return n_channel;  // valid encoding string
     }
@@ -241,8 +243,10 @@ static inline int bitDepth(const std::string & encoding)
     if (encoding.size() == prefix.size()) {
       return atoi(prefix.c_str());  // ex. 8UC -> 8
     }
-    int n_channel = atoi(encoding.substr(prefix.size(),
-        encoding.size() - prefix.size()).c_str());  // ex. 8UC10 -> 10
+    int n_channel = atoi(
+      encoding.substr(
+        prefix.size(), encoding.size() - prefix.size()
+      ).c_str());  // ex. 8UC10 -> 10
     if (n_channel != 0) {
       return atoi(prefix.c_str());  // valid encoding string
     }

@@ -100,15 +100,19 @@ static inline bool convertPointCloudToPointCloud2(
 
   // Copy the data points
   for (size_t cp = 0; cp < input.points.size(); ++cp) {
-    memcpy(&output.data[cp * output.point_step + output.fields[0].offset], &input.points[cp].x,
-      sizeof(float));
-    memcpy(&output.data[cp * output.point_step + output.fields[1].offset], &input.points[cp].y,
-      sizeof(float));
-    memcpy(&output.data[cp * output.point_step + output.fields[2].offset], &input.points[cp].z,
-      sizeof(float));
+    memcpy(
+      &output.data[cp * output.point_step + output.fields[0].offset],
+      &input.points[cp].x, sizeof(float));
+    memcpy(
+      &output.data[cp * output.point_step + output.fields[1].offset],
+      &input.points[cp].y, sizeof(float));
+    memcpy(
+      &output.data[cp * output.point_step + output.fields[2].offset],
+      &input.points[cp].z, sizeof(float));
     for (size_t d = 0; d < input.channels.size(); ++d) {
       if (input.channels[d].values.size() == input.points.size()) {
-        memcpy(&output.data[cp * output.point_step + output.fields[3 + d].offset],
+        memcpy(
+          &output.data[cp * output.point_step + output.fields[3 + d].offset],
           &input.channels[d].values[cp], sizeof(float));
       }
     }
