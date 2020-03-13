@@ -152,7 +152,7 @@ Msg
 
 *   [https://github.com/ros2/common_interfaces/blob/master/nav_msgs/msg/GridCells.msg](https://github.com/ros2/common_interfaces/blob/master/nav_msgs/msg/GridCells.msg)
     *   Comment: Are the points in cells the center point? It could use some documentation
-    *   **Suggested Action: **Improve documentation.
+    *   **Suggested Action**: Improve documentation.
 *   [https://github.com/ros2/common_interfaces/blob/master/nav_msgs/msg/MapMetaData.msg](https://github.com/ros2/common_interfaces/blob/master/nav_msgs/msg/MapMetaData.msg)
     *   Comment: Is `origin` the center point of the `(0,0)` cell? Which direction do cell coordinates increase? Is (0,0) x,y in a right handed coordinate system such that (0,0) is the bottom right cell, or is it row,col such that (0,0) is the top left cell?
     *   **Suggested Action: **Improve documentation.
