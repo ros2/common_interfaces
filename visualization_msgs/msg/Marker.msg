@@ -4,23 +4,23 @@
 #
 # for more information on using this message with rviz.
 
-uint8 ARROW=0
-uint8 CUBE=1
-uint8 SPHERE=2
-uint8 CYLINDER=3
-uint8 LINE_STRIP=4
-uint8 LINE_LIST=5
-uint8 CUBE_LIST=6
-uint8 SPHERE_LIST=7
-uint8 POINTS=8
-uint8 TEXT_VIEW_FACING=9
-uint8 MESH_RESOURCE=10
-uint8 TRIANGLE_LIST=11
+int32 ARROW=0
+int32 CUBE=1
+int32 SPHERE=2
+int32 CYLINDER=3
+int32 LINE_STRIP=4
+int32 LINE_LIST=5
+int32 CUBE_LIST=6
+int32 SPHERE_LIST=7
+int32 POINTS=8
+int32 TEXT_VIEW_FACING=9
+int32 MESH_RESOURCE=10
+int32 TRIANGLE_LIST=11
 
-uint8 ADD=0
-uint8 MODIFY=0
-uint8 DELETE=2
-uint8 DELETEALL=3
+int32 ADD=0
+int32 MODIFY=0
+int32 DELETE=2
+int32 DELETEALL=3
 
 # Header for timestamp and frame id.
 std_msgs/Header header
