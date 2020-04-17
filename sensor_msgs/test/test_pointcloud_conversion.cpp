@@ -18,7 +18,17 @@
 #include "sensor_msgs/msg/point_cloud.hpp"
 #include "sensor_msgs/msg/point_cloud2.hpp"
 
+#define SENSOR_MSGS_SKIP_WARNING
+
+// #warning suppression
+// Not working due to preprocessor ignoring pragmas in g++
+// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53431
+// Clang doesn't support suppressing -Wcpp probably like above.
+// And I can't find any windows way to suppress it either.
+
 #include "sensor_msgs/point_cloud_conversion.hpp"
+#undef SENSOR_MSGS_SKIP_WARNING
+
 #include "sensor_msgs/point_field_conversion.hpp"
 
 TEST(sensor_msgs, PointCloudConversion)
@@ -49,7 +59,20 @@ TEST(sensor_msgs, PointCloudConversion)
 
   // Convert to PointCloud2
   sensor_msgs::msg::PointCloud2 cloud2;
+
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#else
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
   auto ret_cc2 = sensor_msgs::convertPointCloudToPointCloud2(cloud, cloud2);
+#ifdef _MSC_VER
+#pragma warning(pop)
+#else
+#pragma GCC diagnostic pop
+#endif
   ASSERT_TRUE(ret_cc2);
 
   EXPECT_EQ(1u, cloud2.height);
@@ -68,7 +91,19 @@ TEST(sensor_msgs, PointCloudConversion)
 
   // Convert back to PointCloud
   sensor_msgs::msg::PointCloud cloud3;
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#else
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
   auto ret_c2c = sensor_msgs::convertPointCloud2ToPointCloud(cloud2, cloud3);
+#ifdef _MSC_VER
+#pragma warning(pop)
+#else
+#pragma GCC diagnostic pop
+#endif
   ASSERT_TRUE(ret_c2c);
   EXPECT_EQ(cloud3.points.size(), 100u);
   EXPECT_EQ(cloud3.channels.size(), 2u);

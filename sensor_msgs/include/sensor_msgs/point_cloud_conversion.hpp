@@ -42,6 +42,16 @@
 
 #include <string>
 
+#ifndef SENSOR_MSGS_SKIP_WARNING
+#  define POINT_CLOUD_DEPRECATION_MESSAGE \
+  "PointCloud is deprecated in Foxy for PointCloud2. This whole header will be removed."
+#  ifdef _MSC_VER
+#    pragma message(POINT_CLOUD_DEPRECATION_MESSAGE)
+#  else
+#    warning POINT_CLOUD_DEPRECATION_MESSAGE
+#  endif
+#endif
+
 /**
   * \brief Convert between the old (sensor_msgs::msg::PointCloud) and the new (sensor_msgs::msg::PointCloud2) format.
   * \author Radu Bogdan Rusu
@@ -71,6 +81,7 @@ static inline int getPointCloud2FieldIndex(
   * \param input the message in the sensor_msgs::msg::PointCloud format
   * \param output the resultant message in the sensor_msgs::msg::PointCloud2 format
   */
+[[deprecated("PointCloud is deprecated as of Foxy in favor of sensor_msgs/PointCloud2.")]]
 static inline bool convertPointCloudToPointCloud2(
   const sensor_msgs::msg::PointCloud & input,
   sensor_msgs::msg::PointCloud2 & output)
@@ -125,6 +136,7 @@ static inline bool convertPointCloudToPointCloud2(
   * \param input the message in the sensor_msgs::msg::PointCloud2 format
   * \param output the resultant message in the sensor_msgs::msg::PointCloud format
   */
+[[deprecated("PointCloud is deprecated as of Foxy if favor of sensor_msgs/PointCloud2.")]]
 static inline bool convertPointCloud2ToPointCloud(
   const sensor_msgs::msg::PointCloud2 & input,
   sensor_msgs::msg::PointCloud & output)
