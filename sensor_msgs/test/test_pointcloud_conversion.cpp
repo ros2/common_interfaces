@@ -62,7 +62,7 @@ TEST(sensor_msgs, PointCloudConversion)
 
 #ifdef _MSC_VER
 #pragma warning(push)
-#pragma warning(disable : 4996 )
+#pragma warning(disable : 4996)
 #else
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
@@ -93,7 +93,7 @@ TEST(sensor_msgs, PointCloudConversion)
   sensor_msgs::msg::PointCloud cloud3;
 #ifdef _MSC_VER
 #pragma warning(push)
-#pragma warning(disable : 4996 )
+#pragma warning(disable : 4996)
 #else
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
