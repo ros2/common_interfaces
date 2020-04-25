@@ -1,4 +1,4 @@
-# This hold basic information about the characterists of the OccupancyGrid
+# This hold basic information about the characteristics of the OccupancyGrid
 
 # The time at which the map was loaded
 builtin_interfaces/Time map_load_time
