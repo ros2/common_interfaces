@@ -26,7 +26,7 @@ All message and service definition files located in `msg` and `srv` directories 
 
 ### ABI Stability Within a Released ROS Distribution [1.v]/[1.vi]
 
-`trajectory_msgs` does not contain any c or c++ code and therefore will not affect ABI stability.
+`trajectory_msgs` does not contain any C or C++ code and therefore will not affect ABI stability.
 
 ## Change Control Process [2]
 
@@ -79,7 +79,7 @@ There are no currently copyrighted source files in this package.
 
 ### Linters and Static Analysis [4.v]
 
-`trajectory_msgs` uses and passes all the standard linters and static analysis tools for its generated c++ and Python code to ensure it follows the [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#linters).
+`trajectory_msgs` uses and passes all the standard linters and static analysis tools for its generated C++ and Python code to ensure it follows the [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#linters).
 
 Results of the nightly linter tests can be found [here](http://build.ros2.org/view/Epr/job/Epr__common_interfaces__ubuntu_bionic_amd64/lastBuild/testReport/trajectory_msgs/).
 

@@ -26,7 +26,7 @@ All message and service definition files located in `include`, `msg` and `srv` d
 
 ### ABI Stability Within a Released ROS Distribution [1.v]/[1.vi]
 
-`sensor_msgs` contains c++ code and is therefore concerned with ABI stability. It will not break ABI stability within a released ROS distribution.
+`sensor_msgs` contains C++ code and is therefore concerned with ABI stability. It will not break ABI stability within a released ROS distribution.
 
 ## Change Control Process [2]
 
@@ -77,24 +77,27 @@ There are no currently copyrighted source files in this package.
 
 ## Testing [4]
 
-`sensor_msgs` is a package providing strictly message and service definitions and therefore does not require associated tests and has no coverage or performance requirements.
+### Feature Testing [4.i]
+
+Most of the features in sensor_msgs have corresponding tests which simulate typical usage, and they are located in the `test` directory.
+New features are required to have tests before being added.
 
 ### Public API Testing [4.ii]
 
-Each part of the public non-generated c++ API has tests, and new additions or changes to the public API require tests before being added.
+Each part of the public non-generated C++ API has tests, and new additions or changes to the public API require tests before being added.
 The tests aim to cover both typical usage and corner cases, but are quantified by contributing to code coverage.
 
 ### Coverage [4.iii]
 
-`rcpputils` does not currently track test coverage.
+`sensor_msgs` does not currently track test coverage.
 
 ### Performance [4.iv]
 
-`rcpputils` does not currently have performance tests.
+`sensor_msgs` does not currently have performance tests.
 
 ### Linters and Static Analysis [4.v]
 
-`sensor_msgs` uses and passes all the standard linters and static analysis tools for its generated c++ and Python code to ensure it follows the [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#linters).
+`sensor_msgs` uses and passes all the standard linters and static analysis tools for its generated C++ and Python code to ensure it follows the [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#linters).
 
 Results of the nightly linter tests can be found [here](http://build.ros2.org/view/Epr/job/Epr__common_interfaces__ubuntu_bionic_amd64/lastBuild/testReport/sensor_msgs/).
 
