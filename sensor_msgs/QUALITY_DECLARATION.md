@@ -82,10 +82,14 @@ There are no currently copyrighted source files in this package.
 Most of the features in sensor_msgs have corresponding tests which simulate typical usage, and they are located in the `test` directory.
 New features are required to have tests before being added.
 
+Results of these feature tests can be found [here](http://build.ros2.org/view/Epr/job/Epr__common_interfaces__ubuntu_bionic_amd64/lastBuild/testReport/(root)/sensor_msgs/)
+
 ### Public API Testing [4.ii]
 
 Each part of the public non-generated C++ API has tests, and new additions or changes to the public API require tests before being added.
 The tests aim to cover both typical usage and corner cases, but are quantified by contributing to code coverage.
+
+Results of these API tests can be found [here](http://build.ros2.org/view/Epr/job/Epr__common_interfaces__ubuntu_bionic_amd64/lastBuild/testReport/(root)/sensor_msgs/)
 
 ### Coverage [4.iii]
 
