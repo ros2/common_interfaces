@@ -1,4 +1,4 @@
-](msg/# sensor_msgs
+# sensor_msgs
 
 This package provides many messages and services relating to sensor devices.
 
