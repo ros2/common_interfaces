@@ -9,6 +9,7 @@ uint8 UINT32  = 6
 uint8 FLOAT32 = 7
 uint8 FLOAT64 = 8
 
+# Common PointField names are x, y, z, intensity, rgb, rgba
 string name      # Name of field
 uint32 offset    # Offset from start of point struct
 uint8  datatype  # Datatype enumeration, see above
