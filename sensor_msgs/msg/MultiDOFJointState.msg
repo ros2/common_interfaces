@@ -1,5 +1,5 @@
 # Representation of state for joints with multiple degrees of freedom,
-# following the structure of JointState.
+# following the structure of JointState which can only represent a single degree of freedom.
 #
 # It is assumed that a joint in a system corresponds to a transform that gets applied
 # along the kinematic chain. For example, a planar joint (as in URDF) is 3DOF (x, y, yaw)
