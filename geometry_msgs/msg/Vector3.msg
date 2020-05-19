@@ -2,7 +2,7 @@
 
 # This is semantically different than a point.
 # A vector is always anchored at the origin.
-# When a trasform is applied to a vector only
+# When a transform is applied to a vector only
 # the rotational component is applied.
 
 float64 x
