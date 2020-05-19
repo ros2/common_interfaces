@@ -21,6 +21,8 @@ set(msg_files
   "msg/MapMetaData.msg"
   "msg/OccupancyGrid.msg"
   "msg/Odometry.msg"
+  "msg/Particle.msg"
+  "msg/ParticleCloud.msg"
   "msg/Path.msg"
 )
 set(srv_files
