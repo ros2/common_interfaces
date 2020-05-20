@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.0 (2020-05-20)
+------------------
 * Improve clarification of MultiDOFJointState (`#114 <https://github.com/ros2/common_interfaces/issues/114>`_)
 * Comment on common PointField names (`#112 <https://github.com/ros2/common_interfaces/issues/112>`_)
 * Fix sensor_msgs README (`#111 <https://github.com/ros2/common_interfaces/issues/111>`_)
