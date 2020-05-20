@@ -14,7 +14,7 @@ Below are the rationales, notes, and caveats for this claim, organized by each r
 
 ### Version Stability [1.ii]
 
-`std_srvs` is not yet at a stable version, i.e. `>= 1.0.0`.
+`std_srvs` has a stable version.
 
 ### Public API Declaration [1.iii]
 

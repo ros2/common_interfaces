@@ -14,7 +14,7 @@ Below are the rationales, notes, and caveats for this claim, organized by each r
 
 ### Version Stability [1.ii]
 
-`nav_msgs` is not yet at a stable version, i.e. `>= 1.0.0`.
+`nav_msgs` has a stable version.
 
 ### Public API Declaration [1.iii]
 
