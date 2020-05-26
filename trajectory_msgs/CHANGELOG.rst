@@ -2,8 +2,8 @@
 Changelog for package trajectory_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.1 (2020-05-26)
+------------------
 * QD Update Version Stability to stable version (`#121 <https://github.com/ros2/common_interfaces/issues/121>`_)
 * Contributors: Alejandro Hernández Cordero
 
