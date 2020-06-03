@@ -1,6 +1,11 @@
 # Set a new map together with an initial pose
+
+# Requested 2D map to be set.
 nav_msgs/OccupancyGrid map
+
+# Estimated initial pose when setting new map.
 geometry_msgs/PoseWithCovarianceStamped initial_pose
 ---
-bool success
 
+# True if the map was successfully set, false otherwise.
+bool success
