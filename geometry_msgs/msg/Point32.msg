@@ -1,5 +1,5 @@
 # This contains the position of a point in free space(with 32 bits of precision).
-# It is recommeded to use Point wherever possible instead of Point32.
+# It is recommended to use Point wherever possible instead of Point32.
 #
 # This recommendation is to promote interoperability.
 #
