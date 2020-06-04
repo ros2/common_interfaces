@@ -3,17 +3,17 @@
 # All specified values are in the same order as the joint names in JointTrajectory.msg.
 
 # Single DOF joint positions for each joint relative to their "0" position.
-# The units depend on the specific joint type: radians for revolute and
-# continuous joints and meters for prismatic joints.
+# The units depend on the specific joint type: radians for revolute or
+# continuous joints, and meters for prismatic joints.
 float64[] positions
 
 # The rate of change in position of each joint. Units are joint type dependent.
-# Radians/second for revolute and continuous joints, and meters/second for
+# Radians/second for revolute or continuous joints, and meters/second for
 # prismatic joints.
 float64[] velocities
 
 # Rate of change in velocity of each joint. Units are joint type dependent.
-# Radians/second^2 for revolute and continuous joints, and meters/second^2 for
+# Radians/second^2 for revolute or continuous joints, and meters/second^2 for
 # prismatic joints.
 float64[] accelerations
 
