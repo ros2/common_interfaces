@@ -48,4 +48,4 @@ This package provides some common C++ functionality relating to manipulating a c
 * [SetCameraInfo](srv/SetCameraInfo.srv): Request that a camera stores the given CameraInfo as that camera's calibration information.
 
 ## Quality Declaration
-This package claims to be in the **Quality Level 4** category, see the [Quality Declaration](QUALITY_DECLARATION.md) for more details.
+This package claims to be in the **Quality Level 3** category, see the [Quality Declaration](QUALITY_DECLARATION.md) for more details.
