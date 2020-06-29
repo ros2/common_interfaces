@@ -90,7 +90,7 @@ Results of the nightly linter tests can be found [here](http://build.ros2.org/vi
 
 `shape_msgs` has the following runtime ROS dependencies, which are at or above Quality Level 3:
 * `geometry_msgs`: [QL 3](../geometry_msgs/QUALITY_DECLARATION.md)
-* `rosidl_default_runtime` [QL 3](https://raw.githubusercontent.com/ros2/rosidl_defaults/master/rosidl_default_runtime/QUALITY_DECLARATION.md)
+* `rosidl_default_runtime` [QL 3](https://github.com/ros2/rosidl_defaults/tree/master/rosidl_default_runtime/QUALITY_DECLARATION.md)
 
 It has several "buildtool" dependencies, which do not affect the resulting quality of the package, because they do not contribute to the public library API.
 
