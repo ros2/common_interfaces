@@ -2,8 +2,8 @@
 Changelog for package geometry_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.3 (2020-07-21)
+------------------
 * Finish up API documentation (`#123 <https://github.com/ros2/common_interfaces/issues/123>`_)
 * Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`_)
 * Contributors: Chris Lalancette, brawner
