@@ -2,6 +2,11 @@
 Changelog for package visualization_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`_)
+* Contributors: Chris Lalancette
+
 2.0.1 (2020-05-26)
 ------------------
 * QD Update Version Stability to stable version (`#121 <https://github.com/ros2/common_interfaces/issues/121>`_)

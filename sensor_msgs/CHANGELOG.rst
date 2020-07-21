@@ -2,6 +2,12 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Missing cstring header for memcpy in fill_image.hpp
+* Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`_)
+* Contributors: Chris Lalancette, Jose Luis Rivero
+
 2.0.1 (2020-05-26)
 ------------------
 * QD Update Version Stability to stable version (`#121 <https://github.com/ros2/common_interfaces/issues/121>`_)
