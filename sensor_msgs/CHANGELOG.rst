@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.2 (2020-07-21)
+------------------
 * Missing cstring header for memcpy in fill_image.hpp (`#126 <https://github.com/ros2/common_interfaces/issues/126>`_)
 * Update Quality levels to level 3 (`#124 <https://github.com/ros2/common_interfaces/issues/124>`_)
 * Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`_)
