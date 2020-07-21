@@ -2,6 +2,13 @@
 Changelog for package nav_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Update Quality levels to level 3 (`#124 <https://github.com/ros2/common_interfaces/issues/124>`_)
+* Finish up API documentation (`#123 <https://github.com/ros2/common_interfaces/issues/123>`_)
+* Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`_)
+* Contributors: Chris Lalancette, brawner
+
 2.0.1 (2020-05-26)
 ------------------
 * QD Update Version Stability to stable version (`#121 <https://github.com/ros2/common_interfaces/issues/121>`_)
