@@ -2,9 +2,9 @@ This document is a declaration of software quality for the `std_msgs` package, b
 
 # `std_msgs` Quality Declaration
 
-The package `std_msgs` claims to be in the **Quality Level 3** category.
+The package `std_msgs` claims to be in the **Quality Level 2** category.
 
-Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Requirements for Quality Level 3 in REP-2004](https://www.ros.org/reps/rep-2004.html).
+Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Requirements for Quality Level 2 in REP-2004](https://www.ros.org/reps/rep-2004.html).
 
 ## Version Policy [1]
 
@@ -88,9 +88,9 @@ Results of the nightly linter tests can be found [here](http://build.ros2.org/vi
 
 ### Direct Runtime ROS Dependencies [5.i]/[5.ii]
 
-`std_msgs` has the following runtime ROS dependencies, which are at or above Quality Level 3:
-* `builtin_interfaces`: [QL 3](https://github.com/ros2/rcl_interfaces/tree/master/builtin_interfaces/QUALITY_DECLARATION.md)
-* `rosidl_default_runtime` [QL 3](https://github.com/ros2/rosidl_defaults/tree/master/rosidl_default_runtime/QUALITY_DECLARATION.md)
+`std_msgs` has the following runtime ROS dependencies, which are at or above Quality Level 2:
+* `builtin_interfaces`: [QL 2](https://github.com/ros2/rcl_interfaces/tree/master/builtin_interfaces/QUALITY_DECLARATION.md)
+* `rosidl_default_runtime` [QL 2](https://github.com/ros2/rosidl_defaults/tree/master/rosidl_default_runtime/QUALITY_DECLARATION.md)
 
 It has several "buildtool" dependencies, which do not affect the resulting quality of the package, because they do not contribute to the public library API.
 
