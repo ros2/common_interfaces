@@ -2,9 +2,9 @@ This document is a declaration of software quality for the `shape_msgs` package,
 
 # `shape_msgs` Quality Declaration
 
-The package `shape_msgs` claims to be in the **Quality Level 3** category.
+The package `shape_msgs` claims to be in the **Quality Level 2** category.
 
-Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Requirements for Quality Level 3 in REP-2004](https://www.ros.org/reps/rep-2004.html).
+Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Requirements for Quality Level 2 in REP-2004](https://www.ros.org/reps/rep-2004.html).
 
 ## Version Policy [1]
 
@@ -88,9 +88,9 @@ Results of the nightly linter tests can be found [here](http://build.ros2.org/vi
 
 ### Direct Runtime ROS Dependencies [5.i]/[5.ii]
 
-`shape_msgs` has the following runtime ROS dependencies, which are at or above Quality Level 3:
-* `geometry_msgs`: [QL 3](../geometry_msgs/QUALITY_DECLARATION.md)
-* `rosidl_default_runtime` [QL 3](https://github.com/ros2/rosidl_defaults/tree/master/rosidl_default_runtime/QUALITY_DECLARATION.md)
+`shape_msgs` has the following runtime ROS dependencies, which are at or above Quality Level 2:
+* `geometry_msgs`: [QL 2](../geometry_msgs/QUALITY_DECLARATION.md)
+* `rosidl_default_runtime` [QL 2](https://github.com/ros2/rosidl_defaults/tree/master/rosidl_default_runtime/QUALITY_DECLARATION.md)
 
 It has several "buildtool" dependencies, which do not affect the resulting quality of the package, because they do not contribute to the public library API.
 
