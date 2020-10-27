@@ -89,9 +89,9 @@ Results of the nightly linter tests can be found [here](http://build.ros2.org/vi
 ### Direct Runtime ROS Dependencies [5.i]/[5.ii]
 
 `trajectory_msgs` has the following runtime ROS dependencies, which are at or above Quality Level 2:
-* `builtin_interfaces`: [QL 2](https://github.com/ros2/rcl_interfaces/tree/master/builtin_interfaces/QUALITY_DECLARATION.md)
+* `builtin_interfaces`: [QL 2](https://github.com/ros2/rcl_interfaces/tree/foxy/builtin_interfaces/QUALITY_DECLARATION.md)
 * `geometry_msgs`: [QL 2](../geometry_msgs/QUALITY_DECLARATION.md)
-* `rosidl_default_runtime` [QL 2](https://github.com/ros2/rosidl_defaults/tree/master/rosidl_default_runtime/QUALITY_DECLARATION.md)
+* `rosidl_default_runtime` [QL 2](https://github.com/ros2/rosidl_defaults/tree/foxy/rosidl_default_runtime/QUALITY_DECLARATION.md)
 * `std_msgs`: [QL 2](../std_msgs/QUALITY_DECLARATION.md)
 
 It has several "buildtool" dependencies, which do not affect the resulting quality of the package, because they do not contribute to the public library API.

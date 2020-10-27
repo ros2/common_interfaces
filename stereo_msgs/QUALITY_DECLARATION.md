@@ -89,7 +89,7 @@ Results of the nightly linter tests can be found [here](http://build.ros2.org/vi
 ### Direct Runtime ROS Dependencies [5.i]/[5.ii]
 
 `stereo_msgs` has the following runtime ROS dependencies, which are at or above Quality Level 2:
-* `rosidl_default_runtime` [QL 2](https://github.com/ros2/rosidl_defaults/tree/master/rosidl_default_runtime/QUALITY_DECLARATION.md)
+* `rosidl_default_runtime` [QL 2](https://github.com/ros2/rosidl_defaults/tree/foxy/rosidl_default_runtime/QUALITY_DECLARATION.md)
 * `sensor_msgs`: [QL 2](../sensor_msgs/QUALITY_DECLARATION.md)
 * `std_msgs`: [QL 2](../std_msgs/QUALITY_DECLARATION.md)
 
