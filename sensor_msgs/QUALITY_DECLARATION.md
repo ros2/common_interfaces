@@ -2,9 +2,9 @@ This document is a declaration of software quality for the `sensor_msgs` package
 
 # `sensor_msgs` Quality Declaration
 
-The package `sensor_msgs` claims to be in the **Quality Level 2** category.
+The package `sensor_msgs` claims to be in the **Quality Level 1** category as long as it is used with a **Quality Level 1** middleware.
 
-Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Requirements for Quality Level 2 in REP-2004](https://www.ros.org/reps/rep-2004.html).
+Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Requirements for Quality Level 1 in REP-2004](https://www.ros.org/reps/rep-2004.html).
 
 ## Version Policy [1]
 
@@ -70,7 +70,7 @@ The license for `sensor_msgs` is Apache 2.0, the type is declared in the [packag
 
 There is an automated test which runs a linter that ensures each file has a license statement.
 
-Most recent test results can be found [here](http://build.ros2.org/view/Epr/job/Epr__common_interfaces__ubuntu_bionic_amd64/lastBuild/testReport/sensor_msgs/copyright/)
+Most recent test results can be found [here](http://build.ros2.org/view/Fpr/job/Fpr__common_interfaces__ubuntu_focal_amd64/lastCompletedBuild/testReport/sensor_msgs/copyright/)
 
 ### Copyright Statements [3.iv]
 
@@ -83,14 +83,14 @@ There are no currently copyrighted source files in this package.
 Most of the features in sensor_msgs have corresponding tests which simulate typical usage, and they are located in the `test` directory.
 New features are required to have tests before being added.
 
-Results of these feature tests can be found [here](http://build.ros2.org/view/Epr/job/Epr__common_interfaces__ubuntu_bionic_amd64/lastBuild/testReport/(root)/sensor_msgs/)
+Results of these feature tests can be found [here](http://build.ros2.org/view/Fpr/job/Fpr__common_interfaces__ubuntu_focal_amd64/lastCompletedBuild/testReport/(root)/sensor_msgs/)
 
 ### Public API Testing [4.ii]
 
 Each part of the public non-generated C++ API has tests, and new additions or changes to the public API require tests before being added.
 The tests aim to cover both typical usage and corner cases, but are quantified by contributing to code coverage.
 
-Results of these API tests can be found [here](http://build.ros2.org/view/Epr/job/Epr__common_interfaces__ubuntu_bionic_amd64/lastBuild/testReport/(root)/sensor_msgs/)
+Results of these API tests can be found [here](http://build.ros2.org/view/Fpr/job/Fpr__common_interfaces__ubuntu_focal_amd64/lastCompletedBuild/testReport/(root)/sensor_msgs/)
 
 ### Coverage [4.iii]
 
@@ -104,17 +104,17 @@ Results of these API tests can be found [here](http://build.ros2.org/view/Epr/jo
 
 `sensor_msgs` uses and passes all the standard linters and static analysis tools for its generated C++ and Python code to ensure it follows the [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#linters).
 
-Results of the nightly linter tests can be found [here](http://build.ros2.org/view/Epr/job/Epr__common_interfaces__ubuntu_bionic_amd64/lastBuild/testReport/sensor_msgs/).
+Results of the nightly linter tests can be found [here](http://build.ros2.org/view/Fpr/job/Fpr__common_interfaces__ubuntu_focal_amd64/lastCompletedBuild/testReport/sensor_msgs/).
 
 ## Dependencies [5]
 
 ### Direct Runtime ROS Dependencies [5.i]/[5.ii]
 
-`sensor_msgs` has the following runtime ROS dependencies, which are at or above Quality Level 2:
-* `builtin_interfaces`: [QL 2](https://github.com/ros2/rcl_interfaces/tree/foxy/builtin_interfaces/QUALITY_DECLARATION.md)
-* `geometry_msgs`: [QL 2](../geometry_msgs/QUALITY_DECLARATION.md)
-* `rosidl_default_runtime` [QL 2](https://github.com/ros2/rosidl_defaults/tree/foxy/rosidl_default_runtime/QUALITY_DECLARATION.md)
-* `std_msgs`: [QL 2](../std_msgs/QUALITY_DECLARATION.md)
+`sensor_msgs` has the following runtime ROS dependencies, which are at **Quality Level 1**:
+* `builtin_interfaces`: [QUALITY DECLARATION](https://github.com/ros2/rcl_interfaces/tree/foxy/builtin_interfaces/QUALITY_DECLARATION.md)
+* `geometry_msgs`: [QUALITY DECLARATION](../geometry_msgs/QUALITY_DECLARATION.md)
+* `rosidl_default_runtime` [QUALITY DECLARATION](https://github.com/ros2/rosidl_defaults/tree/foxy/rosidl_default_runtime/QUALITY_DECLARATION.md)
+* `std_msgs`: [QUALITY DECLARATION](../std_msgs/QUALITY_DECLARATION.md)
 
 It has several "buildtool" dependencies, which do not affect the resulting quality of the package, because they do not contribute to the public library API.
 
@@ -126,11 +126,11 @@ It has several "buildtool" dependencies, which do not affect the resulting quali
 
 `sensor_msgs` supports all of the tier 1 platforms as described in [REP-2000](https://www.ros.org/reps/rep-2000.html#support-tiers), and tests each change against all of them.
 
-Currently nightly results can be seen here:
-* [linux-aarch64_release](https://ci.ros2.org/view/nightly/job/nightly_linux-aarch64_release/lastBuild/testReport/sensor_msgs/)
-* [linux_release](https://ci.ros2.org/view/nightly/job/nightly_linux_release/lastBuild/testReport/sensor_msgs/)
-* [mac_osx_release](https://ci.ros2.org/view/nightly/job/nightly_osx_release/lastBuild/testReport/sensor_msgs/)
-* [windows_release](https://ci.ros2.org/view/nightly/job/nightly_win_rel/lastBuild/testReport/sensor_msgs/)
+Though there are no nightly jobs for foxy outside of linux, each change is tested on ci.ros2.org.
+* [linux-aarch64](https://ci.ros2.org/job/ci_linux-aarch64)
+* [linux](https://ci.ros2.org/job/ci_linux)
+* [mac_osx](https://ci.ros2.org/job/ci_osx)
+* [windows](https://ci.ros2.org/job/ci_windows)
 
 ## Vulnerability Disclosure Policy [7.i]
 
