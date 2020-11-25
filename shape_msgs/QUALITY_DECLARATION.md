@@ -2,9 +2,9 @@ This document is a declaration of software quality for the `shape_msgs` package,
 
 # `shape_msgs` Quality Declaration
 
-The package `shape_msgs` claims to be in the **Quality Level 2** category.
+The package `shape_msgs` claims to be in the **Quality Level 1** category as long as it is used with a **Quality Level 1** middleware.
 
-Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Requirements for Quality Level 2 in REP-2004](https://www.ros.org/reps/rep-2004.html).
+Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Requirements for Quality Level 1 in REP-2004](https://www.ros.org/reps/rep-2004.html).
 
 ## Version Policy [1]
 
@@ -82,15 +82,15 @@ There are no currently copyrighted source files in this package.
 
 `shape_msgs` uses and passes all the standard linters and static analysis tools for its generated C++ and Python code to ensure it follows the [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#linters).
 
-Results of the nightly linter tests can be found [here](http://build.ros2.org/view/Epr/job/Epr__common_interfaces__ubuntu_bionic_amd64/lastBuild/testReport/shape_msgs/).
+Results of the nightly linter tests can be found [here](http://build.ros2.org/view/Rpr/job/Rpr__common_interfaces__ubuntu_focal_amd64/lastCompletedBuild/testReport/shape_msgs/).
 
 ## Dependencies [5]
 
 ### Direct Runtime ROS Dependencies [5.i]/[5.ii]
 
-`shape_msgs` has the following runtime ROS dependencies, which are at or above Quality Level 2:
-* `geometry_msgs`: [QL 2](../geometry_msgs/QUALITY_DECLARATION.md)
-* `rosidl_default_runtime` [QL 2](https://github.com/ros2/rosidl_defaults/tree/master/rosidl_default_runtime/QUALITY_DECLARATION.md)
+`shape_msgs` has the following runtime ROS dependencies, which are at **Quality Level 1**:
+* `geometry_msgs`: [QUALITY DECLARATION](../geometry_msgs/QUALITY_DECLARATION.md)
+* `rosidl_default_runtime` [QUALITY DECLARATION](https://github.com/ros2/rosidl_defaults/tree/master/rosidl_default_runtime/QUALITY_DECLARATION.md)
 
 It has several "buildtool" dependencies, which do not affect the resulting quality of the package, because they do not contribute to the public library API.
 
