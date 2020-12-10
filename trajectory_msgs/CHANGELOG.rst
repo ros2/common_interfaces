@@ -2,8 +2,8 @@
 Changelog for package trajectory_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.2.0 (2020-12-10)
+------------------
 * Update QDs to QL 1 (`#135 <https://github.com/ros2/common_interfaces/issues/135>`_)
 * Update package maintainers. (`#132 <https://github.com/ros2/common_interfaces/issues/132>`_)
 * Updated Quality Level to 2 (`#131 <https://github.com/ros2/common_interfaces/issues/131>`_)

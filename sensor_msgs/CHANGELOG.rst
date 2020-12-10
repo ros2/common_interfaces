@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.2.0 (2020-12-10)
+------------------
 * Add coverage/performance to qd for sensor_msgs (`#137 <https://github.com/ros2/common_interfaces/issues/137>`_)
 * Update QDs to QL 1 (`#135 <https://github.com/ros2/common_interfaces/issues/135>`_)
 * Update package maintainers. (`#132 <https://github.com/ros2/common_interfaces/issues/132>`_)

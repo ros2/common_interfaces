@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs_py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.2.0 (2020-12-10)
+------------------
 * Port of point_cloud2.py from ROS1 to ROS2. As seperate pkg. (`#128 <https://github.com/ros2/common_interfaces/issues/128>`_)
 * Contributors: Sebastian Grans
 
