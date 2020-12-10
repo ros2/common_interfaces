@@ -2,6 +2,14 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add coverage/performance to qd for sensor_msgs (`#137 <https://github.com/ros2/common_interfaces/issues/137>`_)
+* Update QDs to QL 1 (`#135 <https://github.com/ros2/common_interfaces/issues/135>`_)
+* Update package maintainers. (`#132 <https://github.com/ros2/common_interfaces/issues/132>`_)
+* Updated Quality Level to 2 (`#131 <https://github.com/ros2/common_interfaces/issues/131>`_)
+* Contributors: Alejandro Hernández Cordero, Michel Hidalgo, Stephen Brawner
+
 2.1.0 (2020-07-21)
 ------------------
 
