@@ -2,6 +2,9 @@
 Changelog for package actionlib_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 2.2.0 (2020-12-10)
 ------------------
 * Update package maintainers. (`#132 <https://github.com/ros2/common_interfaces/issues/132>`_)

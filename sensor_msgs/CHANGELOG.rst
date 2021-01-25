@@ -2,6 +2,11 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix PointCloud2Iterator namespacing in docs (`#139 <https://github.com/ros2/common_interfaces/issues/139>`_)
+* Contributors: Andre Nguyen
+
 2.2.0 (2020-12-10)
 ------------------
 * Add coverage/performance to qd for sensor_msgs (`#137 <https://github.com/ros2/common_interfaces/issues/137>`_)
