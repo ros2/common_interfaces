@@ -67,6 +67,7 @@ if(BUILD_TESTING)
   include_directories(include)
   ament_add_gtest(test_sensor_msgs
     test/test_image_encodings.cpp
+    test/test_point_cloud_msg_wrapper.cpp
     test/test_pointcloud_conversion.cpp
     test/test_pointcloud_iterator.cpp)
   if(TARGET test_sensor_msgs)
