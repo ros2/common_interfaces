@@ -61,6 +61,24 @@ struct PointWithCustomField
   }
 };
 
+struct CustomAlignedPoint
+{
+  float x;
+  float y;
+  float z;
+  alignas(double) std::uint8_t intensity;
+  double ring;
+  friend bool operator==(const CustomAlignedPoint & p1, const CustomAlignedPoint & p2) noexcept
+  {
+    return
+      ::nearly_equal(p1.x, p2.x) &&
+      ::nearly_equal(p1.y, p2.y) &&
+      ::nearly_equal(p1.z, p2.z) &&
+      ::nearly_equal(p1.ring, p2.ring) &&
+      (p1.intensity == p2.intensity);
+  }
+};
+
 struct PointNotPresentInAllPointTypes {std::int8_t x;};
 
 template<typename PointT>
@@ -92,6 +110,7 @@ using AllPointTypes = ::testing::Types<
   PointXYZI,
   ClassPointXY,
   PointXYWithVirtualDestructor,
+  CustomAlignedPoint,
   GeometryPointXYZ>;
 // cppcheck-suppress syntaxError - trailing comma is the only way to remove the compiler warning.
 TYPED_TEST_SUITE(PointCloudMsgWrapperTest, AllPointTypes, );
