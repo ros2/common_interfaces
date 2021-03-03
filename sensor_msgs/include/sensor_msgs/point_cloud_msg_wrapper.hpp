@@ -138,6 +138,11 @@ public:
   /// Needed for std::back_inserter.
   using value_type = PointT;
 
+  // TODO(igor): figure out a way to automatically find out the type of a container.
+  using iterator = typename std::vector<PointT>::iterator;
+  using const_iterator = typename std::vector<PointT>::const_iterator;
+
+
   ///
   /// @brief      A const iterator over the underlying point cloud message.
   ///
@@ -298,14 +303,14 @@ public:
   }
 
   /// An iterator to the beginning of data.  Only compiled if point cloud message type is not const.
-  COMPILE_IF_MUTABLE(CloudMsgT, Iterator) begin() noexcept
+  COMPILE_IF_MUTABLE(CloudMsgT, iterator) begin() noexcept
   {
-    return Iterator{this, 0UL};
+    return iterator{reinterpret_cast<PointT *>(&m_cloud_ref.data[0U])};
   }
   /// An iterator to the end of data. Only compiled if point cloud message type is not const.
-  COMPILE_IF_MUTABLE(CloudMsgT, Iterator) end() noexcept
+  COMPILE_IF_MUTABLE(CloudMsgT, iterator) end() noexcept
   {
-    return Iterator{this, size()};
+    return iterator{reinterpret_cast<PointT *>(&m_cloud_ref.data[m_cloud_ref.data.size()])};
   }
 
   /// @brief      Reset the message fields to match the members of the PointT struct. The point
@@ -326,13 +331,20 @@ public:
   }
 
   /// A constant iterator to the beginning of data.
-  ConstIterator begin() const noexcept {return cbegin();}
+  const_iterator begin() const noexcept {return cbegin();}
   /// A constant iterator to the end of data.
-  ConstIterator end() const noexcept {return cend();}
+  const_iterator end() const noexcept {return cend();}
   /// A constant iterator to the beginning of data.
-  ConstIterator cbegin() const noexcept {return ConstIterator{this, 0UL};}
+  const_iterator cbegin() const noexcept
+  {
+    return const_iterator{reinterpret_cast<const PointT * const>(&m_cloud_ref.data[0U])};
+  }
   /// A constant iterator to the end of data.
-  ConstIterator cend() const noexcept {return ConstIterator{this, size()};}
+  const_iterator cend() const noexcept
+  {
+    return const_iterator{
+      reinterpret_cast<const PointT * const>(&m_cloud_ref.data[m_cloud_ref.data.size()])};
+  }
 
 private:
   /// Allocate additional memory in the end of data field of the message.
@@ -404,79 +416,6 @@ private:
 
   /// A reference to the cloud message.
   CloudMsgT & m_cloud_ref;
-};
-
-template<typename PointT, typename CloudMsgT, typename FieldGenerators>
-class PointCloudMsgWrapper<PointT, CloudMsgT, FieldGenerators>::ConstIterator
-{
-public:
-  using iterator_category = std::random_access_iterator_tag;
-  using value_type = PointT;
-  using difference_type = std::ptrdiff_t;
-  using reference = const PointT &;
-  using pointer = const PointT * const;
-
-  explicit ConstIterator(const PointCloudMsgWrapper * wrapper, std::size_t index)
-    : m_wrapper {wrapper}, m_index{index} {}
-
-  reference operator*() const noexcept {return m_wrapper->operator[](m_index);}
-
-  ConstIterator & operator++() noexcept
-  {
-    ++m_index;
-    return *this;
-  }
-
-  bool operator==(const ConstIterator & other) const noexcept
-  {
-    return (m_wrapper == other.m_wrapper) && (m_index == other.m_index);
-  }
-
-  bool operator!=(const ConstIterator & other) const noexcept
-  {
-    return !(*this == other);
-  }
-
-private:
-  const PointCloudMsgWrapper * m_wrapper{};
-  std::size_t m_index{};
-};
-
-template<typename PointT, typename CloudMsgT, typename FieldGenerators>
-class PointCloudMsgWrapper<PointT, CloudMsgT, FieldGenerators>::Iterator
-{
-public:
-  using iterator_category = std::random_access_iterator_tag;
-  using value_type = PointT;
-  using difference_type = std::ptrdiff_t;
-  using reference = PointT &;
-  using pointer = PointT *;
-
-  explicit Iterator(PointCloudMsgWrapper * wrapper, std::size_t index)
-    : m_wrapper {wrapper}, m_index{index} {}
-
-  PointT & operator*() noexcept {return (*m_wrapper)[m_index];}
-  const PointT & operator*() const noexcept{return (*m_wrapper)[m_index];}
-
-  Iterator & operator++() noexcept
-  {
-    ++m_index;
-    return *this;
-  }
-
-  bool operator==(const Iterator & other) const noexcept
-  {
-    return (m_wrapper == other.m_wrapper) && (m_index == other.m_index);
-  }
-
-  bool operator!=(const Iterator & other) const noexcept
-  {
-    return !(*this == other);
-  }
-
-private:
-  PointCloudMsgWrapper * m_wrapper{};
-  std::size_t m_index{};
 };
 
 /// A typedef for the PointCloudMsgWrapper to represent a view that wraps a const cloud message.
