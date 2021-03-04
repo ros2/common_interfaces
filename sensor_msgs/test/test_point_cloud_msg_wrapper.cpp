@@ -165,6 +165,8 @@ TYPED_TEST(PointCloudMsgWrapperTest, check_reading_and_writing_generic_points)
   for (auto i = 0U; i < points.size(); ++i) {
     EXPECT_EQ(points[i], cloud_wrapper[i]);
   }
+  EXPECT_EQ(points.front(), cloud_wrapper.front());
+  EXPECT_EQ(points.back(), cloud_wrapper.back());
 
   cloud_wrapper.resize(3U);
   EXPECT_EQ(cloud_wrapper.size(), 3U);

@@ -250,6 +250,15 @@ public:
   /// Check if the point cloud message stores no points.
   bool empty() const noexcept {return m_cloud_ref.width == 0U;}
 
+  /// Get the first point.
+  COMPILE_IF_MUTABLE(CloudMsgT, PointT &) front() noexcept {return *begin();}
+  /// Get the first point.
+  const PointT & front() const noexcept {return *begin();}
+  /// Get the last point.
+  COMPILE_IF_MUTABLE(CloudMsgT, PointT &) back() noexcept {return *rbegin();}
+  /// Get the last point.
+  const PointT & back() const noexcept {return *rbegin();}
+
   /// Get a point reference at the specified index.
   /// @throws std::runtime_error if the index is out of bounds.
   const PointT & at(const std::size_t index) const
@@ -315,11 +324,11 @@ public:
     return iterator{reinterpret_cast<PointT *>(&m_cloud_ref.data[m_cloud_ref.data.size()])};
   }
   /// A reverse iterator staring position.  Only compiled if point cloud message type is not const.
-  COMPILE_IF_MUTABLE(CloudMsgT, iterator) rbegin() noexcept {
+  COMPILE_IF_MUTABLE(CloudMsgT, reverse_iterator) rbegin() noexcept {
     return std::make_reverse_iterator(end());
   }
   /// A reverse iterator end position.  Only compiled if point cloud message type is not const.
-  COMPILE_IF_MUTABLE(CloudMsgT, iterator) rend() noexcept {
+  COMPILE_IF_MUTABLE(CloudMsgT, reverse_iterator) rend() noexcept {
     return std::make_reverse_iterator(begin());
   }
   /// A constant iterator to the beginning of data.
