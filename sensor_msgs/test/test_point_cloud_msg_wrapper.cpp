@@ -93,6 +93,8 @@ template<>
 PointXYWithVirtualDestructor create_point();
 template<>
 GeometryPointXYZ create_point();
+template<>
+CustomAlignedPoint create_point();
 
 LIDAR_UTILS__DEFINE_FIELD_GENERATOR_FOR_MEMBER(non_standard_test_field);
 
@@ -351,4 +353,6 @@ GeometryPointXYZ create_point()
   point.set__x(42.0F).set__y(23.0F).set__x(13.0F);
   return point;
 }
+template<>
+CustomAlignedPoint create_point() {return CustomAlignedPoint{42.0F, 23.0F, 4242.0F, 23, 2323.0F};}
 }  // namespace
