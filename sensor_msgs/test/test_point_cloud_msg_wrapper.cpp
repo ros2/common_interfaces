@@ -166,6 +166,13 @@ TYPED_TEST(PointCloudMsgWrapperTest, check_reading_and_writing_generic_points)
     EXPECT_EQ(points[i], cloud_wrapper[i]);
   }
 
+  cloud_wrapper.resize(3U);
+  EXPECT_EQ(cloud_wrapper.size(), 3U);
+  // Check that the untouched points stayed the same.
+  for (auto i = 0U; i < points.size(); ++i) {
+    EXPECT_EQ(points[i], cloud_wrapper[i]);
+  }
+
   // Change values.
   for (auto & point : cloud_wrapper) {
     point = PointT{};
@@ -203,6 +210,11 @@ TYPED_TEST(PointCloudMsgWrapperTest, iterators) {
   const PointCloud2View<PointT> const_wrapper{const_cloud};
   for (const auto & point : const_wrapper) {
     EXPECT_EQ(PointT{}, point);
+  }
+
+  // Check the reverse iteration.
+  for (auto riter = const_wrapper.rbegin(); riter != const_wrapper.rend(); ++riter) {
+    EXPECT_EQ(PointT{}, *riter);
   }
 }
 
