@@ -55,7 +55,8 @@ using DefaultFieldGenerators = std::tuple<
   field_z_generator,
   field_id_generator,
   field_ring_generator,
-  field_intensity_generator>;
+  field_intensity_generator,
+  field_timestamp_generator>;
 
 constexpr std::size_t MAX = 18446744073709551615UL;
 }  // namespace detail

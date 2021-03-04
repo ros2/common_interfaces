@@ -67,14 +67,14 @@ struct CustomAlignedPoint
   float y;
   float z;
   alignas(double) std::uint8_t intensity;
-  double ring;
+  double timestamp;
   friend bool operator==(const CustomAlignedPoint & p1, const CustomAlignedPoint & p2) noexcept
   {
     return
       ::nearly_equal(p1.x, p2.x) &&
       ::nearly_equal(p1.y, p2.y) &&
       ::nearly_equal(p1.z, p2.z) &&
-      ::nearly_equal(p1.ring, p2.ring) &&
+      ::nearly_equal(p1.timestamp, p2.timestamp) &&
       (p1.intensity == p2.intensity);
   }
 };
