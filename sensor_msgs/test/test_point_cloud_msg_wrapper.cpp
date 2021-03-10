@@ -252,7 +252,7 @@ TEST(PointCloudMsgWrapperTest, point_with_custom_field) {
   EXPECT_FLOAT_EQ(initialized_wrapper.at(0U).x, 42.0F);
   EXPECT_DOUBLE_EQ(initialized_wrapper.at(0U).non_standard_test_field, 42.0);
   EXPECT_EQ(initialized_wrapper.at(0U).y, 23);
-  EXPECT_THROW(initialized_wrapper.at(1U), std::runtime_error);
+  EXPECT_THROW(initialized_wrapper.at(1U), std::out_of_range);
   EXPECT_FLOAT_EQ(initialized_wrapper[0U].x, 42.0F);
   EXPECT_DOUBLE_EQ(initialized_wrapper[0U].non_standard_test_field, 42.0);
   EXPECT_EQ(initialized_wrapper[0U].y, 23);

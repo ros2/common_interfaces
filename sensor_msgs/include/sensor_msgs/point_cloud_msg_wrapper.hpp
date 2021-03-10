@@ -189,7 +189,7 @@ public:
               "Point cloud was created with a point of different sizeof. "
               "Are the point members in the same order?");
     }
-    if (m_cloud_ref.point_step * m_cloud_ref.width != m_cloud_ref.data.size()) {
+    if (sizeof(PointT) * m_cloud_ref.width != m_cloud_ref.data.size()) {
       throw std::runtime_error(
               "Point cloud data size does not match fit the specified amount of points.");
     }
@@ -230,8 +230,8 @@ public:
   COMPILE_IF_MUTABLE(CloudMsgT, void) push_back(const PointT & point)
   {
     PointT point_copy{point};
-    extend_data_by(m_cloud_ref.point_step);
-    m_cloud_ref.row_step += m_cloud_ref.point_step;
+    extend_data_by(sizeof(PointT));
+    m_cloud_ref.row_step += sizeof(PointT);
     m_cloud_ref.width++;
     this->operator[](m_cloud_ref.width - 1U) = point_copy;
   }
@@ -239,8 +239,8 @@ public:
   /// @brief      Push a new point into the message.
   COMPILE_IF_MUTABLE(CloudMsgT, void) push_back(PointT && point)
   {
-    extend_data_by(m_cloud_ref.point_step);
-    m_cloud_ref.row_step += m_cloud_ref.point_step;
+    extend_data_by(sizeof(PointT));
+    m_cloud_ref.row_step += sizeof(PointT);
     m_cloud_ref.width++;
     this->operator[](m_cloud_ref.width - 1U) = std::move(point);
   }
@@ -265,31 +265,35 @@ public:
   const PointT & at(const std::size_t index) const
   {
     if (index >= size()) {
-      throw std::runtime_error("Cannot get point, index too large.");
+      throw std::out_of_range(
+              "Index is out of bounds, " +
+              std::to_string(index) + " >= " + std::to_string(size()));
     }
     return reinterpret_cast<const PointT &>(
-      *(m_cloud_ref.data.data() + index * m_cloud_ref.point_step));
+      *(m_cloud_ref.data.data() + index * sizeof(PointT)));
   }
   /// Get a point reference at the specified index. Only compiled if message is not const.
   /// @throws std::runtime_error if the index is out of bounds.
   COMPILE_IF_MUTABLE(CloudMsgT, PointT &) at(const std::size_t index)
   {
     if (index >= size()) {
-      throw std::runtime_error("Cannot get point, index too large.");
+      throw std::out_of_range(
+              "Index is out of bounds, " +
+              std::to_string(index) + " >= " + std::to_string(size()));
     }
-    return reinterpret_cast<PointT &>(*(m_cloud_ref.data.data() + index * m_cloud_ref.point_step));
+    return reinterpret_cast<PointT &>(*(m_cloud_ref.data.data() + index * sizeof(PointT)));
   }
 
   /// Get a point reference at the specified index.
   const PointT & operator[](const std::size_t index) const noexcept
   {
     return *reinterpret_cast<const PointT * const>(
-      m_cloud_ref.data.data() + index * m_cloud_ref.point_step);
+      m_cloud_ref.data.data() + index * sizeof(PointT));
   }
   /// Get a point reference as a specified index.  Only compiled if message type is not const.
   COMPILE_IF_MUTABLE(CloudMsgT, PointT &) operator[](const std::size_t index) noexcept
   {
-    return *reinterpret_cast<PointT *>(m_cloud_ref.data.data() + index * m_cloud_ref.point_step);
+    return *reinterpret_cast<PointT *>(m_cloud_ref.data.data() + index * sizeof(PointT));
   }
 
   /// @brief      Reset the message fields to match the members of the PointT struct. The point
@@ -306,13 +310,13 @@ public:
 
   /// @brief      Allocate memory to hold a specified number of points.
   COMPILE_IF_MUTABLE(CloudMsgT, void) reserve(const size_t expected_number_of_points) {
-    m_cloud_ref.data.reserve(m_cloud_ref.point_step * expected_number_of_points);
+    m_cloud_ref.data.reserve(sizeof(PointT) * expected_number_of_points);
   }
 
   /// @brief      Resize the container to hold a given number of points.
   COMPILE_IF_MUTABLE(CloudMsgT, void) resize(const size_t new_number_of_points) {
     m_cloud_ref.width = new_number_of_points;
-    m_cloud_ref.row_step = m_cloud_ref.width * m_cloud_ref.point_step;
+    m_cloud_ref.row_step = m_cloud_ref.width * sizeof(PointT);
     m_cloud_ref.data.resize(m_cloud_ref.row_step);
   }
 
