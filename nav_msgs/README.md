@@ -4,7 +4,7 @@ This package provides several messages and services for robotic navigation.
 
 For more information about the navigation2 stack in ROS 2, see https://ros-planning.github.io/navigation2/.
 
-For more information about ROS 2 interfaces, see [index.ros2.org](https://index.ros.org/doc/ros2/Concepts/About-ROS-Interfaces/)
+For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros.org/en/rolling/Concepts/About-ROS-Interfaces.html).
 
 ## Messages (.msg)
 * [GridCells](msg/GridCells.msg): An array of cells in a 2D grid.

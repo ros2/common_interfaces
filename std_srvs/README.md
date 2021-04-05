@@ -2,7 +2,7 @@
 
 This package provides several service definitions for standard but simple ROS services.
 
-For more information about ROS 2 interfaces, see [index.ros2.org](https://index.ros.org/doc/ros2/Concepts/About-ROS-Interfaces/)
+For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros.org/en/rolling/Concepts/About-ROS-Interfaces.html).
 
 ## Services (.srv)
 * [Empty.srv](srv/Empty.srv): A service containing an empty request and response.

@@ -4,7 +4,7 @@ This package provides messages for visualizing 3D information in ROS GUI program
 
 These messages were ported from ROS 1 and for now the [visualization_msgs wiki](http://wiki.ros.org/visualization_msgs) is still a good place for information about these messages and how they are used.
 
-For more information about ROS 2 interfaces, see [index.ros2.org](https://index.ros.org/doc/ros2/Concepts/About-ROS-Interfaces/)
+For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros.org/en/rolling/Concepts/About-ROS-Interfaces.html).
 
 ## Messages (.msg)
 * [ImageMarker](msg/ImageMarker.msg): A marker to overlay on displayed images.

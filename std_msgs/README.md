@@ -2,7 +2,7 @@
 
 `std_msgs` provides many basic message types. Only a few messages are intended for incorporation into higher-level messages. The primitive and primitive array types should generally not be relied upon for long-term use.
 
-For more information about ROS 2 interfaces, see [index.ros2.org](https://index.ros.org/doc/ros2/Concepts/About-ROS-Interfaces/)
+For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros.org/en/rolling/Concepts/About-ROS-Interfaces.html).
 
 ## Messages (.msg)
 * [ColorRGBA](msg/ColorRGBA.msg): A single RGBA value for representing colors.
