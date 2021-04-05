@@ -2,7 +2,7 @@
 
 This package provides several messages for defining robotic joint trajectories.
 
-For more information about ROS 2 interfaces, see [index.ros2.org](https://index.ros.org/doc/ros2/Concepts/About-ROS-Interfaces/)
+For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros.org/en/rolling/Concepts/About-ROS-Interfaces.html).
 
 ## Messages (.msg)
 * [JointTrajectory](msg/JointTrajectory.msg): A coordinated sequence of joint configurations to be reached at prescribed time points.

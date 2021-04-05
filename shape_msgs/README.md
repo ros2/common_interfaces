@@ -2,7 +2,7 @@
 
 This package provides several messages and services for describing 3-dimensional shapes.
 
-For more information about ROS 2 interfaces, see [index.ros2.org](https://index.ros.org/doc/ros2/Concepts/About-ROS-Interfaces/)
+For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros.org/en/rolling/Concepts/About-ROS-Interfaces.html).
 
 ## Messages (.msg)
 * [Mesh](msg/Mesh.msg): Holds information describing a mesh for visualization and collision detections.
