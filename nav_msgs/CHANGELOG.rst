@@ -2,8 +2,8 @@
 Changelog for package nav_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.2.2 (2021-04-06)
+------------------
 * Change index.ros.org -> docs.ros.org. (`#149 <https://github.com/ros2/common_interfaces/issues/149>`_)
 * updating quality declaration links (re: `ros2/docs.ros2.org#52 <https://github.com/ros2/docs.ros2.org/issues/52>`_) (`#145 <https://github.com/ros2/common_interfaces/issues/145>`_)
 * Contributors: Chris Lalancette, shonigmann
