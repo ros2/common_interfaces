@@ -2,6 +2,12 @@
 Changelog for package shape_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Change index.ros.org -> docs.ros.org. (`#149 <https://github.com/ros2/common_interfaces/issues/149>`_)
+* updating quality declaration links (re: `ros2/docs.ros2.org#52 <https://github.com/ros2/docs.ros2.org/issues/52>`_) (`#145 <https://github.com/ros2/common_interfaces/issues/145>`_)
+* Contributors: Chris Lalancette, shonigmann
+
 2.2.1 (2021-01-25)
 ------------------
 
