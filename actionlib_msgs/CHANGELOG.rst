@@ -2,6 +2,12 @@
 Changelog for package actionlib_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.4 (2021-04-14)
+------------------
+* Updated links to foxy branch
+* Contributors: Alejandro Hernández Cordero
+
+
 2.0.3 (2020-07-21)
 ------------------
 
