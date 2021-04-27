@@ -2,6 +2,11 @@
 Changelog for package sensor_msgs_py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Use underscores instead of dashes in setup.cfg (`#150 <https://github.com/ros2/common_interfaces/issues/150>`_)
+* Contributors: Ivan Santiago Paunovic
+
 2.2.2 (2021-04-06)
 ------------------
 

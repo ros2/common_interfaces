@@ -2,6 +2,9 @@
 Changelog for package visualization_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 2.2.2 (2021-04-06)
 ------------------
 * Change index.ros.org -> docs.ros.org. (`#149 <https://github.com/ros2/common_interfaces/issues/149>`_)
