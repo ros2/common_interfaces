@@ -27,6 +27,7 @@ set(msg_files
   "msg/Marker.msg"
   "msg/MarkerArray.msg"
   "msg/MenuEntry.msg"
+  "msg/UVCoordinate.msg"
 )
 set(srv_files
   "srv/GetInteractiveMarkers.srv"
