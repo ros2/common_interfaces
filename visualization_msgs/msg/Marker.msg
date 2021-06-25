@@ -57,7 +57,7 @@ geometry_msgs/Point[] points
 std_msgs/ColorRGBA[] colors
 
 # Only used if the marker has a UV mapping defined for it or one is defined using uv_coordinates.
-# A URI to where the texture is accessible or the texture itself encoded in Base64.
+# A URI to where the texture is accessible.
 string texture_map
 # Only used when a texture_map is defined and the type specified has some use.
 # Location of each vertex within the texture map; in the range: [0.0-1.0]
