@@ -40,9 +40,7 @@ Author: Dheera Venkatraman
 numpy version of read_points / read_points_list
 """
 
-from collections import namedtuple
 import ctypes
-import math
 import numpy as np
 import struct
 import sys
@@ -71,6 +69,7 @@ _DATATYPES_NUMPY_MAP = {
     PointField.FLOAT64: np.float64,
 }
 
+
 def read_points(cloud, field_names=None, skip_nans=False, uvs=[]):
     """
     Read points from a sensor_msgs.PointCloud2 message.
@@ -85,7 +84,8 @@ def read_points(cloud, field_names=None, skip_nans=False, uvs=[]):
     :return: An iterable for values for each point. For more efficient access use
     read_points_list directly.
     """
-    return iter(read_points_list(cloud, field_names = field_names, skip_nans = skip_nans, uvs = []))
+    return iter(read_points_list(cloud, field_names=field_names, skip_nans=skip_nans, uvs=[]))
+
 
 def read_points_list(cloud, field_names=None, skip_nans=False, uvs=[]):
     """
@@ -113,7 +113,7 @@ def read_points_list(cloud, field_names=None, skip_nans=False, uvs=[]):
         all_field_names.append(field.name)
         assert field.datatype in _DATATYPES_NUMPY_MAP, \
             'invalid datatype %d specified for field %s' % (field.datatype, field.name)
-        field_np_datatype =_DATATYPES_NUMPY_MAP[field.datatype]
+        field_np_datatype = _DATATYPES_NUMPY_MAP[field.datatype]
         np_struct.append((field.name, field_np_datatype))
         total_used_bytes += np.nbytes[field_np_datatype]
 
@@ -123,7 +123,7 @@ def read_points_list(cloud, field_names=None, skip_nans=False, uvs=[]):
     if cloud.point_step > total_used_bytes:
         np_struct.append(('unused_bytes', np.uint8, cloud.point_step - total_used_bytes))
 
-    points = np.frombuffer(cloud.data, dtype = np_struct).view(dtype = np.recarray)
+    points = np.frombuffer(cloud.data, dtype=np_struct).view(dtype=np.recarray)
 
     if skip_nans:
         nan_indexes = None
@@ -132,17 +132,22 @@ def read_points_list(cloud, field_names=None, skip_nans=False, uvs=[]):
                 nan_indexes = np.isnan(points[field_name])
             else:
                 nan_indexes = nan_indexes | np.isnan(points[field_name])
-        
+
         points = points[~nan_indexes]
 
     if uvs:
         fetch_indexes = [(v * cloud.width + u) for u, v in uvs]
         points = points[fetch_indexes]
-    
+
+    # if endianness between cloud and system doesn't match then byteswap everything
+    if cloud.is_bigendian == np.little_endian:
+        points = points.byteswap()
+
     if field_names is None:
         return points
-    else: 
+    else:
         return points[list(field_names)]
+
 
 def create_cloud(header, fields, points):
     """
