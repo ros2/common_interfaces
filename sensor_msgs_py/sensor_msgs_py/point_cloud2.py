@@ -40,6 +40,7 @@ sensor_msgs/src/sensor_msgs/point_cloud2.py
 from collections import namedtuple
 import ctypes
 import math
+import numpy as np
 import struct
 import sys
 
@@ -56,6 +57,16 @@ _DATATYPES[PointField.UINT32] = ('I', 4)
 _DATATYPES[PointField.FLOAT32] = ('f', 4)
 _DATATYPES[PointField.FLOAT64] = ('d', 8)
 
+_DATATYPES_NUMPY_MAP = {
+    PointField.INT8: np.int8,
+    PointField.UINT8: np.uint8,
+    PointField.INT16: np.int16,
+    PointField.UINT16: np.uint16,
+    PointField.INT32: np.int32,
+    PointField.UINT32: np.uint32,
+    PointField.FLOAT32: np.float32,
+    PointField.FLOAT64: np.float64,
+}
 
 def read_points(cloud, field_names=None, skip_nans=False, uvs=[]):
     """
@@ -68,81 +79,67 @@ def read_points(cloud, field_names=None, skip_nans=False, uvs=[]):
                       (Type: Bool, Default: False)
     :param uvs: If specified, then only return the points at the given
         coordinates. (Type: Iterable, Default: empty list)
-    :return: Generator which yields a list of values for each point.
+    :return: An iterable for values for each point. For more efficient access use
+    read_points_list directly.
     """
-    assert isinstance(cloud, PointCloud2), \
-        'cloud is not a sensor_msgs.msg.PointCloud2'
-    fmt = _get_struct_fmt(cloud.is_bigendian, cloud.fields, field_names)
-    width, height, point_step, row_step, data, isnan = \
-        cloud.width, cloud.height, \
-        cloud.point_step, cloud.row_step, \
-        cloud.data, math.isnan
-
-    unpack_from = struct.Struct(fmt).unpack_from
-
-    if skip_nans:
-        if uvs:
-            for u, v in uvs:
-                p = unpack_from(data, (row_step * v) + (point_step * u))
-                has_nan = False
-                for pv in p:
-                    if isnan(pv):
-                        has_nan = True
-                        break
-                if not has_nan:
-                    yield p
-        else:
-            for v in range(height):
-                offset = row_step * v
-                for u in range(width):
-                    p = unpack_from(data, offset)
-                    has_nan = False
-                    for pv in p:
-                        if isnan(pv):
-                            has_nan = True
-                            break
-                    if not has_nan:
-                        yield p
-                    offset += point_step
-    else:
-        if uvs:
-            for u, v in uvs:
-                yield unpack_from(data, (row_step * v) + (point_step * u))
-        else:
-            for v in range(height):
-                offset = row_step * v
-                for u in range(width):
-                    yield unpack_from(data, offset)
-                    offset += point_step
-
+    return iter(read_points_list(cloud, field_names = field_names, skip_nans = skip_nans, uvs = []))
 
 def read_points_list(cloud, field_names=None, skip_nans=False, uvs=[]):
     """
     Read points from a sensor_msgs.PointCloud2 message.
 
-    This function returns a list of namedtuples. It operates on top of the
-    read_points method. For more efficient access use read_points directly.
-
-    :param cloud: The point cloud to read from. (Type: sensor_msgs.PointCloud2)
+    :param cloud: The point cloud to read from sensor_msgs.PointCloud2.
     :param field_names: The names of fields to read. If None, read all fields.
                         (Type: Iterable, Default: None)
     :param skip_nans: If True, then don't return any point with a NaN value.
                       (Type: Bool, Default: False)
     :param uvs: If specified, then only return the points at the given
-                coordinates. (Type: Iterable, Default: empty list]
-    :return: List of namedtuples containing the values for each point
+        coordinates. (Type: Iterable, Default: empty list)
+    :return: numpy.recarray with values for each point.
     """
     assert isinstance(cloud, PointCloud2), \
         'cloud is not a sensor_msgs.msg.PointCloud2'
 
+    assert cloud.point_step * cloud.width * cloud.height == len(cloud.data), \
+        'length of data does not match point_step * width * height'
+
+    all_field_names = []
+    np_struct = []
+    total_used_bytes = 0
+    for field in cloud.fields:
+        all_field_names.append(field.name)
+        assert field.datatype in _DATATYPES_NUMPY_MAP, \
+            'invalid datatype %d specified for field %s' % (field.datatype, field.name)
+        field_np_datatype =_DATATYPES_NUMPY_MAP[field.datatype]
+        np_struct.append((field.name, field_np_datatype))
+        total_used_bytes += np.nbytes[field_np_datatype]
+
+    assert cloud.point_step >= total_used_bytes, \
+        'error: total byte sizes of fields exceeds point_step'
+
+    if cloud.point_step > total_used_bytes:
+        np_struct.append(('unused_bytes', np.uint8, cloud.point_step - total_used_bytes))
+
+    points = np.frombuffer(cloud.data, dtype = np_struct).view(dtype = np.recarray)
+
+    if skip_nans:
+        nan_indexes = None
+        for field_name in all_field_names:
+            if nan_indexes is None:
+                nan_indexes = np.isnan(points[field_name])
+            else:
+                nan_indexes = nan_indexes | np.isnan(points[field_name])
+        
+        points = points[~nan_indexes]
+
+    if uvs:
+        fetch_indexes = [(v * cloud.width + u) for u, v in uvs]
+        points = points[fetch_indexes]
+    
     if field_names is None:
-        field_names = [f.name for f in cloud.fields]
-
-    Point = namedtuple('Point', field_names)
-
-    return [Point._make(p) for p in read_points(cloud, field_names,
-                                                skip_nans, uvs)]
-
+        return points
+    else: 
+        return points[list(field_names)]
 
 def create_cloud(header, fields, points):
     """
