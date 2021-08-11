@@ -2,8 +2,8 @@
 Changelog for package visualization_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.3.0 (2021-08-11)
+------------------
 * Document namespace scoped marker deletion. (`#151 <https://github.com/ros2/common_interfaces/issues/151>`_)
 * Contributors: Michel Hidalgo
 

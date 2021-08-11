@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.3.0 (2021-08-11)
+------------------
 * Use rosidl_get_typesupport_target() (`#156 <https://github.com/ros2/common_interfaces/issues/156>`_)
 * Update CompressedImage documentation: add 'tiff' as a supported format (`#154 <https://github.com/ros2/common_interfaces/issues/154>`_)
 * Contributors: Ivan Santiago Paunovic, Shane Loretz
