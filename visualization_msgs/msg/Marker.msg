@@ -56,8 +56,13 @@ geometry_msgs/Point[] points
 # NOTE: alpha is not yet used
 std_msgs/ColorRGBA[] colors
 
+# Texture resource is a special URI that can either reference a texture file in
+# a format acceptable to libcurl or:
+#   "texture_embedded://texture_name"
+string texture_resource
 # An image to be loaded into the rendering engine as the texture for this marker.
-sensor_msgs/Image texture
+# This will be used iff texture_resource is set to texture_embedded.
+sensor_msgs/CompressedImage texture
 # Location of each vertex within the texture; in the range: [0.0-1.0]
 UVCoordinate[] uv_coordinates
 
