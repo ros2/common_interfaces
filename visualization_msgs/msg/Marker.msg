@@ -71,4 +71,5 @@ string text
 
 # Only used for MESH_RESOURCE markers.
 string mesh_resource
+Mesh mesh
 bool mesh_use_embedded_materials
