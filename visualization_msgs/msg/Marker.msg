@@ -57,8 +57,9 @@ geometry_msgs/Point[] points
 std_msgs/ColorRGBA[] colors
 
 # Texture resource is a special URI that can either reference a texture file in
-# a format acceptable to libcurl or:
-#   "texture_embedded://texture_name"
+# a format acceptable to (resource retriever)[https://index.ros.org/p/resource_retriever/]
+# or an embedded texture via a string matching the format:
+#   "embedded://texture_name"
 string texture_resource
 # An image to be loaded into the rendering engine as the texture for this marker.
 # This will be used iff texture_resource is set to texture_embedded.
@@ -70,6 +71,10 @@ UVCoordinate[] uv_coordinates
 string text
 
 # Only used for MESH_RESOURCE markers.
+# Similar to texture_resource, mesh_resource uses resource retriever to load a mesh.
+# Optionally, a mesh file can be sent in-message via the mesh_file field. If doing so,
+# use the following format for mesh_resource:
+#   "embedded://mesh_name"
 string mesh_resource
-Mesh mesh
+MeshFile mesh_file
 bool mesh_use_embedded_materials
