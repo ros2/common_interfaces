@@ -62,7 +62,7 @@ std_msgs/ColorRGBA[] colors
 #   "embedded://texture_name"
 string texture_resource
 # An image to be loaded into the rendering engine as the texture for this marker.
-# This will be used iff texture_resource is set to texture_embedded.
+# This will be used iff texture_resource is set to embedded.
 sensor_msgs/CompressedImage texture
 # Location of each vertex within the texture; in the range: [0.0-1.0]
 UVCoordinate[] uv_coordinates
