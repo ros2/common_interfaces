@@ -9,6 +9,6 @@ std_msgs/Header header # Header timestamp should be acquisition time of image
 
 string format                # Specifies the format of the data
                              #   Acceptable values:
-                             #     jpeg, png
+                             #     jpeg, png, tiff
 
 uint8[] data                 # Compressed image buffer
