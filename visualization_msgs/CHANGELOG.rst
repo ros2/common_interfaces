@@ -2,8 +2,8 @@
 Changelog for package visualization_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+3.0.0 (2021-08-24)
+------------------
 * Marker Textures (`#153 <https://github.com/ros2/common_interfaces/issues/153>`_)
 * Contributors: Greg Balke
 
