@@ -2,6 +2,9 @@
 Changelog for package diagnostic_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 2.3.0 (2021-08-11)
 ------------------
 
