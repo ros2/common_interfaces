@@ -9,6 +9,8 @@
   <license>Apache License 2.0</license>
 
   <author email="scott@openrobotics.org">Scott K Logan</author>
+  <author email="michael@openrobotics.org">Michael Carroll</author>
+  <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
