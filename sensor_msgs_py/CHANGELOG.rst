@@ -2,6 +2,11 @@
 Changelog for package sensor_msgs_py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Update maintainers to Geoffrey Biggs and Tully Foote (`#163 <https://github.com/ros2/common_interfaces/issues/163>`_)
+* Contributors: Audrow Nash
+
 3.0.0 (2021-08-24)
 ------------------
 
