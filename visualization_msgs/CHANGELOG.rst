@@ -2,8 +2,8 @@
 Changelog for package visualization_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+4.0.0 (2021-12-14)
+------------------
 * Update maintainers to Geoffrey Biggs and Tully Foote (`#163 <https://github.com/ros2/common_interfaces/issues/163>`_)
 * Contributors: Audrow Nash
 

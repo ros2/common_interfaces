@@ -2,8 +2,8 @@
 Changelog for package shape_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+4.0.0 (2021-12-14)
+------------------
 * Add prism type to the SolidPrimitive.msg (`#166 <https://github.com/ros2/common_interfaces/issues/166>`_) (`#167 <https://github.com/ros2/common_interfaces/issues/167>`_)
 * Update maintainers to Geoffrey Biggs and Tully Foote (`#163 <https://github.com/ros2/common_interfaces/issues/163>`_)
 * Contributors: Audrow Nash, M. Fatih Cırıt

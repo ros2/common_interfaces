@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+4.0.0 (2021-12-14)
+------------------
 * Cleanup mislabeled BSD license (`#83 <https://github.com/ros2/common_interfaces/issues/83>`_)
 * Update maintainers to Geoffrey Biggs and Tully Foote (`#163 <https://github.com/ros2/common_interfaces/issues/163>`_)
 * Fix rosdoc2 warnings in sensor_msgs. (`#162 <https://github.com/ros2/common_interfaces/issues/162>`_)
