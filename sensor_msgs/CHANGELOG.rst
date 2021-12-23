@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.5 (2021-12-23)
+------------------
 * Add equidistant distortion model (`#160 <https://github.com/ros2/common_interfaces/issues/160>`_) (`#164 <https://github.com/ros2/common_interfaces/issues/164>`_)
 * Contributors: mergify[bot]
 
