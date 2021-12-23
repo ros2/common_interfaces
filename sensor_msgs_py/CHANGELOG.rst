@@ -2,6 +2,9 @@
 Changelog for package sensor_msgs_py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 2.0.4 (2021-04-14)
 ------------------
 * Add sensor_msgs_py (`#143 <https://github.com/ros2/common_interfaces/issues/143>`_)
