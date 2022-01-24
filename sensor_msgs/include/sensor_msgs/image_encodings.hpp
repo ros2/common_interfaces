@@ -97,6 +97,12 @@ const char BAYER_GRBG16[] = "bayer_grbg16";
 const char YUV422[] = "yuv422";
 // YUYV version: http://www.fourcc.org/pixel-format/yuv-yuy2/
 const char YUV422_YUY2[] = "yuv422_yuy2";
+// YUV 4:2:0 encodings with an 8-bit depth
+// NV12: https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/pixfmt-yuv-planar.html
+const char YUV420[] = "yuv420";
+// YUV 4:4:4 encodings with 8-bit depth 
+// NV24: https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/pixfmt-yuv-planar.html
+const char YUV444[] = "yuv444";
 
 // Prefixes for abstract image encodings
 const char ABSTRACT_ENCODING_PREFIXES[][5] = {
@@ -187,7 +193,9 @@ static inline int numChannels(const std::string & encoding)
   }
 
   if (encoding == YUV422 ||
-    encoding == YUV422_YUY2)
+    encoding == YUV422_YUY2 ||
+    encoding == YUV420 || 
+    encoding == YUV444)
   {
     return 2;
   }
@@ -249,7 +257,9 @@ static inline int bitDepth(const std::string & encoding)
   }
 
   if (encoding == YUV422 ||
-    encoding == YUV422_YUY2)
+    encoding == YUV422_YUY2 ||
+    encoding == YUV420 || 
+    encoding == YUV444)
   {
     return 8;
   }
