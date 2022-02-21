@@ -18,10 +18,9 @@
 
   <buildtool_depend>rosidl_default_generators</buildtool_depend>
 
-  <build_depend>std_msgs</build_depend>
+  <depend>std_msgs</depend>
 
   <exec_depend>rosidl_default_runtime</exec_depend>
-  <exec_depend>std_msgs</exec_depend>
 
   <test_depend>ament_lint_common</test_depend>
 
