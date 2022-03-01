@@ -2,6 +2,12 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Interface packages should fully <depend> on the interface packages that they depend on (`#173 <https://github.com/ros2/common_interfaces/issues/173>`_)
+* Add YUV420 and YUV444 to image encodings (`#172 <https://github.com/ros2/common_interfaces/issues/172>`_)
+* Contributors: Grey, Hemal Shah
+
 4.0.0 (2021-12-14)
 ------------------
 * Cleanup mislabeled BSD license (`#83 <https://github.com/ros2/common_interfaces/issues/83>`_)
