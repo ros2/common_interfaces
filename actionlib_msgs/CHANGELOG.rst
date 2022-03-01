@@ -2,8 +2,8 @@
 Changelog for package actionlib_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+4.1.0 (2022-03-01)
+------------------
 * Interface packages should fully <depend> on the interface packages that they depend on (`#173 <https://github.com/ros2/common_interfaces/issues/173>`_)
 * Contributors: Grey
 
