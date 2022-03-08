@@ -42,7 +42,7 @@ from collections import namedtuple
 from typing import Iterable, List, Optional, NamedTuple
 
 import numpy as np
-import numpy.typing as npt
+from numpy.lib.recfunctions import structured_to_unstructured
 from sensor_msgs.msg import PointCloud2, PointField
 from std_msgs.msg import Header
 
@@ -62,7 +62,7 @@ def read_points(
         field_names: Optional[List[str]] = None,
         skip_nans: bool = False,
         uvs: Optional[Iterable] = None,
-        reshape_organized_cloud: bool = False) -> npt.ArrayLike:
+        reshape_organized_cloud: bool = False) -> np.ndarray:
     """
     Read points from a sensor_msgs.PointCloud2 message.
 
@@ -73,7 +73,7 @@ def read_points(
                       (Type: Bool, Default: False)
     :param uvs: If specified, then only return the points at the given
         coordinates. (Type: Iterable, Default: None)
-    :return: Numpy array containing all points.
+    :return: Structured NumPy array containing all points.
     """
     assert isinstance(cloud, PointCloud2), \
         'Cloud is not a sensor_msgs.msg.PointCloud2'
@@ -135,6 +135,36 @@ def read_points(
         points = points.reshape(cloud.height, cloud.width)
 
     return points
+
+
+def read_points_numpy(
+        cloud: PointCloud2,
+        field_names: Optional[List[str]] = None,
+        skip_nans: bool = False,
+        uvs: Optional[Iterable] = None,
+        reshape_organized_cloud: bool = False) -> np.ndarray:
+    """
+    Read equally typed fields from  sensor_msgs.PointCloud2 message
+    as a unstructured numpy array.
+
+    This method is better suited if one wants to perform build math operations
+    on e.g. all x,y,z fields.
+    But it is limited to fields with the same dtype as unstructured numpy arrays
+    only contain one dtype.
+
+    :param cloud: The point cloud to read from sensor_msgs.PointCloud2.
+    :param field_names: The names of fields to read. If None, read all fields.
+                        (Type: Iterable, Default: None)
+    :param skip_nans: If True, then don't return any point with a NaN value.
+                      (Type: Bool, Default: False)
+    :param uvs: If specified, then only return the points at the given
+        coordinates. (Type: Iterable, Default: None)
+    :return: Numpy array containing all points.
+    """
+    assert all(cloud.fields[0].datatype == field.datatype for field in cloud.fields[1:]), \
+        "All fields need to have the same datatype. Use `read_points()` otherwise."
+    structured_numpy_array = read_points(cloud, field_names, skip_nans, uvs, reshape_organized_cloud)
+    return structured_to_unstructured(structured_numpy_array)
 
 
 def read_points_list(
