@@ -39,11 +39,11 @@ sensor_msgs/src/sensor_msgs/point_cloud2.py
 
 import sys
 from collections import namedtuple
-from typing import Iterable, List, Optional, NamedTuple
+from typing import Iterable, List, NamedTuple, Optional
 
 import numpy as np
-from numpy.lib.recfunctions import \
-    structured_to_unstructured, unstructured_to_structured
+from numpy.lib.recfunctions import (structured_to_unstructured,
+                                    unstructured_to_structured)
 from sensor_msgs.msg import PointCloud2, PointField
 from std_msgs.msg import Header
 
