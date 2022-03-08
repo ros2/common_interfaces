@@ -37,27 +37,31 @@ https://github.com/ros/common_msgs/blob/f48b00d43cdb82ed9367e0956db332484f676598
 sensor_msgs/src/sensor_msgs/point_cloud2.py
 """
 
-from collections import namedtuple
-import ctypes
-import math
-import struct
 import sys
+from collections import namedtuple
+from typing import Iterable, List, Optional, NamedTuple
 
+import numpy as np
+import numpy.typing as npt
 from sensor_msgs.msg import PointCloud2, PointField
-
+from std_msgs.msg import Header
 
 _DATATYPES = {}
-_DATATYPES[PointField.INT8] = ('b', 1)
-_DATATYPES[PointField.UINT8] = ('B', 1)
-_DATATYPES[PointField.INT16] = ('h', 2)
-_DATATYPES[PointField.UINT16] = ('H', 2)
-_DATATYPES[PointField.INT32] = ('i', 4)
-_DATATYPES[PointField.UINT32] = ('I', 4)
-_DATATYPES[PointField.FLOAT32] = ('f', 4)
-_DATATYPES[PointField.FLOAT64] = ('d', 8)
+_DATATYPES[PointField.INT8] = (np.int8, 8)
+_DATATYPES[PointField.UINT8] = (np.uint8, 8)
+_DATATYPES[PointField.INT16] = (np.int16, 16)
+_DATATYPES[PointField.UINT16] = (np.uint16, 16)
+_DATATYPES[PointField.INT32] = (np.int32, 32)
+_DATATYPES[PointField.UINT32] = (np.uint32, 32)
+_DATATYPES[PointField.FLOAT32] = (np.float32, 32)
+_DATATYPES[PointField.FLOAT64] = (np.float64, 64)
 
 
-def read_points(cloud, field_names=None, skip_nans=False, uvs=[]):
+def read_points(
+        cloud: PointCloud2,
+        field_names: Optional[List[str]] = None,
+        skip_nans: bool = False,
+        uvs: Optional[Iterable] = None) -> npt.ArrayLike:
     """
     Read points from a sensor_msgs.PointCloud2 message.
 
@@ -67,56 +71,60 @@ def read_points(cloud, field_names=None, skip_nans=False, uvs=[]):
     :param skip_nans: If True, then don't return any point with a NaN value.
                       (Type: Bool, Default: False)
     :param uvs: If specified, then only return the points at the given
-        coordinates. (Type: Iterable, Default: empty list)
-    :return: Generator which yields a list of values for each point.
+        coordinates. (Type: Iterable, Default: None)
+    :return: Numpy array containing all points.
     """
     assert isinstance(cloud, PointCloud2), \
         'cloud is not a sensor_msgs.msg.PointCloud2'
-    fmt = _get_struct_fmt(cloud.is_bigendian, cloud.fields, field_names)
-    width, height, point_step, row_step, data, isnan = \
-        cloud.width, cloud.height, \
-        cloud.point_step, cloud.row_step, \
-        cloud.data, math.isnan
 
-    unpack_from = struct.Struct(fmt).unpack_from
+    assert all(x.datatype==cloud.fields[0].datatype for x in cloud.fields), \
+        'cloud fields have non equal data types'
+
+    # Create a list containing the indices of all used fields
+    if field_names is None:
+        field_ids = list(range(len(cloud.fields)))
+    else:
+        field_ids = list(map(
+            lambda field: field[0],
+            filter(
+                lambda field: field[1].name in field_names,
+                enumerate(cloud.fields))))
+
+    # Cast bytes to numpy array
+    points = np.ndarray(
+        shape=(cloud.width, len(cloud.fields)),
+        # Limitation: only one datatype per point cloud is possible, not per field
+        dtype=_DATATYPES[cloud.fields[0].datatype][0],
+        buffer=cloud.data)
+
+    # Swap array if byte order does not match
+    if bool(sys.byteorder != "little") ^ bool(cloud.is_bigendian):
+        points = points.byteswap(inplace=True)
 
     if skip_nans:
-        if uvs:
-            for u, v in uvs:
-                p = unpack_from(data, (row_step * v) + (point_step * u))
-                has_nan = False
-                for pv in p:
-                    if isnan(pv):
-                        has_nan = True
-                        break
-                if not has_nan:
-                    yield p
-        else:
-            for v in range(height):
-                offset = row_step * v
-                for u in range(width):
-                    p = unpack_from(data, offset)
-                    has_nan = False
-                    for pv in p:
-                        if isnan(pv):
-                            has_nan = True
-                            break
-                    if not has_nan:
-                        yield p
-                    offset += point_step
+        # Mask points without any nan values
+        nan_mask = ~np.isnan(points).any(axis=1)
+        # Select these points
+        points = points[nan_mask]
+
+    if uvs is None:
+        # Index requested fields
+        points = points[:, field_ids]
     else:
-        if uvs:
-            for u, v in uvs:
-                yield unpack_from(data, (row_step * v) + (point_step * u))
-        else:
-            for v in range(height):
-                offset = row_step * v
-                for u in range(width):
-                    yield unpack_from(data, offset)
-                    offset += point_step
+        # Don't convert to numpy if it is already one
+        if not isinstance(uvs, np.ndarray):
+            uvs = np.fromiter(uvs, int)
+        # Index requested points
+        points = points[uvs, field_ids]
+
+    return points
 
 
-def read_points_list(cloud, field_names=None, skip_nans=False, uvs=[]):
+def read_points_list(
+        cloud: PointCloud2,
+        field_names: Optional[List[str]] = None,
+        skip_nans: bool = False,
+        uvs: Optional[Iterable] = None) -> List[NamedTuple]:
     """
     Read points from a sensor_msgs.PointCloud2 message.
 
@@ -129,7 +137,7 @@ def read_points_list(cloud, field_names=None, skip_nans=False, uvs=[]):
     :param skip_nans: If True, then don't return any point with a NaN value.
                       (Type: Bool, Default: False)
     :param uvs: If specified, then only return the points at the given
-                coordinates. (Type: Iterable, Default: empty list]
+                coordinates. (Type: Iterable, Default: None]
     :return: List of namedtuples containing the values for each point
     """
     assert isinstance(cloud, PointCloud2), \
@@ -144,10 +152,12 @@ def read_points_list(cloud, field_names=None, skip_nans=False, uvs=[]):
                                                 skip_nans, uvs)]
 
 
-def create_cloud(header, fields, points):
+def create_cloud(
+        header: Header,
+        fields: List[PointField],
+        points: Iterable) -> PointCloud2:
     """
     Create a sensor_msgs.msg.PointCloud2 message.
-
     :param header: The point cloud header. (Type: std_msgs.msg.Header)
     :param fields: The point cloud fields.
                    (Type: iterable of sensor_msgs.msg.PointField)
@@ -157,28 +167,28 @@ def create_cloud(header, fields, points):
                    the fields parameter)
     :return: The point cloud as sensor_msgs.msg.PointCloud2
     """
-    cloud_struct = struct.Struct(_get_struct_fmt(False, fields))
+    # Convert to numpy if it isn't already
+    points = np.asarray(points, dtype=_DATATYPES[fields[0].datatype][0])
+    # Convert data to f32, flatten it and cat it to a byte string
+    data = points.reshape(-1).tobytes()
+    # Define offsets
+    point_value_bits = _DATATYPES[fields[0].datatype][1]
+    point_num_values = len(fields)
+    point_bytes = (point_num_values * point_value_bits) // 8 # Bytes used by one point
+    # Put everything together
+    return PointCloud2(
+        header = header,
+        height = 1,
+        width = len(points),
+        is_dense = False,
+        is_bigendian = False,
+        fields = fields,
+        point_step = point_bytes,
+        row_step = point_bytes * len(points),
+        data = data)
 
-    buff = ctypes.create_string_buffer(cloud_struct.size * len(points))
 
-    point_step, pack_into = cloud_struct.size, cloud_struct.pack_into
-    offset = 0
-    for p in points:
-        pack_into(buff, offset, *p)
-        offset += point_step
-
-    return PointCloud2(header=header,
-                       height=1,
-                       width=len(points),
-                       is_dense=False,
-                       is_bigendian=False,
-                       fields=fields,
-                       point_step=cloud_struct.size,
-                       row_step=cloud_struct.size * len(points),
-                       data=buff.raw)
-
-
-def create_cloud_xyz32(header, points):
+def create_cloud_xyz32(header: Header, points: Iterable) -> PointCloud2:
     """
     Create a sensor_msgs.msg.PointCloud2 message with (x, y, z) fields.
 
@@ -193,23 +203,3 @@ def create_cloud_xyz32(header, points):
               PointField(name='z', offset=8,
                          datatype=PointField.FLOAT32, count=1)]
     return create_cloud(header, fields, points)
-
-
-def _get_struct_fmt(is_bigendian, fields, field_names=None):
-    fmt = '>' if is_bigendian else '<'
-
-    offset = 0
-    for field in (f for f in sorted(fields, key=lambda f: f.offset)
-                  if field_names is None or f.name in field_names):
-        if offset < field.offset:
-            fmt += 'x' * (field.offset - offset)
-            offset = field.offset
-        if field.datatype not in _DATATYPES:
-            print('Skipping unknown PointField datatype [%d]' %
-                  field.datatype, file=sys.stderr)
-        else:
-            datatype_fmt, datatype_length = _DATATYPES[field.datatype]
-            fmt += field.count * datatype_fmt
-            offset += field.count * datatype_length
-
-    return fmt
