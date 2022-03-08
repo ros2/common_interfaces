@@ -42,19 +42,20 @@ from collections import namedtuple
 from typing import Iterable, List, Optional, NamedTuple
 
 import numpy as np
-from numpy.lib.recfunctions import structured_to_unstructured
+from numpy.lib.recfunctions import \
+    structured_to_unstructured, unstructured_to_structured
 from sensor_msgs.msg import PointCloud2, PointField
 from std_msgs.msg import Header
 
 _DATATYPES = {}
-_DATATYPES[PointField.INT8] = (np.int8, 8)
-_DATATYPES[PointField.UINT8] = (np.uint8, 8)
-_DATATYPES[PointField.INT16] = (np.int16, 16)
-_DATATYPES[PointField.UINT16] = (np.uint16, 16)
-_DATATYPES[PointField.INT32] = (np.int32, 32)
-_DATATYPES[PointField.UINT32] = (np.uint32, 32)
-_DATATYPES[PointField.FLOAT32] = (np.float32, 32)
-_DATATYPES[PointField.FLOAT64] = (np.float64, 64)
+_DATATYPES[PointField.INT8] = np.dtype(np.int8)
+_DATATYPES[PointField.UINT8] = np.dtype(np.uint8)
+_DATATYPES[PointField.INT16] = np.dtype(np.int16)
+_DATATYPES[PointField.UINT16] = np.dtype(np.uint16)
+_DATATYPES[PointField.INT32] = np.dtype(np.int32)
+_DATATYPES[PointField.UINT32] = np.dtype(np.uint32)
+_DATATYPES[PointField.FLOAT32] = np.dtype(np.float32)
+_DATATYPES[PointField.FLOAT64] = np.dtype(np.float64)
 
 
 def read_points(
@@ -78,32 +79,15 @@ def read_points(
     assert isinstance(cloud, PointCloud2), \
         'Cloud is not a sensor_msgs.msg.PointCloud2'
 
-    # Create a list containing the names of all fields
-    all_field_names = []
-    for i, field in enumerate(cloud.fields):
-        if field.name == "":
-            name = f"unnamed_field_{i}"
-        else:
-            name = field.name
-        assert not name in all_field_names, "Duplicate field names are not allowed!"
-        all_field_names.append(name)
-
-    # Create a tuple for each field containing name and data type
-    dtype = np.dtype({
-        'names': all_field_names,
-        'formats': [np.dtype(_DATATYPES[field.datatype][0]).str for field in cloud.fields],
-        'offsets': [field.offset for field in cloud.fields],
-    })
-
     # Cast bytes to numpy array
     points = np.ndarray(
         shape=(cloud.width * cloud.height, ),
-        dtype=dtype,
+        dtype=dtype_from_fields(cloud.fields),
         buffer=cloud.data)
 
     # Keep the only requested fields
     if field_names is not None:
-        assert all(field_name in all_field_names for field_name in field_names), \
+        assert all(field_name in points.dtype.names for field_name in field_names), \
             "Requests field is not in the fields of the PointCloud!"
         # Mask fields
         points = points[list(field_names)]
@@ -132,7 +116,7 @@ def read_points(
 
     # Cast into 2d array if cloud is 'organized'
     if reshape_organized_cloud and cloud.height > 1:
-        points = points.reshape(cloud.height, cloud.width)
+        points = points.reshape(cloud.width, cloud.height)
 
     return points
 
@@ -199,9 +183,35 @@ def read_points_list(
                                                 skip_nans, uvs)]
 
 
+def dtype_from_fields(fields: Iterable[PointField]) -> np.dtype:
+    """
+    Converts a Iterable of sensor_msgs.msg.PointField messages to a np.dtype.
+
+    :param fields: The point cloud fields.
+                   (Type: iterable of sensor_msgs.msg.PointField)
+    :returns: NumPy datatype
+    """
+    # Create a list containing the names of all fields
+    field_names = []
+    for i, field in enumerate(fields):
+        if field.name == "":
+            name = f"unnamed_field_{i}"
+        else:
+            name = field.name
+        assert not name in field_names, "Duplicate field names are not allowed!"
+        field_names.append(name)
+
+    # Create a tuple for each field containing name and data type
+    return np.dtype({
+        'names': field_names,
+        'formats': [_DATATYPES[field.datatype].str for field in fields],
+        'offsets': [field.offset for field in fields],
+    })
+
+
 def create_cloud(
         header: Header,
-        fields: List[PointField],
+        fields: Iterable[PointField],
         points: Iterable) -> PointCloud2:
     """
     Create a sensor_msgs.msg.PointCloud2 message.
@@ -214,25 +224,53 @@ def create_cloud(
                    the fields parameter)
     :return: The point cloud as sensor_msgs.msg.PointCloud2
     """
-    # Convert to numpy if it isn't already
-    points = np.asarray(points, dtype=_DATATYPES[fields[0].datatype][0])
-    # Convert data to f32, flatten it and cat it to a byte string
-    data = points.reshape(-1).tobytes()
-    # Define offsets
-    point_value_bits = _DATATYPES[fields[0].datatype][1]
-    point_num_values = len(fields)
-    point_bytes = (point_num_values * point_value_bits) // 8 # Bytes used by one point
+    # Check if input is numpy array
+    if isinstance(points, np.ndarray):
+        # Check if this is an unstructured array
+        if points.dtype.names is None:
+            assert all(fields[0].datatype == field.datatype for field in fields[1:]), \
+                "All fields need to have the same datatype. Pass a structured NumPy array with multiple dtypes otherwise."
+            # Convert unstructured to structured array
+            points = unstructured_to_structured(
+                points,
+                dtype = dtype_from_fields(fields))
+        else:
+            assert len(points.dtype.names) == len(fields), \
+                "The number of fields in the structured NumPy array and the PointFields do not match!"
+            assert all(points.dtype.formats[i] == _DATATYPES[fields[i].datatype].str for i in range(len(fields))), \
+                f"PointField and structured NumPy array do not match data types for all fields! \
+                  Check their order. \n \
+                  The field datatypes are: {','.join(list(map(lambda field: _DATATYPES[field.datatype].str, fields)))} \n \
+                  The NumPy datatypes are: {','.join(points.dtype.formats)}"
+            # TODO check if that is the proper way to rename this
+            points.dtype.names = [field.name for field in fields]
+    else:
+        # Cast python objects to structured NumPy array (slow)
+        points = np.array(
+            # Points need to be tuples in the structured array
+            list(map(tuple, points)),
+            dtype=dtype_from_fields(fields))
+
+    # Handle organized clouds
+    assert len(points.shape) <= 2, \
+        "Too many dimensions for organized cloud! Points can only be organized in max. two dimensional space"
+    height = 1
+    width = points.shape[0]
+    # Check if input points where an organized cloud (2D array of points)
+    if len(points.shape) == 2:
+        height = points.shape[1]
+
     # Put everything together
     return PointCloud2(
         header = header,
-        height = 1,
-        width = len(points),
+        height = height,
+        width = width,
         is_dense = False,
-        is_bigendian = False,
+        is_bigendian = sys.byteorder != 'little',
         fields = fields,
-        point_step = point_bytes,
-        row_step = point_bytes * len(points),
-        data = data)
+        point_step = points.dtype.itemsize,
+        row_step = (points.dtype.itemsize * len(points)) // height,
+        data = points.tobytes())
 
 
 def create_cloud_xyz32(header: Header, points: Iterable) -> PointCloud2:
