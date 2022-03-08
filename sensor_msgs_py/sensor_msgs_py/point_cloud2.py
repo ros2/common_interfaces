@@ -61,7 +61,8 @@ def read_points(
         cloud: PointCloud2,
         field_names: Optional[List[str]] = None,
         skip_nans: bool = False,
-        uvs: Optional[Iterable] = None) -> npt.ArrayLike:
+        uvs: Optional[Iterable] = None,
+        reshape_organized_cloud: bool = False) -> npt.ArrayLike:
     """
     Read points from a sensor_msgs.PointCloud2 message.
 
@@ -75,47 +76,63 @@ def read_points(
     :return: Numpy array containing all points.
     """
     assert isinstance(cloud, PointCloud2), \
-        'cloud is not a sensor_msgs.msg.PointCloud2'
+        'Cloud is not a sensor_msgs.msg.PointCloud2'
 
-    assert all(x.datatype==cloud.fields[0].datatype for x in cloud.fields), \
-        'cloud fields have non equal data types'
+    # Create a list containing the names of all fields
+    all_field_names = []
+    for i, field in enumerate(cloud.fields):
+        if field.name == "":
+            name = f"unnamed_field_{i}"
+        else:
+            name = field.name
+        assert not name in all_field_names, "Duplicate field names are not allowed!"
+        all_field_names.append(name)
 
-    # Create a list containing the indices of all used fields
-    if field_names is None:
-        field_ids = list(range(len(cloud.fields)))
-    else:
-        field_ids = list(map(
-            lambda field: field[0],
-            filter(
-                lambda field: field[1].name in field_names,
-                enumerate(cloud.fields))))
+    # Create a tuple for each field containing name and data type
+    dtype = np.dtype({
+        'names': all_field_names,
+        'formats': [np.dtype(_DATATYPES[field.datatype][0]).str for field in cloud.fields],
+        'offsets': [field.offset for field in cloud.fields],
+    })
 
     # Cast bytes to numpy array
     points = np.ndarray(
-        shape=(cloud.width, len(cloud.fields)),
-        # Limitation: only one datatype per point cloud is possible, not per field
-        dtype=_DATATYPES[cloud.fields[0].datatype][0],
+        shape=(cloud.width * cloud.height, ),
+        dtype=dtype,
         buffer=cloud.data)
 
+    # Keep the only requested fields
+    if field_names is not None:
+        assert all(field_name in all_field_names for field_name in field_names), \
+            "Requests field is not in the fields of the PointCloud!"
+        # Mask fields
+        points = points[list(field_names)]
+
     # Swap array if byte order does not match
-    if bool(sys.byteorder != "little") ^ bool(cloud.is_bigendian):
+    if bool(sys.byteorder != "little") != bool(cloud.is_bigendian):
         points = points.byteswap(inplace=True)
 
-    if skip_nans:
-        # Mask points without any nan values
-        nan_mask = ~np.isnan(points).any(axis=1)
+    # Check if we want to drop points with nan values
+    if skip_nans and not cloud.is_dense:
+        # Init mask which selects all points
+        not_nan_mask = np.ones(len(points), dtype=np.bool)
+        for field_name in points.dtype.names:
+            # Only keep points without any non values in the mask
+            not_nan_mask = np.logical_and(not_nan_mask, ~np.isnan(points[field_name]))
         # Select these points
-        points = points[nan_mask]
+        points = points[not_nan_mask]
 
-    if uvs is None:
-        # Index requested fields
-        points = points[:, field_ids]
-    else:
-        # Don't convert to numpy if it is already one
+    # Select points indexed by the uvs field
+    if uvs is not None:
+        # Don't convert to numpy array if it is already one
         if not isinstance(uvs, np.ndarray):
             uvs = np.fromiter(uvs, int)
         # Index requested points
-        points = points[uvs, field_ids]
+        points = points[uvs]
+
+    # Cast into 2d array if cloud is 'organized'
+    if reshape_organized_cloud and cloud.height > 1:
+        points = points.reshape(cloud.height, cloud.width)
 
     return points
 
