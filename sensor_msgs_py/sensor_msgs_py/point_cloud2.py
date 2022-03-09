@@ -238,18 +238,9 @@ def create_cloud(
                 points,
                 dtype=dtype_from_fields(fields))
         else:
-            assert len(points.dtype.names) == len(fields), \
-                "The number of fields in the structured NumPy \
-                    array and the PointFields do not match!"
-
-            all_fields_have_matching_datatypes = all(map(
-                lambda i: points.dtype.formats[i] == _DATATYPES[fields[i].datatype].str,
-                range(len(fields))))
-            assert all_fields_have_matching_datatypes, \
-                "PointField and structured NumPy array do not match data types for all fields! \
-                    Check their order and types."
-            # TODO check if that is the proper way to rename this
-            points.dtype.names = [field.name for field in fields]
+            assert points.dtype == dtype_from_fields(fields), \
+                "PointFields and structured NumPy array dtype do not match for all fields! \
+                    Check their field order, names and types."
     else:
         # Cast python objects to structured NumPy array (slow)
         points = np.array(
@@ -276,7 +267,7 @@ def create_cloud(
         is_bigendian=sys.byteorder != 'little',
         fields=fields,
         point_step=points.dtype.itemsize,
-        row_step=(points.dtype.itemsize * len(points)) // height,
+        row_step=(points.dtype.itemsize * width),
         data=points.tobytes())
 
 
