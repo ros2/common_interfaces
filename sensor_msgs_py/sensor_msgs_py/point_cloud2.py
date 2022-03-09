@@ -129,8 +129,7 @@ def read_points_numpy(
         uvs: Optional[Iterable] = None,
         reshape_organized_cloud: bool = False) -> np.ndarray:
     """
-    Read equally typed fields from  sensor_msgs.PointCloud2 message
-    as a unstructured numpy array.
+    Read equally typed fields from  sensor_msgs.PointCloud2 message as a unstructured numpy array.
 
     This method is better suited if one wants to perform build math operations
     on e.g. all x,y,z fields.
@@ -187,7 +186,7 @@ def read_points_list(
 
 def dtype_from_fields(fields: Iterable[PointField]) -> np.dtype:
     """
-    Converts a Iterable of sensor_msgs.msg.PointField messages to a np.dtype.
+    Convert a Iterable of sensor_msgs.msg.PointField messages to a np.dtype.
 
     :param fields: The point cloud fields.
                    (Type: iterable of sensor_msgs.msg.PointField)
@@ -217,6 +216,7 @@ def create_cloud(
         points: Iterable) -> PointCloud2:
     """
     Create a sensor_msgs.msg.PointCloud2 message.
+
     :param header: The point cloud header. (Type: std_msgs.msg.Header)
     :param fields: The point cloud fields.
                    (Type: iterable of sensor_msgs.msg.PointField)
