@@ -102,7 +102,8 @@ def read_points(
         not_nan_mask = np.ones(len(points), dtype=np.bool)
         for field_name in points.dtype.names:
             # Only keep points without any non values in the mask
-            not_nan_mask = np.logical_and(not_nan_mask, ~np.isnan(points[field_name]))
+            not_nan_mask = np.logical_and(
+                not_nan_mask, ~np.isnan(points[field_name]))
         # Select these points
         points = points[not_nan_mask]
 
@@ -147,7 +148,8 @@ def read_points_numpy(
     """
     assert all(cloud.fields[0].datatype == field.datatype for field in cloud.fields[1:]), \
         "All fields need to have the same datatype. Use `read_points()` otherwise."
-    structured_numpy_array = read_points(cloud, field_names, skip_nans, uvs, reshape_organized_cloud)
+    structured_numpy_array = read_points(
+        cloud, field_names, skip_nans, uvs, reshape_organized_cloud)
     return structured_to_unstructured(structured_numpy_array)
 
 
@@ -233,7 +235,7 @@ def create_cloud(
             # Convert unstructured to structured array
             points = unstructured_to_structured(
                 points,
-                dtype = dtype_from_fields(fields))
+                dtype=dtype_from_fields(fields))
         else:
             assert len(points.dtype.names) == len(fields), \
                 "The number of fields in the structured NumPy array and the PointFields do not match!"
@@ -262,15 +264,15 @@ def create_cloud(
 
     # Put everything together
     return PointCloud2(
-        header = header,
-        height = height,
-        width = width,
-        is_dense = False,
-        is_bigendian = sys.byteorder != 'little',
-        fields = fields,
-        point_step = points.dtype.itemsize,
-        row_step = (points.dtype.itemsize * len(points)) // height,
-        data = points.tobytes())
+        header=header,
+        height=height,
+        width=width,
+        is_dense=False,
+        is_bigendian=sys.byteorder != 'little',
+        fields=fields,
+        point_step=points.dtype.itemsize,
+        row_step=(points.dtype.itemsize * len(points)) // height,
+        data=points.tobytes())
 
 
 def create_cloud_xyz32(header: Header, points: Iterable) -> PointCloud2:
