@@ -90,12 +90,12 @@ class TestPointCloud2Methods(unittest.TestCase):
     def test_read_points(self):
         # Test that converting a PointCloud2 to a list, is equivalent to
         # the original list of points.
-        pcd_list = list(point_cloud2.read_points(pcd))
+        pcd_list = list(map(list, point_cloud2.read_points(pcd)))
         self.assertTrue(np.allclose(pcd_list, pylist, equal_nan=True))
 
     def test_read_points_field(self):
         # Test that field selection is working.
-        pcd_list = list(point_cloud2.read_points(pcd, field_names=['x', 'z']))
+        pcd_list = list(map(list, point_cloud2.read_points(pcd, field_names=['x', 'z'])))
         # Check correct shape.
         self.assertTrue(np.array(pcd_list).shape == points[:, [0, 2]].shape)
         # Check "correct" values.
@@ -104,7 +104,7 @@ class TestPointCloud2Methods(unittest.TestCase):
 
     def test_read_points_skip_nan(self):
         # Test that removing NaNs work.
-        pcd_list = list(point_cloud2.read_points(pcd, skip_nans=True))
+        pcd_list = list(map(list, point_cloud2.read_points(pcd, skip_nans=True)))
         points_nonan = points[~np.any(np.isnan(points), axis=1)]
         # Check correct shape
         self.assertTrue(np.array(pcd_list).shape == points_nonan.shape)
