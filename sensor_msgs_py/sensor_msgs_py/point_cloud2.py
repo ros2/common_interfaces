@@ -99,7 +99,7 @@ def read_points(
     # Check if we want to drop points with nan values
     if skip_nans and not cloud.is_dense:
         # Init mask which selects all points
-        not_nan_mask = np.ones(len(points), dtype=np.bool)
+        not_nan_mask = np.ones(len(points), dtype=bool)
         for field_name in points.dtype.names:
             # Only keep points without any non values in the mask
             not_nan_mask = np.logical_and(
@@ -199,7 +199,7 @@ def dtype_from_fields(fields: Iterable[PointField]) -> np.dtype:
             name = f"unnamed_field_{i}"
         else:
             name = field.name
-        assert not name in field_names, "Duplicate field names are not allowed!"
+        assert name not in field_names, "Duplicate field names are not allowed!"
         field_names.append(name)
 
     # Create a tuple for each field containing name and data type
@@ -231,19 +231,23 @@ def create_cloud(
         # Check if this is an unstructured array
         if points.dtype.names is None:
             assert all(fields[0].datatype == field.datatype for field in fields[1:]), \
-                "All fields need to have the same datatype. Pass a structured NumPy array with multiple dtypes otherwise."
+                "All fields need to have the same datatype. Pass a structured NumPy array \
+                    with multiple dtypes otherwise."
             # Convert unstructured to structured array
             points = unstructured_to_structured(
                 points,
                 dtype=dtype_from_fields(fields))
         else:
             assert len(points.dtype.names) == len(fields), \
-                "The number of fields in the structured NumPy array and the PointFields do not match!"
-            assert all(points.dtype.formats[i] == _DATATYPES[fields[i].datatype].str for i in range(len(fields))), \
-                f"PointField and structured NumPy array do not match data types for all fields! \
-                  Check their order. \n \
-                  The field datatypes are: {','.join(list(map(lambda field: _DATATYPES[field.datatype].str, fields)))} \n \
-                  The NumPy datatypes are: {','.join(points.dtype.formats)}"
+                "The number of fields in the structured NumPy \
+                    array and the PointFields do not match!"
+
+            all_fields_have_matching_datatypes = all(map(
+                lambda i: points.dtype.formats[i] == _DATATYPES[fields[i].datatype].str,
+                range(len(fields))))
+            assert all_fields_have_matching_datatypes, \
+                "PointField and structured NumPy array do not match data types for all fields! \
+                    Check their order and types."
             # TODO check if that is the proper way to rename this
             points.dtype.names = [field.name for field in fields]
     else:
@@ -255,7 +259,8 @@ def create_cloud(
 
     # Handle organized clouds
     assert len(points.shape) <= 2, \
-        "Too many dimensions for organized cloud! Points can only be organized in max. two dimensional space"
+        "Too many dimensions for organized cloud! \
+            Points can only be organized in max. two dimensional space"
     height = 1
     width = points.shape[0]
     # Check if input points where an organized cloud (2D array of points)
