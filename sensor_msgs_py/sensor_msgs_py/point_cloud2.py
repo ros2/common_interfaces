@@ -85,7 +85,7 @@ def read_points(
         dtype=dtype_from_fields(cloud.fields),
         buffer=cloud.data)
 
-    # Keep the only requested fields
+    # Keep only the requested fields
     if field_names is not None:
         assert all(field_name in points.dtype.names for field_name in field_names), \
             "Requests field is not in the fields of the PointCloud!"
