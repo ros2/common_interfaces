@@ -74,6 +74,7 @@ def read_points(
                       (Type: Bool, Default: False)
     :param uvs: If specified, then only return the points at the given
         coordinates. (Type: Iterable, Default: None)
+    :param reshape_organized_cloud: Returns the array as an 2D organized point cloud if set.
     :return: Structured NumPy array containing all points.
     """
     assert isinstance(cloud, PointCloud2), \
@@ -129,7 +130,7 @@ def read_points_numpy(
         uvs: Optional[Iterable] = None,
         reshape_organized_cloud: bool = False) -> np.ndarray:
     """
-    Read equally typed fields from  sensor_msgs.PointCloud2 message as a unstructured numpy array.
+    Read equally typed fields from sensor_msgs.PointCloud2 message as a unstructured numpy array.
 
     This method is better suited if one wants to perform build math operations
     on e.g. all x,y,z fields.
@@ -143,6 +144,7 @@ def read_points_numpy(
                       (Type: Bool, Default: False)
     :param uvs: If specified, then only return the points at the given
         coordinates. (Type: Iterable, Default: None)
+    :param reshape_organized_cloud: Returns the array as an 2D organized point cloud if set.
     :return: Numpy array containing all points.
     """
     assert all(cloud.fields[0].datatype == field.datatype for field in cloud.fields[1:]), \
