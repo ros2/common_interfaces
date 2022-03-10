@@ -130,6 +130,25 @@ pcd4 = PointCloud2(
     data=struct_points.tobytes()
 )
 
+# Point cloud with a field with count > 1
+count = 3
+fields5 = [PointField(name='x', offset=0, datatype=PointField.FLOAT32, count=3)]
+
+itemsize = points.itemsize * count
+data = points.tobytes()
+
+pcd5 = PointCloud2(
+    header=Header(frame_id='frame'),
+    height=1,
+    width=points.shape[0],
+    is_dense=False,
+    is_bigendian=sys.byteorder != 'little',
+    fields=fields5,
+    point_step=(itemsize),
+    row_step=(itemsize * points.shape[0]),
+    data=data
+)
+
 
 class TestPointCloud2Methods(unittest.TestCase):
 
@@ -196,6 +215,18 @@ class TestPointCloud2Methods(unittest.TestCase):
                 for name in struct_points.dtype.names))
         self.assertEqual(struct_points.dtype, pcd_points.dtype)
 
+    def test_read_points_non_one_count(self):
+        pcd_points = point_cloud2.read_points_numpy(pcd5)
+        self.assertTrue(
+            np.allclose(pcd_points, points, equal_nan=True))
+
+    def test_read_points_non_one_count_structured(self):
+        pcd_points = point_cloud2.read_points(pcd5)
+        pcd_points_unstructured = structured_to_unstructured(pcd_points)
+        self.assertTrue(
+            np.allclose(pcd_points_unstructured, points, equal_nan=True))
+        self.assertEqual(pcd_points.dtype.names, ("x_0", "x_1", "x_2"))
+
     def test_create_cloud(self):
         thispcd = point_cloud2.create_cloud(Header(frame_id='frame'),
                                             fields, pylist)
@@ -215,6 +246,12 @@ class TestPointCloud2Methods(unittest.TestCase):
             struct_points)
         self.assertEqual(thispcd, pcd4)
 
+    def test_create_cloud_xyz32(self):
+        thispcd = point_cloud2.create_cloud_xyz32(
+            Header(frame_id='frame'),
+            pylist)
+        self.assertEqual(thispcd, pcd)
+
     def test_create_cloud_xyz32_organized(self):
         # Checks if organized clouds are handled correctly
         thispcd = point_cloud2.create_cloud_xyz32(
@@ -224,11 +261,12 @@ class TestPointCloud2Methods(unittest.TestCase):
         print(pcd3)
         self.assertEqual(thispcd, pcd3)
 
-    def test_create_cloud_xyz32(self):
-        thispcd = point_cloud2.create_cloud_xyz32(
+    def test_create_cloud__non_one_count(self):
+        thispcd = point_cloud2.create_cloud(
             Header(frame_id='frame'),
-            pylist)
-        self.assertEqual(thispcd, pcd)
+            fields5,
+            points)
+        self.assertEqual(thispcd, pcd5)
 
 
 if __name__ == '__main__':

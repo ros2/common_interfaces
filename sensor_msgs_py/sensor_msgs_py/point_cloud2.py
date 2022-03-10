@@ -57,6 +57,8 @@ _DATATYPES[PointField.UINT32] = np.dtype(np.uint32)
 _DATATYPES[PointField.FLOAT32] = np.dtype(np.float32)
 _DATATYPES[PointField.FLOAT64] = np.dtype(np.float64)
 
+DUMMY_FIELD_PREFIX = "unnamed_field"
+
 
 def read_points(
         cloud: PointCloud2,
@@ -194,21 +196,38 @@ def dtype_from_fields(fields: Iterable[PointField]) -> np.dtype:
                    (Type: iterable of sensor_msgs.msg.PointField)
     :returns: NumPy datatype
     """
-    # Create a list containing the names of all fields
+    # Create a lists containing the names, offsets and datatypes of all fields
     field_names = []
+    field_offsets = []
+    field_datatypes = []
     for i, field in enumerate(fields):
+        # Datatype as numpy datatype
+        datatype = _DATATYPES[field.datatype]
+        # Name field
         if field.name == "":
-            name = f"unnamed_field_{i}"
+            name = f"{DUMMY_FIELD_PREFIX}_{i}"
         else:
             name = field.name
-        assert name not in field_names, "Duplicate field names are not allowed!"
-        field_names.append(name)
+        # Handle fields with count > 1 by creating subfields with a suffix consiting
+        # of "_" followed by the subfield counter [0 -> (count - 1)]
+        assert field.count > 0, "Can't process fields with count = 0."
+        for a in range(field.count):
+            # Add suffix if we have multiple subfields
+            if field.count > 1:
+                subfield_name = f"{name}_{a}"
+            else:
+                subfield_name = name
+            assert subfield_name not in field_names, "Duplicate field names are not allowed!"
+            field_names.append(subfield_name)
+            # Create new offset that includes subfields
+            field_offsets.append(field.offset + a * datatype.itemsize)
+            field_datatypes.append(datatype.str)
 
     # Create a tuple for each field containing name and data type
     return np.dtype({
         'names': field_names,
-        'formats': [_DATATYPES[field.datatype].str for field in fields],
-        'offsets': [field.offset for field in fields],
+        'formats': field_datatypes,
+        'offsets': field_offsets,
     })
 
 
