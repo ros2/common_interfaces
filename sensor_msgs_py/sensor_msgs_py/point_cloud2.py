@@ -132,7 +132,7 @@ def read_points_numpy(
     """
     Read equally typed fields from sensor_msgs.PointCloud2 message as a unstructured numpy array.
 
-    This method is better suited if one wants to perform build math operations
+    This method is better suited if one wants to perform math operations
     on e.g. all x,y,z fields.
     But it is limited to fields with the same dtype as unstructured numpy arrays
     only contain one dtype.
