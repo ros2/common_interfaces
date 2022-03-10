@@ -256,7 +256,7 @@ def create_cloud(
             Points can only be organized in max. two dimensional space"
     height = 1
     width = points.shape[0]
-    # Check if input points where an organized cloud (2D array of points)
+    # Check if input points are an organized cloud (2D array of points)
     if len(points.shape) == 2:
         height = points.shape[1]
 
