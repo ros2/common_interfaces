@@ -37,6 +37,7 @@ https://github.com/ros/common_msgs/blob/f48b00d43cdb82ed9367e0956db332484f676598
 sensor_msgs/src/sensor_msgs/point_cloud2.py
 """
 
+import array
 import sys
 from collections import namedtuple
 from typing import Iterable, List, NamedTuple, Optional
@@ -279,8 +280,14 @@ def create_cloud(
     if len(points.shape) == 2:
         height = points.shape[1]
 
+    # Convert numpy points to array.array
+    memory_view = memoryview(points)
+    casted = memory_view.cast("B")
+    array_array = array.array("B")
+    array_array.frombytes(casted)
+
     # Put everything together
-    return PointCloud2(
+    cloud = PointCloud2(
         header=header,
         height=height,
         width=width,
@@ -288,8 +295,11 @@ def create_cloud(
         is_bigendian=sys.byteorder != 'little',
         fields=fields,
         point_step=points.dtype.itemsize,
-        row_step=(points.dtype.itemsize * width),
-        data=points.tobytes())
+        row_step=(points.dtype.itemsize * width))
+    # Set cloud via property instead of the constructor because of the bug described in
+    # https://github.com/ros2/common_interfaces/issues/176
+    cloud.data = array_array
+    return cloud
 
 
 def create_cloud_xyz32(header: Header, points: Iterable) -> PointCloud2:
