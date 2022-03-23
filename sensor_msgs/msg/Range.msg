@@ -40,4 +40,3 @@ float32 range           # range data [m]
 
 float32 variance        # variance of the range sensor
                         # 0 is interpreted as variance unknown
-
