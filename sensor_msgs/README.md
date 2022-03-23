@@ -9,7 +9,7 @@ For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros
 ## sensor_msgs c++ API
 This package provides some common C++ functionality relating to manipulating a couple of particular sensor_msgs messages.
 
-* [fill_image.hpp](include/sensors_msgs/fill_image.hpp): Fill a Image message from type-erased data pointer.
+* [fill_image.hpp](include/sensor_msgs/fill_image.hpp): Fill a Image message from type-erased data pointer.
 * [image_encodings.hpp](include/sensor_msgs/image_encodings): Definitions and functionality relating to image encodings.
 * [point_cloud_conversion.hpp](include/sensor_msgs/point_cloud_conversion.hpp): Functionality for converting between the deprecated PointCloud and PointCloud2 messages.
 * [point_cloud2_iterator.hpp](include/sensor_msgs/point_cloud2_iterator.hpp): Tools for modifying and parsing PointCloud2 messages.
