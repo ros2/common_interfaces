@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+4.1.1 (2022-03-26)
+------------------
 * Feedback on conditional sensor_msgs_library target (`#1 <https://github.com/ros2/common_interfaces/issues/1>`_) (`#183 <https://github.com/ros2/common_interfaces/issues/183>`_)
 * [Fix] Fix image_encodings.hpp's URL in README (`#184 <https://github.com/ros2/common_interfaces/issues/184>`_)
 * [Fix] Fix fill_image.hpp's URL in README (`#182 <https://github.com/ros2/common_interfaces/issues/182>`_)
