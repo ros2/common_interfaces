@@ -2,6 +2,14 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Feedback on conditional sensor_msgs_library target (`#1 <https://github.com/ros2/common_interfaces/issues/1>`_) (`#183 <https://github.com/ros2/common_interfaces/issues/183>`_)
+* [Fix] Fix image_encodings.hpp's URL in README (`#184 <https://github.com/ros2/common_interfaces/issues/184>`_)
+* [Fix] Fix fill_image.hpp's URL in README (`#182 <https://github.com/ros2/common_interfaces/issues/182>`_)
+* Add sensor_msgs_library target and install headers to include/${PROJECT_NAME} (`#178 <https://github.com/ros2/common_interfaces/issues/178>`_)
+* Contributors: Homalozoa X, Pablo Garrido, Shane Loretz
+
 4.1.0 (2022-03-01)
 ------------------
 * Interface packages should fully <depend> on the interface packages that they depend on (`#173 <https://github.com/ros2/common_interfaces/issues/173>`_)

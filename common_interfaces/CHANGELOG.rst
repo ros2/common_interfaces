@@ -2,6 +2,9 @@
 Changelog for package common_interfaces
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 4.1.0 (2022-03-01)
 ------------------
 
