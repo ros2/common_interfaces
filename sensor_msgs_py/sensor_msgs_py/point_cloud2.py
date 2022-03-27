@@ -38,15 +38,14 @@ sensor_msgs/src/sensor_msgs/point_cloud2.py
 """
 
 import array
-import sys
 from collections import namedtuple
-from typing import Iterable, List, NamedTuple, Optional
-
 import numpy as np
 from numpy.lib.recfunctions import (structured_to_unstructured,
                                     unstructured_to_structured)
+import sys
 from sensor_msgs.msg import PointCloud2, PointField
 from std_msgs.msg import Header
+from typing import Iterable, List, NamedTuple, Optional
 
 _DATATYPES = {}
 _DATATYPES[PointField.INT8] = np.dtype(np.int8)
@@ -58,7 +57,7 @@ _DATATYPES[PointField.UINT32] = np.dtype(np.uint32)
 _DATATYPES[PointField.FLOAT32] = np.dtype(np.float32)
 _DATATYPES[PointField.FLOAT64] = np.dtype(np.float64)
 
-DUMMY_FIELD_PREFIX = "unnamed_field"
+DUMMY_FIELD_PREFIX = 'unnamed_field'
 
 
 def read_points(
@@ -92,12 +91,12 @@ def read_points(
     # Keep only the requested fields
     if field_names is not None:
         assert all(field_name in points.dtype.names for field_name in field_names), \
-            "Requests field is not in the fields of the PointCloud!"
+            'Requests field is not in the fields of the PointCloud!'
         # Mask fields
         points = points[list(field_names)]
 
     # Swap array if byte order does not match
-    if bool(sys.byteorder != "little") != bool(cloud.is_bigendian):
+    if bool(sys.byteorder != 'little') != bool(cloud.is_bigendian):
         points = points.byteswap(inplace=True)
 
     # Check if we want to drop points with nan values
@@ -151,7 +150,7 @@ def read_points_numpy(
     :return: Numpy array containing all points.
     """
     assert all(cloud.fields[0].datatype == field.datatype for field in cloud.fields[1:]), \
-        "All fields need to have the same datatype. Use `read_points()` otherwise."
+        'All fields need to have the same datatype. Use `read_points()` otherwise.'
     structured_numpy_array = read_points(
         cloud, field_names, skip_nans, uvs, reshape_organized_cloud)
     return structured_to_unstructured(structured_numpy_array)
@@ -205,8 +204,8 @@ def dtype_from_fields(fields: Iterable[PointField]) -> np.dtype:
         # Datatype as numpy datatype
         datatype = _DATATYPES[field.datatype]
         # Name field
-        if field.name == "":
-            name = f"{DUMMY_FIELD_PREFIX}_{i}"
+        if field.name == '':
+            name = f'{DUMMY_FIELD_PREFIX}_{i}'
         else:
             name = field.name
         # Handle fields with count > 1 by creating subfields with a suffix consiting
@@ -215,10 +214,10 @@ def dtype_from_fields(fields: Iterable[PointField]) -> np.dtype:
         for a in range(field.count):
             # Add suffix if we have multiple subfields
             if field.count > 1:
-                subfield_name = f"{name}_{a}"
+                subfield_name = f'{name}_{a}'
             else:
                 subfield_name = name
-            assert subfield_name not in field_names, "Duplicate field names are not allowed!"
+            assert subfield_name not in field_names, 'Duplicate field names are not allowed!'
             field_names.append(subfield_name)
             # Create new offset that includes subfields
             field_offsets.append(field.offset + a * datatype.itemsize)
@@ -253,16 +252,16 @@ def create_cloud(
         # Check if this is an unstructured array
         if points.dtype.names is None:
             assert all(fields[0].datatype == field.datatype for field in fields[1:]), \
-                "All fields need to have the same datatype. Pass a structured NumPy array \
-                    with multiple dtypes otherwise."
+                'All fields need to have the same datatype. Pass a structured NumPy array \
+                    with multiple dtypes otherwise.'
             # Convert unstructured to structured array
             points = unstructured_to_structured(
                 points,
                 dtype=dtype_from_fields(fields))
         else:
             assert points.dtype == dtype_from_fields(fields), \
-                "PointFields and structured NumPy array dtype do not match for all fields! \
-                    Check their field order, names and types."
+                'PointFields and structured NumPy array dtype do not match for all fields! \
+                    Check their field order, names and types.'
     else:
         # Cast python objects to structured NumPy array (slow)
         points = np.array(
@@ -272,8 +271,8 @@ def create_cloud(
 
     # Handle organized clouds
     assert len(points.shape) <= 2, \
-        "Too many dimensions for organized cloud! \
-            Points can only be organized in max. two dimensional space"
+        'Too many dimensions for organized cloud! \
+            Points can only be organized in max. two dimensional space'
     height = 1
     width = points.shape[0]
     # Check if input points are an organized cloud (2D array of points)
@@ -282,8 +281,8 @@ def create_cloud(
 
     # Convert numpy points to array.array
     memory_view = memoryview(points)
-    casted = memory_view.cast("B")
-    array_array = array.array("B")
+    casted = memory_view.cast('B')
+    array_array = array.array('B')
     array_array.frombytes(casted)
 
     # Put everything together

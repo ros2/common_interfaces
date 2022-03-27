@@ -104,9 +104,9 @@ struct_points = np.array(
     # Make each point a tuple
     list(map(tuple, points)),
     dtype=[
-        ("a", np.float32),
-        ("b", np.float64),
-        ("c", np.uint8),
+        ('a', np.float32),
+        ('b', np.float64),
+        ('c', np.uint8),
     ])
 
 struct_points_itemsize = struct_points.itemsize
@@ -225,7 +225,7 @@ class TestPointCloud2Methods(unittest.TestCase):
         pcd_points_unstructured = structured_to_unstructured(pcd_points)
         self.assertTrue(
             np.allclose(pcd_points_unstructured, points, equal_nan=True))
-        self.assertEqual(pcd_points.dtype.names, ("x_0", "x_1", "x_2"))
+        self.assertEqual(pcd_points.dtype.names, ('x_0', 'x_1', 'x_2'))
 
     def test_create_cloud(self):
         thispcd = point_cloud2.create_cloud(Header(frame_id='frame'),
