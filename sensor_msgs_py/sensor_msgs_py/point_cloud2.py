@@ -39,13 +39,15 @@ sensor_msgs/src/sensor_msgs/point_cloud2.py
 
 import array
 from collections import namedtuple
+import sys
+from typing import Iterable, List, NamedTuple, Optional
+
 import numpy as np
 from numpy.lib.recfunctions import (structured_to_unstructured,
                                     unstructured_to_structured)
-import sys
 from sensor_msgs.msg import PointCloud2, PointField
 from std_msgs.msg import Header
-from typing import Iterable, List, NamedTuple, Optional
+
 
 _DATATYPES = {}
 _DATATYPES[PointField.INT8] = np.dtype(np.int8)
