@@ -43,8 +43,12 @@ import sys
 from typing import Iterable, List, NamedTuple, Optional
 
 import numpy as np
-from numpy.lib.recfunctions import (structured_to_unstructured,
-                                    unstructured_to_structured)
+try:
+    from numpy.lib.recfunctions import (structured_to_unstructured, unstructured_to_structured)
+except ImportError:
+    from sensor_msgs_py.numpy_compat import (structured_to_unstructured,
+                                             unstructured_to_structured)
+
 from sensor_msgs.msg import PointCloud2, PointField
 from std_msgs.msg import Header
 

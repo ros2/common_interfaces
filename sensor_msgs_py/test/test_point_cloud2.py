@@ -31,7 +31,11 @@ import sys
 import unittest
 
 import numpy as np
-from numpy.lib.recfunctions import structured_to_unstructured
+try:
+    from numpy.lib.recfunctions import structured_to_unstructured
+except ImportError:
+    from sensor_msgs_py.numpy_compat import structured_to_unstructured
+
 from sensor_msgs.msg import PointCloud2, PointField
 from sensor_msgs_py import point_cloud2
 from std_msgs.msg import Header
@@ -257,8 +261,6 @@ class TestPointCloud2Methods(unittest.TestCase):
         thispcd = point_cloud2.create_cloud_xyz32(
             Header(frame_id='frame'),
             points3)
-        print(thispcd)
-        print(pcd3)
         self.assertEqual(thispcd, pcd3)
 
     def test_create_cloud__non_one_count(self):
