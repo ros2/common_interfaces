@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs_py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+4.2.0 (2022-03-30)
+------------------
 * Add in a compatibility layer for older versions of numpy. (`#185 <https://github.com/ros2/common_interfaces/issues/185>`_)
 * Port pointcloud creation to numpy. (`#175 <https://github.com/ros2/common_interfaces/issues/175>`_)
 * Contributors: Chris Lalancette, Florian Vahl
