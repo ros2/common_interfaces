@@ -57,6 +57,12 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
 rosidl_get_typesupport_target(cpp_typesupport_target "${PROJECT_NAME}" "rosidl_typesupport_cpp")
 
+if(BUILD_TESTING)
+  find_package(ament_cmake_gtest REQUIRED)
+  find_package(ament_lint_auto REQUIRED)
+  ament_lint_auto_find_test_dependencies()
+endif()
+
 if(cpp_typesupport_target)
   add_library(${PROJECT_NAME}_library INTERFACE)
   target_include_directories(${PROJECT_NAME}_library INTERFACE
@@ -79,10 +85,6 @@ if(cpp_typesupport_target)
   ament_export_targets(export_${PROJECT_NAME})
 
   if(BUILD_TESTING)
-    find_package(ament_cmake_gtest REQUIRED)
-    find_package(ament_lint_auto REQUIRED)
-    ament_lint_auto_find_test_dependencies()
-
     ament_add_gtest(test_sensor_msgs
       test/test_image_encodings.cpp
       test/test_pointcloud_conversion.cpp
