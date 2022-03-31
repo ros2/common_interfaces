@@ -2,6 +2,9 @@
 Changelog for package trajectory_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 4.2.0 (2022-03-30)
 ------------------
 
