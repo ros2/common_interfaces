@@ -79,18 +79,16 @@ if(cpp_typesupport_target)
   ament_export_targets(export_${PROJECT_NAME})
 
   if(BUILD_TESTING)
+    find_package(ament_cmake_gtest REQUIRED)
+    find_package(ament_lint_auto REQUIRED)
+    ament_lint_auto_find_test_dependencies()
+
     ament_add_gtest(test_sensor_msgs
       test/test_image_encodings.cpp
       test/test_pointcloud_conversion.cpp
       test/test_pointcloud_iterator.cpp)
     target_link_libraries(test_sensor_msgs ${PROJECT_NAME}_library)
   endif()
-endif()
-
-if(BUILD_TESTING)
-  find_package(ament_cmake_gtest REQUIRED)
-  find_package(ament_lint_auto REQUIRED)
-  ament_lint_auto_find_test_dependencies()
 endif()
 
 ament_export_dependencies(rosidl_default_runtime)
