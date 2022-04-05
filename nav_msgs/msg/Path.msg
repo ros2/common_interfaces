@@ -5,3 +5,4 @@ std_msgs/Header header
 
 # Array of poses to follow.
 geometry_msgs/PoseStamped[] poses
+int32 costs
