@@ -47,4 +47,4 @@ uint8 CONE_RADIUS=1
 # Points of the polygon are ordered counter-clockwise.
 
 uint8 PRISM_HEIGHT=0
-geometry_msgs/Polygon[] polygon
+geometry_msgs/Polygon polygon
