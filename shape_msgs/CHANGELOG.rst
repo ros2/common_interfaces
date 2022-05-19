@@ -2,6 +2,11 @@
 Changelog for package shape_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+4.2.2 (2022-05-19)
+------------------
+* Fix SolidPrimitive.msg to contain a single Polygon (`#189 <https://github.com/ros2/common_interfaces/issues/189>`_) (`#191 <https://github.com/ros2/common_interfaces/issues/191>`_)
+* Contributors: mergify[bot]
+
 4.2.1 (2022-03-31)
 ------------------
 
