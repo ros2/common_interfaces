@@ -126,7 +126,8 @@ public:
   void resize(size_t size);
 
   /**
-   * @param size The number of T's for width and height to change the shape of the original sensor_msgs::msg::PointCloud2 by
+   * @param width The new width of the point cloud.
+   * @param height THe new height of the point cloud.
    */
   void resize(size_t width, size_t height);
 
