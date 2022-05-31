@@ -127,7 +127,7 @@ public:
 
   /**
    * @param width The new width of the point cloud.
-   * @param height THe new height of the point cloud.
+   * @param height The new height of the point cloud.
    */
   void resize(size_t width, size_t height);
 
