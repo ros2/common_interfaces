@@ -126,6 +126,12 @@ public:
   void resize(size_t size);
 
   /**
+   * @param width The new width of the point cloud.
+   * @param height The new height of the point cloud.
+   */
+  void resize(size_t width, size_t height);
+
+  /**
    * @brief remove all T's from the original sensor_msgs::msg::PointCloud2
    */
   void clear();

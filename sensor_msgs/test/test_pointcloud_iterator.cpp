@@ -124,3 +124,51 @@ TEST(sensor_msgs, PointCloud2Iterator)
   }
   EXPECT_EQ(i, n_points);
 }
+
+TEST(sensor_msgs, PointCloud2Resize)
+{
+  // Check if size will retain when width and height given explicitly (width == 1)
+  size_t n_points = 4;
+  sensor_msgs::msg::PointCloud2 cloud_msg_1;
+  cloud_msg_1.height = static_cast<uint32_t>(n_points);
+  cloud_msg_1.width = 1;
+  sensor_msgs::PointCloud2Modifier modifier(cloud_msg_1);
+  modifier.setPointCloud2FieldsByString(2, "xyz", "rgb");
+  modifier.resize(1 * n_points);
+  EXPECT_EQ(static_cast<uint32_t>(1), cloud_msg_1.width);
+  EXPECT_EQ(static_cast<uint32_t>(4), cloud_msg_1.height);
+  modifier.resize(1, n_points);
+  EXPECT_EQ(static_cast<uint32_t>(1), cloud_msg_1.width);
+  EXPECT_EQ(static_cast<uint32_t>(4), cloud_msg_1.height);
+
+  // Check if size will retain when width and height given explicitly (height == 1)
+  size_t n_points2 = 5;
+  sensor_msgs::msg::PointCloud2 cloud_msg_2;
+  cloud_msg_2.height = 1;
+  cloud_msg_2.width = static_cast<uint32_t>(n_points2);
+  sensor_msgs::PointCloud2Modifier modifier2(cloud_msg_2);
+  modifier2.setPointCloud2FieldsByString(2, "xyz", "rgb");
+  modifier2.resize(1 * n_points2);
+  EXPECT_EQ(static_cast<uint32_t>(5), cloud_msg_2.width);
+  EXPECT_EQ(static_cast<uint32_t>(1), cloud_msg_2.height);
+  EXPECT_EQ(static_cast<uint32_t>(160), cloud_msg_2.row_step);
+  modifier2.resize(n_points2, 1);
+  EXPECT_EQ(static_cast<uint32_t>(5), cloud_msg_2.width);
+  EXPECT_EQ(static_cast<uint32_t>(1), cloud_msg_2.height);
+  EXPECT_EQ(static_cast<uint32_t>(160), cloud_msg_2.row_step);
+
+  // Check if resize works when width and height are changed
+  sensor_msgs::msg::PointCloud2 cloud_msg_3;
+  cloud_msg_3.height = 3;
+  cloud_msg_3.width = 3;
+  sensor_msgs::PointCloud2Modifier modifier3(cloud_msg_3);
+  modifier3.setPointCloud2FieldsByString(2, "xyz", "rgb");
+  modifier3.resize(10);
+  EXPECT_EQ(static_cast<uint32_t>(10), cloud_msg_3.width);
+  EXPECT_EQ(static_cast<uint32_t>(1), cloud_msg_3.height);
+  EXPECT_EQ(static_cast<uint32_t>(320), cloud_msg_3.row_step);
+  modifier3.resize(11, 11);
+  EXPECT_EQ(static_cast<uint32_t>(11), cloud_msg_3.width);
+  EXPECT_EQ(static_cast<uint32_t>(11), cloud_msg_3.height);
+  EXPECT_EQ(static_cast<uint32_t>(3872), cloud_msg_3.row_step);
+}
