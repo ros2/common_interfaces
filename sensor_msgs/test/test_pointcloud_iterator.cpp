@@ -137,7 +137,7 @@ TEST(sensor_msgs, PointCloud2Resize)
   modifier.resize(1 * n_points);
   EXPECT_EQ(static_cast<uint32_t>(1), cloud_msg_1.width);
   EXPECT_EQ(static_cast<uint32_t>(4), cloud_msg_1.height);
-  modifier.resize(1, n_points);
+  modifier.resize(static_cast<uint32_t>(1), static_cast<uint32_t>(n_points));
   EXPECT_EQ(static_cast<uint32_t>(1), cloud_msg_1.width);
   EXPECT_EQ(static_cast<uint32_t>(4), cloud_msg_1.height);
 
@@ -152,7 +152,7 @@ TEST(sensor_msgs, PointCloud2Resize)
   EXPECT_EQ(static_cast<uint32_t>(5), cloud_msg_2.width);
   EXPECT_EQ(static_cast<uint32_t>(1), cloud_msg_2.height);
   EXPECT_EQ(static_cast<uint32_t>(160), cloud_msg_2.row_step);
-  modifier2.resize(n_points2, 1);
+  modifier2.resize(static_cast<uint32_t>(n_points2), static_cast<uint32_t>(1));
   EXPECT_EQ(static_cast<uint32_t>(5), cloud_msg_2.width);
   EXPECT_EQ(static_cast<uint32_t>(1), cloud_msg_2.height);
   EXPECT_EQ(static_cast<uint32_t>(160), cloud_msg_2.row_step);
@@ -167,7 +167,7 @@ TEST(sensor_msgs, PointCloud2Resize)
   EXPECT_EQ(static_cast<uint32_t>(10), cloud_msg_3.width);
   EXPECT_EQ(static_cast<uint32_t>(1), cloud_msg_3.height);
   EXPECT_EQ(static_cast<uint32_t>(320), cloud_msg_3.row_step);
-  modifier3.resize(11, 11);
+  modifier3.resize(static_cast<uint32_t>(11), static_cast<uint32_t>(11));
   EXPECT_EQ(static_cast<uint32_t>(11), cloud_msg_3.width);
   EXPECT_EQ(static_cast<uint32_t>(11), cloud_msg_3.height);
   EXPECT_EQ(static_cast<uint32_t>(3872), cloud_msg_3.row_step);

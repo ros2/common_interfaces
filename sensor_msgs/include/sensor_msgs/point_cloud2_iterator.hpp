@@ -129,7 +129,7 @@ public:
    * @param width The new width of the point cloud.
    * @param height The new height of the point cloud.
    */
-  void resize(size_t width, size_t height);
+  void resize(uint32_t width, uint32_t height);
 
   /**
    * @brief remove all T's from the original sensor_msgs::msg::PointCloud2

@@ -144,7 +144,7 @@ inline void PointCloud2Modifier::resize(size_t size)
   }
 }
 
-inline void PointCloud2Modifier::resize(size_t width, size_t height)
+inline void PointCloud2Modifier::resize(uint32_t width, uint32_t height)
 {
   size_t size = width * height;
   resize(size);
