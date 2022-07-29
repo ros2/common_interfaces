@@ -27,9 +27,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 
-"""
-Serialization of sensor_msgs.PointCloud2 messages.
-"""
+# Serialization of sensor_msgs.PointCloud2 messages.
 
 import array
 from collections import namedtuple
@@ -321,4 +319,3 @@ def create_cloud_xyz32(header: Header, points: Iterable) -> PointCloud2:
               PointField(name='z', offset=8,
                          datatype=PointField.FLOAT32, count=1)]
     return create_cloud(header, fields, points)
-
