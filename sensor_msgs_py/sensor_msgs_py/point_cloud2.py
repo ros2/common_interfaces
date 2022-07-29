@@ -27,9 +27,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 
-"""
-Serialization of sensor_msgs.PointCloud2 messages.
-"""
+# Serialization of sensor_msgs.PointCloud2 messages.
 
 import array
 from collections import namedtuple
