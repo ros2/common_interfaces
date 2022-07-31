@@ -14,7 +14,7 @@ std_msgs/Header header # Header timestamp should be acquisition time of image
 uint32 height                # image height, that is, number of rows
 uint32 width                 # image width, that is, number of columns
 
-# The legal values for encoding are in file src/image_encodings.cpp
+# The legal values for encoding are in file include/sensor_msgs/image_encodings.hpp
 # If you want to standardize a new string format, join
 # ros-users@lists.ros.org and send an email proposing a new encoding.
 
