@@ -27,15 +27,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 
-"""
-Serialization of sensor_msgs.PointCloud2 messages.
-
-Author: Tim Field
-ROS 2 port by Sebastian Grans
-File originally ported from:
-https://github.com/ros/common_msgs/blob/f48b00d43cdb82ed9367e0956db332484f676598/
-sensor_msgs/src/sensor_msgs/point_cloud2.py
-"""
+# Serialization of sensor_msgs.PointCloud2 messages.
 
 import array
 from collections import namedtuple
