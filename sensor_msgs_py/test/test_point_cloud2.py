@@ -32,9 +32,10 @@ import unittest
 
 import numpy as np
 try:
-    from numpy.lib.recfunctions import structured_to_unstructured
+    from numpy.lib.recfunctions import structured_to_unstructured, unstructured_to_structured
 except ImportError:
-    from sensor_msgs_py.numpy_compat import structured_to_unstructured
+    from sensor_msgs_py.numpy_compat import (structured_to_unstructured,
+                                             unstructured_to_structured)
 
 from sensor_msgs.msg import PointCloud2, PointField
 from sensor_msgs_py import point_cloud2
@@ -269,6 +270,37 @@ class TestPointCloud2Methods(unittest.TestCase):
             fields5,
             points)
         self.assertEqual(thispcd, pcd5)
+
+    def test_read_cloud_with_non_standard_point_step(self):
+        itemsize = 123  # Larger than normal point step size
+
+        # Copy to new array with larger itemsize
+        points_larger_itemsize = np.array(
+            unstructured_to_structured(points),
+            dtype=np.dtype({
+                'names': ['x', 'y', 'z'],
+                'formats': ['<f4', '<f4', '<f4'],
+                'offsets': [0, 4, 8],
+                'itemsize': itemsize
+            })
+        )
+
+        # Create pointcloud with itemsize == point_step from the padded array
+        pc = PointCloud2(
+            header=Header(frame_id='frame'),
+            height=1,
+            width=points_larger_itemsize.shape[0],
+            is_dense=False,
+            is_bigendian=sys.byteorder != 'little',
+            fields=fields,
+            point_step=itemsize,
+            row_step=itemsize * points_larger_itemsize.shape[0],
+            data=points_larger_itemsize.tobytes()
+        )
+
+        # Deserialize point cloud
+        reconstructed_points = point_cloud2.read_points_numpy(pc)
+        self.assertTrue(np.allclose(points, reconstructed_points, equal_nan=True))
 
 
 if __name__ == '__main__':
