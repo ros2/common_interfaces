@@ -228,7 +228,7 @@ static inline int bitDepth(const std::string & encoding)
   std::cmatch m;
   // ex. 8UC -> 8, 8UC10 -> 10
   if (std::regex_match(encoding.c_str(), m, cv_type_regex)) {
-    return atoi(m[0].str().c_str());
+    return std::atoi(m[0].str().c_str());
   }
 
   if (encoding == YUV422 ||
