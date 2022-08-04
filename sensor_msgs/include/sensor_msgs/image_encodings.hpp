@@ -178,7 +178,7 @@ static inline int numChannels(const std::string & encoding)
   std::cmatch m;
   // ex. 8UC -> 1, 8UC5 -> 5
   if (std::regex_match(encoding.c_str(), m, cv_type_regex)) {
-    return (m[3] == "") ? 1 : atoi(m[3].str().c_str());
+    return (m[3] == "") ? 1 : std::atoi(m[3].str().c_str());
   }
 
   if (encoding == YUV422 ||
