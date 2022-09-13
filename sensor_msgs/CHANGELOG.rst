@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+4.6.0 (2022-09-13)
+------------------
 * use regex for matching cv types (`#202 <https://github.com/ros2/common_interfaces/issues/202>`_)
 * Fix outdated file path for image_encodings (`#200 <https://github.com/ros2/common_interfaces/issues/200>`_)
 * Use uint32_t for pointcloud2 resize method (`#195 <https://github.com/ros2/common_interfaces/issues/195>`_)
