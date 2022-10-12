@@ -30,6 +30,7 @@ uint8 POWER_SUPPLY_TECHNOLOGY_LIPO = 3
 uint8 POWER_SUPPLY_TECHNOLOGY_LIFE = 4
 uint8 POWER_SUPPLY_TECHNOLOGY_NICD = 5
 uint8 POWER_SUPPLY_TECHNOLOGY_LIMN = 6
+uint8 POWER_SUPPLY_TECHNOLOGY_TERNARY = 7
 
 std_msgs/Header  header
 float32 voltage          # Voltage in Volts (Mandatory)
