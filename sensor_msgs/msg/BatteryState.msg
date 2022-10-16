@@ -23,13 +23,15 @@ uint8 POWER_SUPPLY_HEALTH_WATCHDOG_TIMER_EXPIRE = 7
 uint8 POWER_SUPPLY_HEALTH_SAFETY_TIMER_EXPIRE = 8
 
 # Power supply technology (chemistry) constants
-uint8 POWER_SUPPLY_TECHNOLOGY_UNKNOWN = 0
-uint8 POWER_SUPPLY_TECHNOLOGY_NIMH = 1
-uint8 POWER_SUPPLY_TECHNOLOGY_LION = 2
-uint8 POWER_SUPPLY_TECHNOLOGY_LIPO = 3
-uint8 POWER_SUPPLY_TECHNOLOGY_LIFE = 4
-uint8 POWER_SUPPLY_TECHNOLOGY_NICD = 5
-uint8 POWER_SUPPLY_TECHNOLOGY_LIMN = 6
+uint8 POWER_SUPPLY_TECHNOLOGY_UNKNOWN = 0 # Unknown battery technology
+uint8 POWER_SUPPLY_TECHNOLOGY_NIMH = 1    # Nickel–Metal Hydride battery
+uint8 POWER_SUPPLY_TECHNOLOGY_LION = 2    # Lithium-ion battery
+uint8 POWER_SUPPLY_TECHNOLOGY_LIPO = 3    # Lithium Polymer battery
+uint8 POWER_SUPPLY_TECHNOLOGY_LIFE = 4    # Lithium Iron Phosphate battery
+uint8 POWER_SUPPLY_TECHNOLOGY_NICD = 5    # Nickel-Cadmium battery
+uint8 POWER_SUPPLY_TECHNOLOGY_LIMN = 6    # Lithium Manganese Dioxide battery
+uint8 POWER_SUPPLY_TECHNOLOGY_TERNARY = 7 # Ternary Lithium battery
+uint8 POWER_SUPPLY_TECHNOLOGY_VRLA = 8    # Valve Regulated Lead-Acid battery
 
 std_msgs/Header  header
 float32 voltage          # Voltage in Volts (Mandatory)
