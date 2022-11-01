@@ -118,7 +118,8 @@ static inline bool isColor(const std::string & encoding)
   return encoding == RGB8 || encoding == BGR8 ||
          encoding == RGBA8 || encoding == BGRA8 ||
          encoding == RGB16 || encoding == BGR16 ||
-         encoding == RGBA16 || encoding == BGRA16;
+         encoding == RGBA16 || encoding == BGRA16 ||
+         encoding == NV21 || encoding == NV24;
 }
 
 static inline bool isMono(const std::string & encoding)
