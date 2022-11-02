@@ -2,6 +2,12 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add NV21 and NV24 to colour formats (`#205 <https://github.com/ros2/common_interfaces/issues/205>`_)
+* Update BatteryState.msg (`#206 <https://github.com/ros2/common_interfaces/issues/206>`_)
+* Contributors: Borong Yuan, Geoffrey Biggs
+
 4.6.0 (2022-09-13)
 ------------------
 * use regex for matching cv types (`#202 <https://github.com/ros2/common_interfaces/issues/202>`_)
