@@ -24,7 +24,7 @@ uint8 POWER_SUPPLY_HEALTH_SAFETY_TIMER_EXPIRE = 8
 
 # Power supply technology (chemistry) constants
 uint8 POWER_SUPPLY_TECHNOLOGY_UNKNOWN = 0 # Unknown battery technology
-uint8 POWER_SUPPLY_TECHNOLOGY_NIMH = 1    # Nickel–Metal Hydride battery
+uint8 POWER_SUPPLY_TECHNOLOGY_NIMH = 1    # Nickel-Metal Hydride battery
 uint8 POWER_SUPPLY_TECHNOLOGY_LION = 2    # Lithium-ion battery
 uint8 POWER_SUPPLY_TECHNOLOGY_LIPO = 3    # Lithium Polymer battery
 uint8 POWER_SUPPLY_TECHNOLOGY_LIFE = 4    # Lithium Iron Phosphate battery
