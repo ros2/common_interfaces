@@ -5,11 +5,11 @@
   <version>4.6.1</version>
   <description>A package containing some geometry related message definitions.</description>
 
-  <maintainer email="geoff@openrobotics.org">Geoffrey Biggs</maintainer>
   <maintainer email="tfoote@openrobotics.org">Tully Foote</maintainer>
 
   <license>Apache License 2.0</license>
 
+  <author email="geoff@openrobotics.org">Geoffrey Biggs</author>
   <author email="michael@openrobotics.org">Michael Carroll</author>
   <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
   <author email="william@osrfoundation.org">William Woodall</author>
