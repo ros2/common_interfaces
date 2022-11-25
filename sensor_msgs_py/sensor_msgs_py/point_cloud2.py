@@ -91,7 +91,7 @@ def read_points(
     # Cast bytes to numpy array
     points = np.ndarray(
         shape=(cloud.width * cloud.height, ),
-        dtype=dtype_from_fields(cloud.fields),
+        dtype=dtype_from_fields(cloud.fields, point_step=cloud.point_step),
         buffer=cloud.data)
 
     # Keep only the requested fields
@@ -194,12 +194,14 @@ def read_points_list(
                                                 skip_nans, uvs)]
 
 
-def dtype_from_fields(fields: Iterable[PointField]) -> np.dtype:
+def dtype_from_fields(fields: Iterable[PointField], point_step: Optional[int] = None) -> np.dtype:
     """
     Convert a Iterable of sensor_msgs.msg.PointField messages to a np.dtype.
 
     :param fields: The point cloud fields.
                    (Type: iterable of sensor_msgs.msg.PointField)
+    :param point_step: Point step size in bytes. Calculated from the given fields by default.
+                       (Type: optional of integer)
     :returns: NumPy datatype
     """
     # Create a lists containing the names, offsets and datatypes of all fields
@@ -229,12 +231,15 @@ def dtype_from_fields(fields: Iterable[PointField]) -> np.dtype:
             field_offsets.append(field.offset + a * datatype.itemsize)
             field_datatypes.append(datatype.str)
 
-    # Create a tuple for each field containing name and data type
-    return np.dtype({
-        'names': field_names,
-        'formats': field_datatypes,
-        'offsets': field_offsets,
-    })
+    # Create dtype
+    dtype_dict = {
+            'names': field_names,
+            'formats': field_datatypes,
+            'offsets': field_offsets
+    }
+    if point_step is not None:
+        dtype_dict['itemsize'] = point_step
+    return np.dtype(dtype_dict)
 
 
 def create_cloud(
