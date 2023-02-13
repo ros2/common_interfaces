@@ -2,6 +2,12 @@
 Changelog for package visualization_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Update common_interfaces to C++17. (`#215 <https://github.com/ros2/common_interfaces/issues/215>`_)
+* [rolling] Update maintainers - 2022-11-07 (`#210 <https://github.com/ros2/common_interfaces/issues/210>`_)
+* Contributors: Audrow Nash, Chris Lalancette
+
 4.6.1 (2022-11-02)
 ------------------
 

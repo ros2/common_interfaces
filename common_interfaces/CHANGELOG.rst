@@ -2,6 +2,11 @@
 Changelog for package common_interfaces
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* [rolling] Update maintainers - 2022-11-07 (`#210 <https://github.com/ros2/common_interfaces/issues/210>`_)
+* Contributors: Audrow Nash
+
 4.6.1 (2022-11-02)
 ------------------
 
