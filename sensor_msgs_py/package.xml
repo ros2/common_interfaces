@@ -14,8 +14,9 @@
   <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
   <author email="sebastian.grans@gmail.com">Sebastian Grans</author>
 
-  <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
