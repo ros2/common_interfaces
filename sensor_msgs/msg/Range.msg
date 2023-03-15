@@ -37,3 +37,6 @@ float32 range           # range data [m]
                         # (Detection too close to the sensor to quantify)
                         # +Inf represents no detection within the fixed distance.
                         # (Object out of range)
+
+float32 variance        # variance of the range sensor
+                        # 0 is interpreted as variance unknown
