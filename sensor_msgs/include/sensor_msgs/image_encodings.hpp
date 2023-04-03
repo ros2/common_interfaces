@@ -92,17 +92,22 @@ const char BAYER_BGGR16[] = "bayer_bggr16";
 const char BAYER_GBRG16[] = "bayer_gbrg16";
 const char BAYER_GRBG16[] = "bayer_grbg16";
 
-// Miscellaneous
+// YUV formats
 // YUV 4:2:2 encodings with an 8-bit depth
-// UYUV version: http://www.fourcc.org/pixel-format/yuv-uyvy
-const char YUV422[] = "yuv422";
-// YUYV version: http://www.fourcc.org/pixel-format/yuv-yuy2/
-const char YUV422_YUY2[] = "yuv422_yuy2";
+// https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/pixfmt-packed-yuv.html#id1
+// fourcc: UYVY
+const char UYVY[] = "uyvy";
+const char YUV422[] = "yuv422";  // deprecated
+// fourcc: YUYV
+const char YUYV[] = "yuyv";
+const char YUV422_YUY2[] = "yuv422_yuy2";  // deprecated
+
 // YUV 4:2:0 encodings with an 8-bit depth
-// NV21: https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/pixfmt-yuv-planar.html
+// NV21: https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/pixfmt-yuv-planar.html#nv12-nv21-nv12m-and-nv21m
 const char NV21[] = "nv21";
+
 // YUV 4:4:4 encodings with 8-bit depth
-// NV24: https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/pixfmt-yuv-planar.html
+// NV24: https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/pixfmt-yuv-planar.html#nv24-and-nv42
 const char NV24[] = "nv24";
 
 // Prefixes for abstract image encodings
@@ -184,6 +189,8 @@ static inline int numChannels(const std::string & encoding)
 
   if (encoding == YUV422 ||
     encoding == YUV422_YUY2 ||
+    encoding == UYVY ||
+    encoding == YUYV ||
     encoding == NV21 ||
     encoding == NV24)
   {
@@ -234,6 +241,8 @@ static inline int bitDepth(const std::string & encoding)
 
   if (encoding == YUV422 ||
     encoding == YUV422_YUY2 ||
+    encoding == UYVY ||
+    encoding == YUYV ||
     encoding == NV21 ||
     encoding == NV24)
   {
