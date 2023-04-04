@@ -15,6 +15,7 @@ int8 status -2 # STATUS_UNKNOWN
 # Bits defining which Global Navigation Satellite System signals were
 # used by the receiver.
 
+uint16 SERVICE_UNKNOWN = 0
 uint16 SERVICE_GPS =     1
 uint16 SERVICE_GLONASS = 2
 uint16 SERVICE_COMPASS = 4      # includes BeiDou.
