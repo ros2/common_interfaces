@@ -42,4 +42,4 @@ uint8 COVARIANCE_TYPE_APPROXIMATED = 1
 uint8 COVARIANCE_TYPE_DIAGONAL_KNOWN = 2
 uint8 COVARIANCE_TYPE_KNOWN = 3
 
-uint8 position_covariance_type
+uint8 position_covariance_type = COVARIANCE_TYPE_UNKNOWN

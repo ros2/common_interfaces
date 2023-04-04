@@ -4,12 +4,13 @@
 # type and the last time differential corrections were received.  A
 # fix is valid when status >= STATUS_FIX.
 
+int8 STATUS_UNKNOWN = -2        # status is not yet set
 int8 STATUS_NO_FIX =  -1        # unable to fix position
 int8 STATUS_FIX =      0        # unaugmented fix
 int8 STATUS_SBAS_FIX = 1        # with satellite-based augmentation
 int8 STATUS_GBAS_FIX = 2        # with ground-based augmentation
 
-int8 status
+int8 status = STATUS_UNKNOWN
 
 # Bits defining which Global Navigation Satellite System signals were
 # used by the receiver.
