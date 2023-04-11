@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs_py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.0.0 (2023-04-11)
+------------------
 * Add missing dep for sensor_msgs_py (`#217 <https://github.com/ros2/common_interfaces/issues/217>`_)
 * Contributors: Yadu
 
