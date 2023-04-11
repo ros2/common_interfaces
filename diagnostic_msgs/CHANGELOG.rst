@@ -2,6 +2,9 @@
 Changelog for package diagnostic_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 4.7.0 (2023-02-13)
 ------------------
 * Update common_interfaces to C++17. (`#215 <https://github.com/ros2/common_interfaces/issues/215>`_)
