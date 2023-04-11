@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.0.0 (2023-04-11)
+------------------
 * update YUV format codes and documentation (`#214 <https://github.com/ros2/common_interfaces/issues/214>`_)
 * sensor_msgs/Range lacks variance field (`#181 <https://github.com/ros2/common_interfaces/issues/181>`_)
 * Contributors: Christian Rauch, El Jawad Alaa
