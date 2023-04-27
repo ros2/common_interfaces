@@ -2,6 +2,9 @@
 Changelog for package visualization_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 5.0.0 (2023-04-11)
 ------------------
 
