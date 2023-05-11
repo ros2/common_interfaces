@@ -147,7 +147,8 @@ def read_points_numpy(
     :param reshape_organized_cloud: Returns the array as an 2D organized point cloud if set.
     :return: Numpy array containing all points.
     """
-    assert all(cloud.fields[0].datatype == field.datatype for field in cloud.fields[1:]), \
+    assert all(cloud.fields[0].datatype == field.datatype for field in cloud.fields[1:]
+               if field_names is None or field.name in field_names), \
         'All fields need to have the same datatype. Use `read_points()` otherwise.'
     structured_numpy_array = read_points(
         cloud, field_names, skip_nans, uvs, reshape_organized_cloud)

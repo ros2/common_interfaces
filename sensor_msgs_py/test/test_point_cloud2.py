@@ -154,6 +154,35 @@ pcd5 = PointCloud2(
     data=data
 )
 
+# Point cloud with two matching data-types, and one dissimilar
+struct_points_6 = np.array(
+    # Make each point a tuple
+    list(map(tuple, points)),
+    dtype=[
+        ('a', np.float32),
+        ('b', np.float32),
+        ('c', np.uint8),
+    ])
+
+struct_points_itemsize_6 = struct_points_6.itemsize
+
+struct_points_fields_6 = [
+    PointField(name='a', offset=0, datatype=PointField.FLOAT32, count=1),
+    PointField(name='b', offset=4, datatype=PointField.FLOAT32, count=1),
+    PointField(name='c', offset=8, datatype=PointField.UINT8, count=1)]
+
+pcd6 = PointCloud2(
+    header=Header(frame_id='frame'),
+    height=1,
+    width=struct_points_6.shape[0],
+    is_dense=False,
+    is_bigendian=sys.byteorder != 'little',
+    fields=struct_points_fields_6,
+    point_step=struct_points_itemsize_6,
+    row_step=(struct_points_itemsize_6 * points.shape[0]),
+    data=struct_points_6.tobytes()
+)
+
 
 class TestPointCloud2Methods(unittest.TestCase):
 
@@ -211,6 +240,18 @@ class TestPointCloud2Methods(unittest.TestCase):
         # Checks if the deserialization to an unstructured numpy array works
         pcd_points = point_cloud2.read_points_numpy(pcd)
         self.assertTrue(np.allclose(pcd_points, points, equal_nan=True))
+
+    def test_read_points_numpy_same_types(self):
+        # Checks if the deserialization to an unstructured numpy array throws
+        # assertion exception when data types are not uniform
+        with self.assertRaises(AssertionError):
+            point_cloud2.read_points_numpy(pcd4)
+
+    def test_read_points_numpy_specific_fields(self):
+        # Checks if the deserialization to an unstructured numpy array works
+        # when only selecting certain fields
+        pcd_points = point_cloud2.read_points_numpy(pcd6, field_names=('a', 'b'))
+        self.assertTrue(pcd_points.shape == (6, 2))
 
     def test_read_points_different_types(self):
         # Checks if the deserialization to an unstructured numpy array works
