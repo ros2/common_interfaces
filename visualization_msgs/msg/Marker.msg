@@ -16,6 +16,7 @@ int32 POINTS=8
 int32 TEXT_VIEW_FACING=9
 int32 MESH_RESOURCE=10
 int32 TRIANGLE_LIST=11
+int32 ARROW_STRIP=12
 
 int32 ADD=0
 int32 MODIFY=0
@@ -49,7 +50,7 @@ builtin_interfaces/Duration lifetime
 # If this marker should be frame-locked, i.e. retransformed into its frame every timestep.
 bool frame_locked
 
-# Only used if the type specified has some use for them (eg. POINTS, LINE_STRIP, etc.)
+# Only used if the type specified has some use for them (eg. POINTS, LINE_STRIP, ARROW_STRIP, etc.)
 geometry_msgs/Point[] points
 # Only used if the type specified has some use for them (eg. POINTS, LINE_STRIP, etc.)
 # The number of colors provided must either be 0 or equal to the number of points provided.
