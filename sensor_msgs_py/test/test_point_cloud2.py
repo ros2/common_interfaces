@@ -41,12 +41,12 @@ from sensor_msgs.msg import PointCloud2, PointField
 from sensor_msgs_py import point_cloud2
 from std_msgs.msg import Header
 
-pylist = [[0.0, 0.1, 0.2],
-          [1.0, 1.1, 1.2],
-          [2.0, 2.1, 2.2],
-          [3.0, 3.1, 3.2],
-          [4.0, np.nan, 4.2],
-          [5.0, 5.1, 5.2]]
+pylist = [(0.0, 0.1, 0.2),
+          (1.0, 1.1, 1.2),
+          (2.0, 2.1, 2.2),
+          (3.0, 3.1, 3.2),
+          (4.0, np.nan, 4.2),
+          (5.0, 5.1, 5.2)]
 points = np.array(pylist, dtype=np.float32)
 
 fields = [PointField(name='x', offset=0, datatype=PointField.FLOAT32, count=1),
@@ -183,6 +183,15 @@ pcd6 = PointCloud2(
     data=struct_points_6.tobytes()
 )
 
+# End padding in data layout
+# Itemsize has 20 bytes rather than 12
+itemsize_end_padding = 20
+dtype_end_padding = np.dtype({'names': ['x', 'y', 'z'],
+                              'formats': ['f4', 'f4', 'f4'],
+                              'offsets': [0, 4, 8],
+                              'itemsize': itemsize_end_padding})
+points_end_padding = np.array(pylist, dtype=dtype_end_padding)
+
 
 class TestPointCloud2Methods(unittest.TestCase):
 
@@ -283,6 +292,21 @@ class TestPointCloud2Methods(unittest.TestCase):
         thispcd = point_cloud2.create_cloud(Header(frame_id='frame'),
                                             fields2, pylist2)
         self.assertFalse(thispcd == pcd)
+
+    def test_create_cloud_itemsize(self):
+
+        with self.assertRaises(AssertionError):
+            point_cloud2.create_cloud(
+                Header(frame_id='frame'),
+                fields,
+                points_end_padding)
+
+        thispcd = point_cloud2.create_cloud(
+            Header(frame_id='frame'),
+            fields,
+            points_end_padding,
+            points_end_padding.dtype.itemsize)
+        self.assertEqual(thispcd.point_step, itemsize_end_padding)
 
     def test_create_cloud_different_types(self):
         # Check if we are able to create a point cloud with different data
