@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs_py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.2.0 (2023-06-07)
+------------------
 * Allow pointcloud create_cloud function to set specific point_step (`#223 <https://github.com/ros2/common_interfaces/issues/223>`_)
 * Fix read_points_numpy field_names parameter
 * Contributors: George Broughton
