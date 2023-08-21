@@ -25,6 +25,7 @@ set(msg_files
   "msg/FluidPressure.msg"
   "msg/Illuminance.msg"
   "msg/Image.msg"
+  "msg/ImageWithCameraInfo.msg"
   "msg/Imu.msg"
   "msg/JointState.msg"
   "msg/Joy.msg"
