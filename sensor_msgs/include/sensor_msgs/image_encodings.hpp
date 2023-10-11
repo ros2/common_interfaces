@@ -124,6 +124,8 @@ static inline bool isColor(const std::string & encoding)
          encoding == RGBA8 || encoding == BGRA8 ||
          encoding == RGB16 || encoding == BGR16 ||
          encoding == RGBA16 || encoding == BGRA16 ||
+         encoding == YUV422 || encoding == YUV422_YUY2 ||
+         encoding == UYVY || encoding == YUYV ||
          encoding == NV21 || encoding == NV24;
 }
 
