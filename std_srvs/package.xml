@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>std_srvs</name>
-  <version>5.2.0</version>
+  <version>5.2.1</version>
   <description>A package containing some standard service definitions.</description>
 
   <maintainer email="tfoote@openrobotics.org">Tully Foote</maintainer>

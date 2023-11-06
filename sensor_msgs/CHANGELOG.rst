@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.2.1 (2023-11-06)
+------------------
 * Return true for isColor if format is YUYV or UYUV (`#229 <https://github.com/ros2/common_interfaces/issues/229>`_)
 * Contributors: Kenji Brameld
 

@@ -4,7 +4,7 @@ package_name = 'sensor_msgs_py'
 
 setup(
     name=package_name,
-    version='5.2.0',
+    version='5.2.1',
     packages=[package_name],
     data_files=[
         ('share/ament_index/resource_index/packages',
