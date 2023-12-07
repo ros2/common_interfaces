@@ -26,6 +26,8 @@ set(msg_files
   "msg/Point32.msg"
   "msg/PointStamped.msg"
   "msg/Polygon.msg"
+  "msg/PolygonInstance.msg"
+  "msg/PolygonInstanceStamped.msg"
   "msg/PolygonStamped.msg"
   "msg/Pose.msg"
   "msg/Pose2D.msg"
