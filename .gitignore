@@ -30,3 +30,7 @@
 # Python temporary files
 *.pyc
 __pycache__/
+
+# Local project files 
+*.cproject
+*.project
