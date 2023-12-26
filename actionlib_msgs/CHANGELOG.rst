@@ -2,6 +2,9 @@
 Changelog for package actionlib_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 5.2.1 (2023-11-06)
 ------------------
 
