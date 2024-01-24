@@ -2,6 +2,9 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 5.2.2 (2023-12-26)
 ------------------
 * sensor_msgs/CompressedImage: updated description of format field (`#231 <https://github.com/ros2/common_interfaces/issues/231>`_)
