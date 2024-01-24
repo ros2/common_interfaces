@@ -2,8 +2,8 @@
 Changelog for package geometry_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.3.0 (2024-01-24)
+------------------
 * adding IDs to geometry_msgs/Polygon, PolygonStamped (`#232 <https://github.com/ros2/common_interfaces/issues/232>`_)
 * Contributors: Steve Macenski
 
