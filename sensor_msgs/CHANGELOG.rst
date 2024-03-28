@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.3.1 (2024-03-28)
+------------------
 * Use target qualifier for checking the cpp typesupport exists (`#238 <https://github.com/ros2/common_interfaces/issues/238>`_)
 * Contributors: Ryan
 
