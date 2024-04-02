@@ -4,16 +4,18 @@
 # type and the last time differential corrections were received.  A
 # fix is valid when status >= STATUS_FIX.
 
+int8 STATUS_UNKNOWN = -2        # status is not yet set
 int8 STATUS_NO_FIX =  -1        # unable to fix position
 int8 STATUS_FIX =      0        # unaugmented fix
 int8 STATUS_SBAS_FIX = 1        # with satellite-based augmentation
 int8 STATUS_GBAS_FIX = 2        # with ground-based augmentation
 
-int8 status
+int8 status -2 # STATUS_UNKNOWN
 
 # Bits defining which Global Navigation Satellite System signals were
 # used by the receiver.
 
+uint16 SERVICE_UNKNOWN = 0  # Remember service is a bitfield, so checking (service & SERVICE_UNKNOWN) will not work. Use == instead.
 uint16 SERVICE_GPS =     1
 uint16 SERVICE_GLONASS = 2
 uint16 SERVICE_COMPASS = 4      # includes BeiDou.
