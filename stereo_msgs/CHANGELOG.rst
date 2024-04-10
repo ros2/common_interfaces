@@ -2,6 +2,16 @@
 Changelog for package stereo_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.3.2 (2024-04-10)
+------------------
+* Clarify the license. (`#241 <https://github.com/ros2/common_interfaces/issues/241>`_)
+  In particular, every package in this repository is Apache 2.0
+  licensed except for sensor_msgs_py.  So move the CONTRIBUTING.md
+  and LICENSE files down into the individual packages, and
+  make sure that sensor_msgs_py has the correct CONTRIBUTING.md
+  file (it already had the correct LICENSE file).
+* Contributors: Chris Lalancette
+
 5.3.1 (2024-03-28)
 ------------------
 

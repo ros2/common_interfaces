@@ -2,6 +2,20 @@
 Changelog for package geometry_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.3.2 (2024-04-10)
+------------------
+* Create new messages with all fields needed to define a velocity and transform it  (`#240 <https://github.com/ros2/common_interfaces/issues/240>`_)
+  Co-authored-by: Dr. Denis <denis@stoglrobotics.de>
+  Co-authored-by: Addisu Z. Taddese <addisuzt@intrinsic.ai>
+  Co-authored-by: Tully Foote <tullyfoote@intrinsic.ai>
+* Clarify the license. (`#241 <https://github.com/ros2/common_interfaces/issues/241>`_)
+  In particular, every package in this repository is Apache 2.0
+  licensed except for sensor_msgs_py.  So move the CONTRIBUTING.md
+  and LICENSE files down into the individual packages, and
+  make sure that sensor_msgs_py has the correct CONTRIBUTING.md
+  file (it already had the correct LICENSE file).
+* Contributors: Alejandro Hernández Cordero, Chris Lalancette
+
 5.3.1 (2024-03-28)
 ------------------
 

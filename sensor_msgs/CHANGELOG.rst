@@ -2,6 +2,23 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.3.2 (2024-04-10)
+------------------
+* Clarify the license. (`#241 <https://github.com/ros2/common_interfaces/issues/241>`_)
+  In particular, every package in this repository is Apache 2.0
+  licensed except for sensor_msgs_py.  So move the CONTRIBUTING.md
+  and LICENSE files down into the individual packages, and
+  make sure that sensor_msgs_py has the correct CONTRIBUTING.md
+  file (it already had the correct LICENSE file).
+* [J-Turtle] Fix uninitialized values in NavSatFix and add missing NavSatStatus UNKNOWN (`#220 <https://github.com/ros2/common_interfaces/issues/220>`_)
+  * Fix unitialized values in NavSatFix and add missing UNKNOWN
+  * Fixes `#196 <https://github.com/ros2/common_interfaces/issues/196>`_
+  * Fix default initialization instead of constants
+  * Define SERVICE_UNKNOWN
+  Co-authored-by: Tully Foote <tully.foote@gmail.com>
+  Co-authored-by: Martin Pecka <peci1@seznam.cz>
+* Contributors: Chris Lalancette, Ryan
+
 5.3.1 (2024-03-28)
 ------------------
 * Use target qualifier for checking the cpp typesupport exists (`#238 <https://github.com/ros2/common_interfaces/issues/238>`_)
