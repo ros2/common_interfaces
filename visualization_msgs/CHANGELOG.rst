@@ -2,8 +2,8 @@
 Changelog for package visualization_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.3.3 (2024-04-10)
+------------------
 * Adds ARROW_STRIP to Marker.msg (`#242 <https://github.com/ros2/common_interfaces/issues/242>`_)
 * Contributors: Tom Noble
 
