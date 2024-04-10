@@ -2,6 +2,9 @@
 Changelog for package geometry_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 5.3.2 (2024-04-10)
 ------------------
 * Create new messages with all fields needed to define a velocity and transform it  (`#240 <https://github.com/ros2/common_interfaces/issues/240>`_)
