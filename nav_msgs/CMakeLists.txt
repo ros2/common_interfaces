@@ -17,6 +17,10 @@ find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
 
+set(action_files
+  "action/GetMap.action"
+)
+
 set(msg_files
   "msg/GridCells.msg"
   "msg/MapMetaData.msg"
@@ -31,8 +35,8 @@ set(srv_files
   "srv/SetMap.srv"
 )
 
-# TODO(wjwwood): port the action GetMap from ROS 1, once actions are supported.
 rosidl_generate_interfaces(${PROJECT_NAME}
+  ${action_files}
   ${msg_files}
   ${srv_files}
   DEPENDENCIES builtin_interfaces geometry_msgs std_msgs
