@@ -31,7 +31,6 @@ set(srv_files
   "srv/SetMap.srv"
 )
 
-# TODO(wjwwood): port the action GetMap from ROS 1, once actions are supported.
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
   ${srv_files}
