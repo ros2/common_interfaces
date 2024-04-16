@@ -58,7 +58,7 @@ geometry_msgs/Point[] points
 std_msgs/ColorRGBA[] colors
 
 # Texture resource is a special URI that can either reference a texture file in
-# a format acceptable to (resource retriever)[https://index.ros.org/p/resource_retriever/]
+# a format acceptable to (resource retriever)[https://docs.ros.org/en/rolling/p/resource_retriever/]
 # or an embedded texture via a string matching the format:
 #   "embedded://texture_name"
 string texture_resource
