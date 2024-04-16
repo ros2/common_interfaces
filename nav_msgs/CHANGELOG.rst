@@ -2,6 +2,11 @@
 Changelog for package nav_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.3.4 (2024-04-16)
+------------------
+* Removed TODO (`#243 <https://github.com/ros2/common_interfaces/issues/243>`_)
+* Contributors: Alejandro Hernández Cordero
+
 5.3.3 (2024-04-10)
 ------------------
 
