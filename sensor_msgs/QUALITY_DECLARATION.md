@@ -10,7 +10,7 @@ Below are the rationales, notes, and caveats for this claim, organized by each r
 
 ### Version Scheme [1.i]
 
-`sensor_msgs` uses `semver` according to the recommendation for ROS Core packages in the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#versioning).
+`sensor_msgs` uses `semver` according to the recommendation for ROS Core packages in the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing/Developer-Guide.html#versioning).
 
 ### Version Stability [1.ii]
 
@@ -27,11 +27,12 @@ All message and service definition files located in `include`, `msg` and `srv` d
 
 ### ABI Stability Within a Released ROS Distribution [1.v]/[1.vi]
 
-`sensor_msgs` contains C++ code and is therefore concerned with ABI stability. It will not break ABI stability within a released ROS distribution.
+`sensor_msgs` contains C++ code and is therefore concerned with ABI stability.
+It will not break ABI stability within a released ROS distribution.
 
 ## Change Control Process [2]
 
-`sensor_msgs` follows the recommended guidelines for ROS Core packages in the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#quality-practices).
+`sensor_msgs` follows the recommended guidelines for ROS Core packages in the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing/Developer-Guide.html#quality-practices).
 
 ### Change Requests [2.i]
 
@@ -39,7 +40,8 @@ This package requires that all changes occur through a pull request.
 
 ### Contributor Origin [2.ii]
 
-This package uses DCO as its confirmation of contributor origin policy. More information can be found in [CONTRIBUTING](../CONTRIBUTING.md).
+This package uses DCO as its confirmation of contributor origin policy.
+More information can be found in [CONTRIBUTING](../CONTRIBUTING.md).
 
 ### Peer Review Policy [2.iii]
 
@@ -94,7 +96,7 @@ Results of these API tests can be found [here](http://build.ros2.org/view/Rpr/jo
 
 ### Coverage [4.iii]
 
-`sensor_msgs` follows the recommendations for ROS Core packages in the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#code-coverage), and opts to use line coverage instead of branch coverage.
+`sensor_msgs` follows the recommendations for ROS Core packages in the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing/Developer-Guide.html#code-coverage), and opts to use line coverage instead of branch coverage.
 
 This includes:
 
@@ -119,7 +121,7 @@ Changes that introduce regressions in performance must be adequately justified i
 
 ### Linters and Static Analysis [4.v]
 
-`sensor_msgs` uses and passes all the standard linters and static analysis tools for its generated C++ and Python code to ensure it follows the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#linters-and-static-analysis).
+`sensor_msgs` uses and passes all the standard linters and static analysis tools for its generated C++ and Python code to ensure it follows the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing/Developer-Guide.html#linters-and-static-analysis).
 
 Results of the nightly linter tests can be found [here](http://build.ros2.org/view/Rpr/job/Rpr__common_interfaces__ubuntu_focal_amd64/lastCompletedBuild/testReport/sensor_msgs/).
 
@@ -128,9 +130,9 @@ Results of the nightly linter tests can be found [here](http://build.ros2.org/vi
 ### Direct Runtime ROS Dependencies [5.i]/[5.ii]
 
 `sensor_msgs` has the following runtime ROS dependencies, which are at **Quality Level 1**:
-* `builtin_interfaces`: [QUALITY DECLARATION](https://github.com/ros2/rcl_interfaces/tree/master/builtin_interfaces/QUALITY_DECLARATION.md)
+* `builtin_interfaces`: [QUALITY DECLARATION](https://github.com/ros2/rcl_interfaces/tree/rolling/builtin_interfaces/QUALITY_DECLARATION.md)
 * `geometry_msgs`: [QUALITY DECLARATION](../geometry_msgs/QUALITY_DECLARATION.md)
-* `rosidl_default_runtime` [QUALITY DECLARATION](https://github.com/ros2/rosidl_defaults/tree/master/rosidl_default_runtime/QUALITY_DECLARATION.md)
+* `rosidl_default_runtime` [QUALITY DECLARATION](https://github.com/ros2/rosidl_defaults/tree/rolling/rosidl_default_runtime/QUALITY_DECLARATION.md)
 * `std_msgs`: [QUALITY DECLARATION](../std_msgs/QUALITY_DECLARATION.md)
 
 It has several "buildtool" dependencies, which do not affect the resulting quality of the package, because they do not contribute to the public library API.
