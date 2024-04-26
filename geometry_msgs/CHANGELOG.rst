@@ -2,8 +2,8 @@
 Changelog for package geometry_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.4.0 (2024-04-26)
+------------------
 * Update quality declaration documents (`#245 <https://github.com/ros2/common_interfaces/issues/245>`_)
 * Remove references to index.ros.org. (`#244 <https://github.com/ros2/common_interfaces/issues/244>`_)
 * Contributors: Chris Lalancette, Christophe Bedard
