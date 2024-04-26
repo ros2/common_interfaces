@@ -2,6 +2,11 @@
 Changelog for package std_srvs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Update quality declaration documents (`#245 <https://github.com/ros2/common_interfaces/issues/245>`_)
+* Contributors: Christophe Bedard
+
 5.3.4 (2024-04-16)
 ------------------
 
