@@ -97,9 +97,11 @@ const char BAYER_GRBG16[] = "bayer_grbg16";
 // https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/pixfmt-packed-yuv.html#id1
 // fourcc: UYVY
 const char UYVY[] = "uyvy";
+[[deprecated("use sensor_msgs::image_encodings::UYVY")]]
 const char YUV422[] = "yuv422";  // deprecated
 // fourcc: YUYV
 const char YUYV[] = "yuyv";
+[[deprecated("use sensor_msgs::image_encodings::YUYV")]]
 const char YUV422_YUY2[] = "yuv422_yuy2";  // deprecated
 
 // YUV 4:2:0 encodings with an 8-bit depth
