@@ -226,9 +226,9 @@ def dtype_from_fields(fields: Iterable[PointField], point_step: Optional[int] = 
 
     # Create dtype
     dtype_dict = {
-            'names': field_names,
-            'formats': field_datatypes,
-            'offsets': field_offsets
+        'names': field_names,
+        'formats': field_datatypes,
+        'offsets': field_offsets
     }
     if point_step is not None:
         dtype_dict['itemsize'] = point_step
