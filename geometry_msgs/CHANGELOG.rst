@@ -2,6 +2,16 @@
 Changelog for package geometry_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+4.2.4 (2024-05-21)
+------------------
+* Create new messages with all fields needed to define a velocity and transform it  (`#240 <https://github.com/ros2/common_interfaces/issues/240>`_) (`#249 <https://github.com/ros2/common_interfaces/issues/249>`_)
+  Co-authored-by: Dr. Denis <denis@stoglrobotics.de>
+  Co-authored-by: Addisu Z. Taddese <addisuzt@intrinsic.ai>
+  Co-authored-by: Tully Foote <tullyfoote@intrinsic.ai>
+  (cherry picked from commit 74137fc6971ac7d6420248b4394cca977fb5a887)
+  Co-authored-by: Alejandro Hernández Cordero <alejandro@openrobotics.org>
+* Contributors: mergify[bot]
+
 4.2.3 (2023-01-09)
 ------------------
 
