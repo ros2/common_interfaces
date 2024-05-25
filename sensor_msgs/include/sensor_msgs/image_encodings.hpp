@@ -123,6 +123,8 @@ const std::regex cv_type_regex("(8|16|32|64)(U|S|F)C([0-9]*)");
 // Utility functions for inspecting an encoding string
 static inline bool isColor(const std::string & encoding)
 {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
   return encoding == RGB8 || encoding == BGR8 ||
          encoding == RGBA8 || encoding == BGRA8 ||
          encoding == RGB16 || encoding == BGR16 ||
@@ -131,6 +133,7 @@ static inline bool isColor(const std::string & encoding)
          encoding == UYVY || encoding == YUYV ||
          encoding == NV12 || encoding == NV21 ||
          encoding == NV24;
+#pragma GCC diagnostic pop
 }
 
 static inline bool isMono(const std::string & encoding)
@@ -193,6 +196,8 @@ static inline int numChannels(const std::string & encoding)
     return (m[3] == "") ? 1 : std::atoi(m[3].str().c_str());
   }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
   if (encoding == YUV422 ||
     encoding == YUV422_YUY2 ||
     encoding == UYVY ||
@@ -203,6 +208,7 @@ static inline int numChannels(const std::string & encoding)
   {
     return 2;
   }
+#pragma GCC diagnostic pop
 
   throw std::runtime_error("Unknown encoding " + encoding);
   return -1;
@@ -246,6 +252,8 @@ static inline int bitDepth(const std::string & encoding)
     return std::atoi(m[0].str().c_str());
   }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
   if (encoding == YUV422 ||
     encoding == YUV422_YUY2 ||
     encoding == UYVY ||
@@ -256,6 +264,7 @@ static inline int bitDepth(const std::string & encoding)
   {
     return 8;
   }
+#pragma GCC diagnostic pop
 
   throw std::runtime_error("Unknown encoding " + encoding);
   return -1;
