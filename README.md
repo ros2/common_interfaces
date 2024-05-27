@@ -9,4 +9,4 @@ This repository has been designed to contain the most common messages used betwe
 
 ## Contributing 
 
-For how to contribute see [CONTRIBUTING.md](CONTRIBUTING.md)
+For how to contribute see [CONTRIBUTING.md](common_interfaces/CONTRIBUTING.md)
