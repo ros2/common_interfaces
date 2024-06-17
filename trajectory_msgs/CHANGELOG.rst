@@ -2,6 +2,9 @@
 Changelog for package trajectory_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 5.4.0 (2024-04-26)
 ------------------
 * Update quality declaration documents (`#245 <https://github.com/ros2/common_interfaces/issues/245>`_)

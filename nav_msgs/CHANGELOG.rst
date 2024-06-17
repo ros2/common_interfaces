@@ -2,6 +2,9 @@
 Changelog for package nav_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 5.4.0 (2024-04-26)
 ------------------
 * Fix typo in nav_msgs/LoadMap (`#246 <https://github.com/ros2/common_interfaces/issues/246>`_)
