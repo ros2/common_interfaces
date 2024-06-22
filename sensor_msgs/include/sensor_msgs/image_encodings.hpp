@@ -97,9 +97,11 @@ const char BAYER_GRBG16[] = "bayer_grbg16";
 // https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/pixfmt-packed-yuv.html#id1
 // fourcc: UYVY
 const char UYVY[] = "uyvy";
+[[deprecated("use sensor_msgs::image_encodings::UYVY")]]
 const char YUV422[] = "yuv422";  // deprecated
 // fourcc: YUYV
 const char YUYV[] = "yuyv";
+[[deprecated("use sensor_msgs::image_encodings::YUYV")]]
 const char YUV422_YUY2[] = "yuv422_yuy2";  // deprecated
 
 // YUV 4:2:0 encodings with an 8-bit depth
@@ -120,6 +122,8 @@ const std::regex cv_type_regex("(8|16|32|64)(U|S|F)C([0-9]*)");
 // Utility functions for inspecting an encoding string
 static inline bool isColor(const std::string & encoding)
 {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
   return encoding == RGB8 || encoding == BGR8 ||
          encoding == RGBA8 || encoding == BGRA8 ||
          encoding == RGB16 || encoding == BGR16 ||
@@ -127,6 +131,7 @@ static inline bool isColor(const std::string & encoding)
          encoding == YUV422 || encoding == YUV422_YUY2 ||
          encoding == UYVY || encoding == YUYV ||
          encoding == NV21 || encoding == NV24;
+#pragma GCC diagnostic pop
 }
 
 static inline bool isMono(const std::string & encoding)
@@ -189,6 +194,8 @@ static inline int numChannels(const std::string & encoding)
     return (m[3] == "") ? 1 : std::atoi(m[3].str().c_str());
   }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
   if (encoding == YUV422 ||
     encoding == YUV422_YUY2 ||
     encoding == UYVY ||
@@ -198,6 +205,7 @@ static inline int numChannels(const std::string & encoding)
   {
     return 2;
   }
+#pragma GCC diagnostic pop
 
   throw std::runtime_error("Unknown encoding " + encoding);
   return -1;
@@ -241,6 +249,8 @@ static inline int bitDepth(const std::string & encoding)
     return std::atoi(m[0].str().c_str());
   }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
   if (encoding == YUV422 ||
     encoding == YUV422_YUY2 ||
     encoding == UYVY ||
@@ -250,6 +260,7 @@ static inline int bitDepth(const std::string & encoding)
   {
     return 8;
   }
+#pragma GCC diagnostic pop
 
   throw std::runtime_error("Unknown encoding " + encoding);
   return -1;
