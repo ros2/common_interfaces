@@ -212,7 +212,6 @@ inline void PointCloud2Modifier::setPointCloud2FieldsByString(int n_fields, ...)
         cloud_msg_, "y", 1, sensor_msgs::msg::PointField::FLOAT32, offset);
       offset = addPointField(
         cloud_msg_, "z", 1, sensor_msgs::msg::PointField::FLOAT32, offset);
-      offset += sizeOfPointField(sensor_msgs::msg::PointField::FLOAT32);
     } else {
       if ((field_name == "rgb") || (field_name == "rgba")) {
         offset = addPointField(
