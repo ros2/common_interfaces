@@ -39,6 +39,7 @@ For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros
 * [Int64MultiArray](msg/Int64MultiArray.msg)
 * [MultiArrayDimension](msg/MultiArrayDimension.msg)
 * [MultiArrayLayout](msg/MultiArrayLayout.msg)
+* [StringArray](msg/StringArray.msg)
 * [UInt16MultiArray](msg/UInt16MultiArray.msg)
 * [UInt32MultiArray](msg/UInt32MultiArray.msg)
 * [UInt64MultiArray](msg/UInt64MultiArray.msg)
