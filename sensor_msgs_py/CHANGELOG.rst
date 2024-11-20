@@ -2,8 +2,8 @@
 Changelog for package sensor_msgs_py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.4.2 (2024-11-20)
+------------------
 * Add ament_xmllint to sensor_msgs_py. (`#259 <https://github.com/ros2/common_interfaces/issues/259>`_)
 * Contributors: Chris Lalancette
 
