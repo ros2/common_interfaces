@@ -11,6 +11,8 @@ For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros
 * [MapMetaData](msg/MapMetaData.msg): Basic information about the characteristics of the OccupancyGrid.
 * [OccupancyGrid](msg/OccupancyGrid.msg): Represents a 2-D grid map, in which each cell represents the probability of occupancy.
 * [Odometry](msg/Odometry.msg): This represents an estimate of a position and velocity in free space.
+* [PoseParticle](msg/PoseParticle.msg): This represents an individual particle with weight produced by a particle filter.
+* [PoseParticleCloud](msg/PoseParticleCloud.msg): This represents a particle cloud containing particle poses and weights.
 * [Path](msg/Path.msg): An array of poses that represents a Path for a robot to follow.
 
 ## Services (.srv)
