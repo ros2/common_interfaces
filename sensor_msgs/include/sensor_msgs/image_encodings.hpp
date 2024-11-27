@@ -103,7 +103,8 @@ const char YUYV[] = "yuyv";
 const char YUV422_YUY2[] = "yuv422_yuy2";  // deprecated
 
 // YUV 4:2:0 encodings with an 8-bit depth
-// NV21: https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/pixfmt-yuv-planar.html#nv12-nv21-nv12m-and-nv21m
+// NV12 & NV21: https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/pixfmt-yuv-planar.html#nv12-nv21-nv12m-and-nv21m
+const char NV12[] = "nv12";
 const char NV21[] = "nv21";
 
 // YUV 4:4:4 encodings with 8-bit depth
@@ -126,7 +127,8 @@ static inline bool isColor(const std::string & encoding)
          encoding == RGBA16 || encoding == BGRA16 ||
          encoding == YUV422 || encoding == YUV422_YUY2 ||
          encoding == UYVY || encoding == YUYV ||
-         encoding == NV21 || encoding == NV24;
+         encoding == NV12 || encoding == NV21 ||
+         encoding == NV24;
 }
 
 static inline bool isMono(const std::string & encoding)
@@ -193,6 +195,7 @@ static inline int numChannels(const std::string & encoding)
     encoding == YUV422_YUY2 ||
     encoding == UYVY ||
     encoding == YUYV ||
+    encoding == NV12 ||
     encoding == NV21 ||
     encoding == NV24)
   {
@@ -245,6 +248,7 @@ static inline int bitDepth(const std::string & encoding)
     encoding == YUV422_YUY2 ||
     encoding == UYVY ||
     encoding == YUYV ||
+    encoding == NV12 ||
     encoding == NV21 ||
     encoding == NV24)
   {
