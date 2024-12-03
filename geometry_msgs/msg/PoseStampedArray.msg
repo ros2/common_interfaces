@@ -1,4 +1,3 @@
-# An array of stamped poses with a header for global reference.
+# An array of stamped poses
 
-std_msgs/Header header
 PoseStamped[] poses
