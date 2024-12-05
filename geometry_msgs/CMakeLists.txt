@@ -33,6 +33,7 @@ set(msg_files
   "msg/Pose2D.msg"
   "msg/PoseArray.msg"
   "msg/PoseStamped.msg"
+  "msg/PoseStampedArray.msg"
   "msg/PoseWithCovariance.msg"
   "msg/PoseWithCovarianceStamped.msg"
   "msg/Quaternion.msg"
