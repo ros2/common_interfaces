@@ -71,3 +71,25 @@ TEST(sensor_msgs, bitDepth)
   ASSERT_EQ(sensor_msgs::image_encodings::bitDepth("yuv422"), 8);
   ASSERT_EQ(sensor_msgs::image_encodings::bitDepth("yuv422_yuy2"), 8);
 }
+
+TEST(sensor_msgs, getHeightScaling)
+{
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("nv12"), 1.5f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("nv21"), 1.5f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("mono8"), 1.0f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("rgb8"), 1.0f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("8UC"), 1.0f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("8UC3"), 1.0f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("8UC10"), 1.0f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("16UC"), 1.0f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("16UC3"), 1.0f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("16UC10"), 1.0f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("32SC"), 1.0f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("32SC3"), 1.0f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("32SC10"), 1.0f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("64FC"), 1.0f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("64FC3"), 1.0f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("64FC10"), 1.0f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("yuv422"), 1.0f);
+  ASSERT_FLOAT_EQ(sensor_msgs::image_encodings::getHeightScaling("yuv422_yuy2"), 1.0f);
+}

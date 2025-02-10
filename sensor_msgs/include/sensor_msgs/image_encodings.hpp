@@ -159,32 +159,32 @@ static inline int numChannels(const std::string & encoding)
 {
   // First do the common-case encodings
   if (encoding == MONO8 ||
-      encoding == MONO16)
+    encoding == MONO16)
   {
     return 1;
   }
   if (encoding == BGR8 ||
-      encoding == RGB8 ||
-      encoding == BGR16 ||
-      encoding == RGB16)
+    encoding == RGB8 ||
+    encoding == BGR16 ||
+    encoding == RGB16)
   {
     return 3;
   }
   if (encoding == BGRA8 ||
-      encoding == RGBA8 ||
-      encoding == BGRA16 ||
-      encoding == RGBA16)
+    encoding == RGBA8 ||
+    encoding == BGRA16 ||
+    encoding == RGBA16)
   {
     return 4;
   }
   if (encoding == BAYER_RGGB8 ||
-      encoding == BAYER_BGGR8 ||
-      encoding == BAYER_GBRG8 ||
-      encoding == BAYER_GRBG8 ||
-      encoding == BAYER_RGGB16 ||
-      encoding == BAYER_BGGR16 ||
-      encoding == BAYER_GBRG16 ||
-      encoding == BAYER_GRBG16)
+    encoding == BAYER_BGGR8 ||
+    encoding == BAYER_GBRG8 ||
+    encoding == BAYER_GRBG8 ||
+    encoding == BAYER_RGGB16 ||
+    encoding == BAYER_BGGR16 ||
+    encoding == BAYER_GBRG16 ||
+    encoding == BAYER_GRBG16)
   {
     return 1;
   }
@@ -197,15 +197,15 @@ static inline int numChannels(const std::string & encoding)
   }
 
   if (encoding == NV12 ||
-      encoding == NV21)
+    encoding == NV21)
   {
     return 1;
   }
   if (encoding == YUV422 ||
-      encoding == YUV422_YUY2 ||
-      encoding == UYVY ||
-      encoding == YUYV ||
-      encoding == NV24)
+    encoding == YUV422_YUY2 ||
+    encoding == UYVY ||
+    encoding == YUYV ||
+    encoding == NV24)
   {
     return 2;
   }
@@ -220,27 +220,27 @@ static inline int bitDepth(const std::string & encoding)
     return 16;
   }
   if (encoding == MONO8 ||
-      encoding == BGR8 ||
-      encoding == RGB8 ||
-      encoding == BGRA8 ||
-      encoding == RGBA8 ||
-      encoding == BAYER_RGGB8 ||
-      encoding == BAYER_BGGR8 ||
-      encoding == BAYER_GBRG8 ||
-      encoding == BAYER_GRBG8)
+    encoding == BGR8 ||
+    encoding == RGB8 ||
+    encoding == BGRA8 ||
+    encoding == RGBA8 ||
+    encoding == BAYER_RGGB8 ||
+    encoding == BAYER_BGGR8 ||
+    encoding == BAYER_GBRG8 ||
+    encoding == BAYER_GRBG8)
   {
     return 8;
   }
 
   if (encoding == MONO16 ||
-      encoding == BGR16 ||
-      encoding == RGB16 ||
-      encoding == BGRA16 ||
-      encoding == RGBA16 ||
-      encoding == BAYER_RGGB16 ||
-      encoding == BAYER_BGGR16 ||
-      encoding == BAYER_GBRG16 ||
-      encoding == BAYER_GRBG16)
+    encoding == BGR16 ||
+    encoding == RGB16 ||
+    encoding == BGRA16 ||
+    encoding == RGBA16 ||
+    encoding == BAYER_RGGB16 ||
+    encoding == BAYER_BGGR16 ||
+    encoding == BAYER_GBRG16 ||
+    encoding == BAYER_GRBG16)
   {
     return 16;
   }
@@ -253,12 +253,12 @@ static inline int bitDepth(const std::string & encoding)
   }
 
   if (encoding == YUV422 ||
-      encoding == YUV422_YUY2 ||
-      encoding == UYVY ||
-      encoding == YUYV ||
-      encoding == NV12 ||
-      encoding == NV21 ||
-      encoding == NV24)
+    encoding == YUV422_YUY2 ||
+    encoding == UYVY ||
+    encoding == YUYV ||
+    encoding == NV12 ||
+    encoding == NV21 ||
+    encoding == NV24)
   {
     return 8;
   }
