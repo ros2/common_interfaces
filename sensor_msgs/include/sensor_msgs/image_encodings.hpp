@@ -271,7 +271,7 @@ static inline float getHeightScaling(const std::string & encoding)
 {
   if (isPlanar(encoding)) {
     if (encoding == NV12 ||
-        encoding == NV21)
+      encoding == NV21)
       return 1.5f;
   }
   return 1.0f;
