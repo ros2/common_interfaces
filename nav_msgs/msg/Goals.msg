@@ -9,4 +9,4 @@ std_msgs/Header header
 # The goals should be executed in the order of the array.
 # The header and stamp are intended to be used for computing the position of the goals.
 # They may vary to support cases of goals that are moving with respect to the robot.
-PoseStamped[] goals
+geometry_msgs/PoseStamped[] goals
