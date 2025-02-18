@@ -1,5 +1,5 @@
-# An array of stamped poses with a header
-# The global header will store the time at which the poses were computed (not to be confused with the stamps of the poses themselves)
+# This is deprecated and will be removed before the next release. Do not use. This is to allow a migration without breaking of nav2.
+# TODO REMOVE THIS BEFORE release!!!!
 
 std_msgs/Header header
 PoseStamped[] poses
