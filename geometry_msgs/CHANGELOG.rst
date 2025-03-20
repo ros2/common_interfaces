@@ -2,6 +2,13 @@
 Changelog for package geometry_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.5.0 (2025-03-20)
+------------------
+* Complete Removal of PoseStampedArray (`#270 <https://github.com/ros2/common_interfaces/issues/270>`_)
+* Move geometry_msgs/PoseStampedArray to nav_msgs/Goals (`#269 <https://github.com/ros2/common_interfaces/issues/269>`_)
+* Add PoseStampedArray (`#262 <https://github.com/ros2/common_interfaces/issues/262>`_)
+* Contributors: Tony Najjar, Tully Foote
+
 5.4.2 (2024-11-20)
 ------------------
 

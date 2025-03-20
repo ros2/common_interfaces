@@ -2,6 +2,11 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.5.0 (2025-03-20)
+------------------
+* Add NV12 to color formats (`#253 <https://github.com/ros2/common_interfaces/issues/253>`_)
+* Contributors: Lukas Schäper
+
 5.4.2 (2024-11-20)
 ------------------
 
