@@ -2,6 +2,11 @@
 Changelog for package nav_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.3.6 (2025-03-20)
+------------------
+* adding nav_msgs/goals to Jazzy (`#271 <https://github.com/ros2/common_interfaces/issues/271>`_)
+* Contributors: Steve Macenski
+
 5.3.5 (2024-04-24)
 ------------------
 

@@ -2,6 +2,9 @@
 Changelog for package visualization_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.3.6 (2025-03-20)
+------------------
+
 5.3.5 (2024-04-24)
 ------------------
 * Remove references to index.ros.org. (`#244 <https://github.com/ros2/common_interfaces/issues/244>`_)
