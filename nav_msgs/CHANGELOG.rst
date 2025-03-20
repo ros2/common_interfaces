@@ -2,7 +2,7 @@
 Changelog for package nav_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-4.3.0 (2025-03-20)
+4.2.5 (2025-03-20)
 ------------------
 * Adding nav_msgs/goals to humble (`#272 <https://github.com/ros2/common_interfaces/issues/272>`_)
 * Contributors: Steve Macenski
