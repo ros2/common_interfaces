@@ -2,6 +2,9 @@
 Changelog for package geometry_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.6.0 (2025-04-25)
+------------------
+
 5.5.0 (2025-03-20)
 ------------------
 * Complete Removal of PoseStampedArray (`#270 <https://github.com/ros2/common_interfaces/issues/270>`_)
