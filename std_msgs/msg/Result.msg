@@ -1,18 +1,41 @@
 # Result code and message for service calls.
-# Note that additional results for specific services can defined within them using values above 100.
+# Note that additional codes for specific services can defined within the service definition.
+# For example, you could define a service CalculateSquareRoot.srv as
+# float64 value
+# ---
+# int32 CODE_NEGATIVE_VALUE = -110
+# std_msgs/Result result
+# float64 root
+#
+# If a negative value is provided, the server could return the generic CODE_INVALID_ARGUMENT
+# as result.code, or it could provide more context with CODE_NEGATIVE_VALUE.
+#
+# As a general guideline,
+# Positive values are successes
+# Negative values are failures
+#       Values between -1 and -100 are for some generic high-level failures
+#       Values between -101 and -1000 are for client (caller) errors (a la HTTP 4XX errors)
+#       Values between -1001 and -2000 are for server errors (a la HTTP 5XX errors)
 
-uint8 RESULT_FEATURE_UNSUPPORTED   = 0    # Feature is not supported by the simulator, check GetSimulatorFeatures.
-                                          # While feature support can sometimes be deduced from presence of corresponding
-                                          # service / action interface, in other cases it is about supporting certain
-                                          # call parameters, formats and options within interface call.
-uint8 RESULT_OK                    = 1
-uint8 RESULT_NOT_FOUND             = 2    # No match for input (such as when entity name does not exist).
-uint8 RESULT_INCORRECT_STATE       = 3    # Simulator is in an incorrect state for this interface call, e.g. a service
-                                          # requires paused state but the simulator is not paused.
-uint8 RESULT_OPERATION_FAILED      = 4    # Request could not be completed successfully even though feature is supported
-                                          # and the input is correct; check error_message for details.
-                                          # Implementation rule: check extended codes for called service
-                                          #  (e.g. SpawnEntity) to provide a return code which is more specific.
+int32 CODE_UNKNOWN                   =   0
+int32 CODE_OK                        =    1
 
-int32 result                              # Result to be checked on return from service interface call
+int32 CODE_GENERAL_FAILURE           =  -1
+
+# Client Errors
+int32 CODE_CANCELLED                 =  -101
+int32 CODE_INVALID_ARGUMENT          =  -102
+int32 CODE_NOT_FOUND                 =  -103
+int32 CODE_ALREADY_EXISTS            =  -104
+int32 CODE_PERMISSION_DENIED         =  -105
+int32 CODE_FAILED_PRECONDITION       =  -106
+int32 CODE_OUT_OF_RANGE              =  -107
+
+# Server Errors
+int32 CODE_INTERNAL                  = -1000
+int32 CODE_UNIMPLEMENTED             = -1001
+int32 CODE_UNAVAILABLE               = -1002
+int32 CODE_DEADLINE_EXCEEDED         = -1003
+
+int32 code                                # Code number to be checked on return from service interface call
 string error_message                      # Additional error description when useful.
