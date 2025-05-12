@@ -14,5 +14,5 @@ uint8 RESULT_OPERATION_FAILED      = 4    # Request could not be completed succe
                                           # Implementation rule: check extended codes for called service
                                           #  (e.g. SpawnEntity) to provide a return code which is more specific.
 
-uint8 result                              # Result to be checked on return from service interface call
+int32 result                              # Result to be checked on return from service interface call
 string error_message                      # Additional error description when useful.
