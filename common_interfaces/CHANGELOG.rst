@@ -2,6 +2,11 @@
 Changelog for package common_interfaces
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.7.0 (2025-05-19)
+------------------
+* Removed deprecated actionlib_msgs (`#280 <https://github.com/ros2/common_interfaces/issues/280>`_)
+* Contributors: Alejandro Hernández Cordero
+
 5.6.0 (2025-04-25)
 ------------------
 
