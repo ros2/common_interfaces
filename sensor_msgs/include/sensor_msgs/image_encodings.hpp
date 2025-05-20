@@ -150,6 +150,11 @@ static inline bool hasAlpha(const std::string & encoding)
          encoding == RGBA16 || encoding == BGRA16;
 }
 
+static inline bool isPlanar(const std::string & encoding)
+{
+  return encoding == NV12 || encoding == NV21 || encoding == NV24;
+}
+
 static inline int numChannels(const std::string & encoding)
 {
   // First do the common-case encodings
@@ -191,12 +196,15 @@ static inline int numChannels(const std::string & encoding)
     return (m[3] == "") ? 1 : std::atoi(m[3].str().c_str());
   }
 
+  if (encoding == NV12 ||
+    encoding == NV21)
+  {
+    return 1;
+  }
   if (encoding == YUV422 ||
     encoding == YUV422_YUY2 ||
     encoding == UYVY ||
     encoding == YUYV ||
-    encoding == NV12 ||
-    encoding == NV21 ||
     encoding == NV24)
   {
     return 2;
@@ -258,6 +266,19 @@ static inline int bitDepth(const std::string & encoding)
   throw std::runtime_error("Unknown encoding " + encoding);
   return -1;
 }
+
+static inline float getHeightScaling(const std::string & encoding)
+{
+  if (isPlanar(encoding)) {
+    if (encoding == NV12 ||
+      encoding == NV21)
+    {
+      return 1.5f;
+    }
+  }
+  return 1.0f;
+}
+
 }  // namespace image_encodings
 }  // namespace sensor_msgs
 
