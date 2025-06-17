@@ -2,6 +2,9 @@
 Changelog for package nav_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 4.8.0 (2025-03-20)
 ------------------
 * Adding nav_msgs/goals to humble (`#272 <https://github.com/ros2/common_interfaces/issues/272>`_)
