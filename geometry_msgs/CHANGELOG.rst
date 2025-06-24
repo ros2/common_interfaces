@@ -2,6 +2,11 @@
 Changelog for package geometry_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.8.0 (2025-06-24)
+------------------
+* Removed deprecated geometry_msgs/Pose2d (`#283 <https://github.com/ros2/common_interfaces/issues/283>`_)
+* Contributors: Alejandro Hernández Cordero
+
 5.7.0 (2025-05-19)
 ------------------
 

@@ -2,6 +2,11 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.8.0 (2025-06-24)
+------------------
+* Enhance NV12 and NV21 Support in sensor_msgs::image_encodings (`#264 <https://github.com/ros2/common_interfaces/issues/264>`_)
+* Contributors: Zhaoyuan Cheng
+
 5.7.0 (2025-05-19)
 ------------------
 
