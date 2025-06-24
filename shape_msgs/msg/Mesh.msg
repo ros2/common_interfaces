@@ -5,3 +5,4 @@ MeshTriangle[] triangles
 
 # The actual vertices that make up the mesh.
 geometry_msgs/Point[] vertices
+std_msgs/ColorRGBA[] vertex_colors
