@@ -2,6 +2,11 @@
 Changelog for package sensor_msgs_py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* fix setuptools deprecation (`#293 <https://github.com/ros2/common_interfaces/issues/293>`_)
+* Contributors: mosfet80
+
 5.8.1 (2025-07-01)
 ------------------
 

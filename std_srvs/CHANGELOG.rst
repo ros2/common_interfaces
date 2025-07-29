@@ -2,6 +2,9 @@
 Changelog for package std_srvs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 5.8.1 (2025-07-01)
 ------------------
 * Fix CMAKE deprecation (`#288 <https://github.com/ros2/common_interfaces/issues/288>`_)
