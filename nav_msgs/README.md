@@ -12,6 +12,8 @@ For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros
 * [OccupancyGrid](msg/OccupancyGrid.msg): Represents a 2-D grid map, in which each cell represents the probability of occupancy.
 * [Odometry](msg/Odometry.msg): This represents an estimate of a position and velocity in free space.
 * [Path](msg/Path.msg): An array of poses that represents a Path for a robot to follow.
+* [Trajectory](msg/Trajectory.msg): A representation of a trajectory as a series of time-stamped trajectory points.
+* [TrajectoryPoint](msg/TrajectoryPoint.msg): A single point in a trajectory.
 
 ## Services (.srv)
 * [GetMap](srv/GetMap.srv): Get the map as a nav_msgs/OccupancyGrid.
