@@ -32,6 +32,7 @@ For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros
 * [TwistWithCovariance](msg/TwistWithCovariance.msg): Velocity in 3-dimensional free space with uncertainty.
 * [TwistWithCovarianceStamped](msg/TwistWithCovarianceStamped.msg): An estimated twist with reference coordinate frame and timestamp.
 * [Vector3](msg/Vector3.msg): Represents a vector in 3-dimensional free space.
+* [Vector3F32](msg/Vector3F32.msg): Represents a vector in 3-dimensional free space, with 32-bit fields.
 * [Vector3Stamped](msg/Vector3Stamped.msg): Represents a Vector3 with reference coordinate frame and timestamp.
 * [Wrench](msg/Wrench.msg): Represents force in free space, separated into its linear and angular parts.
 * [WrenchStamped](msg/WrenchStamped.msg): A wrench with reference coordinate frame and timestamp.
