@@ -41,7 +41,7 @@ float32 charge           # Current charge in Ah  (If unmeasured NaN)
 float32 capacity         # Capacity in Ah (last full capacity)  (If unmeasured NaN)
 float32 design_capacity  # Capacity in Ah (design capacity)  (If unmeasured NaN)
 float32 percentage       # Charge percentage on 0 to 1 range  (If unmeasured NaN)
-uint8   id               # Identifier for the battery
+uint32  id               # Identifier for the battery
 uint8   power_supply_status     # The charging status as reported. Values defined above
 uint8   power_supply_health     # The battery health metric. Values defined above
 uint8   power_supply_technology # The battery chemistry. Values defined above
