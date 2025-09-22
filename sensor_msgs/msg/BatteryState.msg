@@ -41,14 +41,20 @@ float32 charge           # Current charge in Ah  (If unmeasured NaN)
 float32 capacity         # Capacity in Ah (last full capacity)  (If unmeasured NaN)
 float32 design_capacity  # Capacity in Ah (design capacity)  (If unmeasured NaN)
 float32 percentage       # Charge percentage on 0 to 1 range  (If unmeasured NaN)
+uint8   id               # Identifier for the battery
 uint8   power_supply_status     # The charging status as reported. Values defined above
 uint8   power_supply_health     # The battery health metric. Values defined above
 uint8   power_supply_technology # The battery chemistry. Values defined above
 bool    present          # True if the battery is present
 
 float32[] cell_voltage   # An array of individual cell voltages for each cell in the pack
-                         # If individual voltages unknown but number of cells known set each to NaN
+                         # If individual voltages unknown, but number of cells known, set each to NaN
 float32[] cell_temperature # An array of individual cell temperatures for each cell in the pack
-                           # If individual temperatures unknown but number of cells known set each to NaN
+                           # If individual temperatures unknown, but number of cells known, set each to NaN
 string location          # The location into which the battery is inserted. (slot number or plug)
+string manufacturer      # The name of the manufacturer of the battery
 string serial_number     # The best approximation of the battery serial number
+
+string hw_version        # The hardware version of the battery
+string sw_version        # The software version of the battery
+string fw_version        # The firmware version of the battery
