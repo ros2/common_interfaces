@@ -8,6 +8,9 @@ uint8 INT32   = 5
 uint8 UINT32  = 6
 uint8 FLOAT32 = 7
 uint8 FLOAT64 = 8
+uint8 INT64   = 9
+uint8 UINT64  = 10
+uint8 BOOL    = 11
 
 # Common PointField names are x, y, z, intensity, rgb, rgba
 string name      # Name of field
