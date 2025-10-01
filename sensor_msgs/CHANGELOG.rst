@@ -2,6 +2,12 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.8.3 (2025-10-01)
+------------------
+* [ADD] missing PointField type entries (`#301 <https://github.com/ros2/common_interfaces/issues/301>`_)
+* Update point_cloud2_iterator.hpp (`#298 <https://github.com/ros2/common_interfaces/issues/298>`_)
+* Contributors: Adam Leeper, wodtko
+
 5.8.2 (2025-07-29)
 ------------------
 
