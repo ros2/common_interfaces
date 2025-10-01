@@ -2,6 +2,11 @@
 Changelog for package stereo_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.5.1 (2025-10-01)
+------------------
+* Fix CMAKE deprecation (`#288 <https://github.com/ros2/common_interfaces/issues/288>`_) (`#290 <https://github.com/ros2/common_interfaces/issues/290>`_)
+* Contributors: mergify[bot]
+
 5.5.0 (2025-03-20)
 ------------------
 
