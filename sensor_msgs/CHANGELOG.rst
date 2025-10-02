@@ -2,6 +2,9 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 5.8.3 (2025-10-01)
 ------------------
 * [ADD] missing PointField type entries (`#301 <https://github.com/ros2/common_interfaces/issues/301>`_)
