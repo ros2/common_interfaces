@@ -24,6 +24,8 @@ set(msg_files
   "msg/OccupancyGrid.msg"
   "msg/Odometry.msg"
   "msg/Path.msg"
+  "msg/Trajectory.msg"
+  "msg/TrajectoryPoint.msg"
 )
 set(srv_files
   "srv/GetMap.srv"
