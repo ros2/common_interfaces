@@ -47,6 +47,9 @@ uint8   power_supply_health     # The battery health metric. Values defined abov
 uint8   power_supply_technology # The battery chemistry. Values defined above
 bool    present          # True if the battery is present
 
+uint32  charge_fault     # The current charge fault of the battery, if there is one
+uint32  discharge_fault  # The current discharge fault of the battery, if there is one
+
 float32[] cell_voltage   # An array of individual cell voltages for each cell in the pack
                          # If individual voltages unknown, but number of cells known, set each to NaN
 float32[] cell_temperature # An array of individual cell temperatures for each cell in the pack
