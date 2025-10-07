@@ -250,7 +250,9 @@ def create_cloud(
                    for each point, with the elements of each iterable being the
                    values of the fields for that point (in the same order as
                    the fields parameter)
-    :param point_step: Point step size in bytes. Calculated from the given fields by default.
+    :param point_step: Point step size in bytes. If not provided, it is calculated
+                       from the given fields, except when 'points' is a structured
+                       NumPy array, in which case points.dtype.itemsize is used.
                        (Type: optional of integer)
     :return: The point cloud as sensor_msgs.msg.PointCloud2
     """
@@ -266,7 +268,9 @@ def create_cloud(
                 points,
                 dtype=dtype_from_fields(fields, point_step))
         else:
-            assert points.dtype == dtype_from_fields(fields, point_step), \
+            assert points.dtype == dtype_from_fields(
+                fields,
+                point_step or points.dtype.itemsize), \
                 'PointFields and structured NumPy array dtype do not match for all fields! \
                     Check their field order, names and types.'
     else:
