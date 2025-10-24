@@ -17,6 +17,7 @@ This package provides some common C++ functionality relating to manipulating a c
 
 ## Messages (.msg)
 * [BatteryState](msg/BatteryState.msg): Describes the power state of the battery.
+* [BatteryStates](msg/BatteryStates.msg): An array of BatteryState messages.
 * [CameraInfo](msg/CameraInfo.msg): Meta information for a camera.
 * [ChannelFloat32](msg/ChannelFloat32.msg): Holds optional data associated with each point in a PointCloud message.
 * [CompressedImage](msg/CompressedImage.msg): A compressed image.

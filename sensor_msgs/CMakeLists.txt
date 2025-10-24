@@ -19,6 +19,7 @@ find_package(std_msgs REQUIRED)
 
 set(msg_files
   "msg/BatteryState.msg"
+  "msg/BatteryStates.msg"
   "msg/CameraInfo.msg"
   "msg/ChannelFloat32.msg"
   "msg/CompressedImage.msg"
