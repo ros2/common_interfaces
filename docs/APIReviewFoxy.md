@@ -233,7 +233,7 @@ Msg
 
 
 *   [https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/BatteryState.msg](https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/BatteryState.msg)
-*   [https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/BatteryStates.msg](https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/BatteryStates.msg)
+*   [https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/BatteryStateArray.msg](https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/BatteryStateArray.msg)
 *   [https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/CameraInfo.msg](https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/CameraInfo.msg)
 *   [https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/ChannelFloat32.msg](https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/ChannelFloat32.msg)
 *   [https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/CompressedImage.msg](https://github.com/ros2/common_interfaces/blob/master/sensor_msgs/msg/CompressedImage.msg)
