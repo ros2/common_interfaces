@@ -1,6 +1,21 @@
 # common_interfaces
-A set of packages which contain common interface files (.msg and .srv).
+Common interfaces is a metapackage (collection of packages) that includes the standard set of messages (.msg) and services (.srv) available on all ROS systems. 
 
+# List of Packages 
+
+The following packages are contained in the common_interfaces meta package. The links below point to Rolling Ridley API documentation for each package. 
+
+* [diagnostic_msgs](http://docs.ros.org/en/rolling/p/diagnostic_msgs/)
+* [geometry_msgs](http://docs.ros.org/en/rolling/p/geometry_msgs/)
+* [nav_msgs](http://docs.ros.org/en/rolling/p/nav_msgs/)
+* [sensor_msgs](http://docs.ros.org/en/rolling/p/sensor_msgs/)
+* [sensor_msgs_py](http://docs.ros.org/en/rolling/p/sensor_msgs_py/)
+* [shape_msgs](http://docs.ros.org/en/rolling/p/shape_msgs/)
+* [std_msgs](http://docs.ros.org/en/rolling/p/std_msgs/)
+* [std_srvs](http://docs.ros.org/en/rolling/p/std_srvs/)
+* [stereo_msgs](http://docs.ros.org/en/rolling/p/stereo_msgs/)
+* [trajectory_msgs](http://docs.ros.org/en/rolling/p/trajectory_msgs/)
+* [visualization_msgs](http://docs.ros.org/en/rolling/p/visualization_msgs/)
 
 ## Purpose
 
