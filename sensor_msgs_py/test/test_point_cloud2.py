@@ -54,7 +54,7 @@ fields = [PointField(name='x', offset=0, datatype=PointField.FLOAT32, count=1),
           PointField(name='z', offset=8, datatype=PointField.FLOAT32, count=1)]
 
 itemsize = points.itemsize
-data = points.tobytes()
+data = bytearray(points.tobytes())
 
 # 3D (xyz) point cloud (nx3)
 pcd = PointCloud2(
@@ -101,7 +101,7 @@ pcd3 = PointCloud2(
     # Every point consists of three float32s.
     point_step=(itemsize * points3.shape[-1]),
     row_step=(itemsize * points3.shape[-1] * points3.shape[0]),
-    data=points3.tobytes()
+    data=bytearray(points3.tobytes())
 )
 
 # Check multiple datatype pointclouds
@@ -132,7 +132,7 @@ pcd4 = PointCloud2(
     # The itemsize therfore represents the size of a complete point
     point_step=struct_points_itemsize,
     row_step=(struct_points_itemsize * points.shape[0]),
-    data=struct_points.tobytes()
+    data=bytearray(struct_points.tobytes())
 )
 
 # Point cloud with a field with count > 1
@@ -140,7 +140,7 @@ count = 3
 fields5 = [PointField(name='x', offset=0, datatype=PointField.FLOAT32, count=3)]
 
 itemsize = points.itemsize * count
-data = points.tobytes()
+data = bytearray(points.tobytes())
 
 pcd5 = PointCloud2(
     header=Header(frame_id='frame'),
@@ -180,7 +180,7 @@ pcd6 = PointCloud2(
     fields=struct_points_fields_6,
     point_step=struct_points_itemsize_6,
     row_step=(struct_points_itemsize_6 * points.shape[0]),
-    data=struct_points_6.tobytes()
+    data=bytearray(struct_points_6.tobytes())
 )
 
 # End padding in data layout
@@ -368,7 +368,7 @@ class TestPointCloud2Methods(unittest.TestCase):
             fields=fields,
             point_step=itemsize,
             row_step=itemsize * points_larger_itemsize.shape[0],
-            data=points_larger_itemsize.tobytes()
+            data=bytearray(points_larger_itemsize.tobytes())
         )
 
         # Deserialize point cloud
