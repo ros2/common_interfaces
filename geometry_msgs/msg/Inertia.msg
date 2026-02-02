@@ -4,7 +4,7 @@ float64 m
 # Center of mass [m]
 geometry_msgs/Vector3 com
 
-# Inertia Tensor [kg-m^2]
+# Inertia Tensor [kg-m^2] about the center of mass
 #     | ixx ixy ixz |
 # I = | ixy iyy iyz |
 #     | ixz iyz izz |
