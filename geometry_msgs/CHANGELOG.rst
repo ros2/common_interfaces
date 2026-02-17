@@ -2,6 +2,11 @@
 Changelog for package geometry_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Update Inertia.msg documentation to clarify inertia is express about the center of mass (`#313 <https://github.com/ros2/common_interfaces/issues/313>`_) (`#316 <https://github.com/ros2/common_interfaces/issues/316>`_)
+* Contributors: mergify[bot]
+
 4.9.0 (2025-06-17)
 ------------------
 * adding IDs to geometry_msgs/Polygon, PolygonStamped (`#232 <https://github.com/ros2/common_interfaces/issues/232>`_) (`#277 <https://github.com/ros2/common_interfaces/issues/277>`_)
