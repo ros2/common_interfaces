@@ -2,8 +2,8 @@
 Changelog for package geometry_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.3.7 (2026-02-25)
+------------------
 * Update Inertia.msg documentation to clarify inertia is express about the center of mass (`#313 <https://github.com/ros2/common_interfaces/issues/313>`_) (`#315 <https://github.com/ros2/common_interfaces/issues/315>`_)
 * Contributors: mergify[bot]
 
