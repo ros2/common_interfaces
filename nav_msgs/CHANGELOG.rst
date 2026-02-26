@@ -2,6 +2,11 @@
 Changelog for package nav_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Adding the Trajectory and trajectoryPoint messages (`#296 <https://github.com/ros2/common_interfaces/issues/296>`_) (`#318 <https://github.com/ros2/common_interfaces/issues/318>`_)
+* Contributors: mergify[bot]
+
 5.3.6 (2025-03-20)
 ------------------
 * adding nav_msgs/goals to Jazzy (`#271 <https://github.com/ros2/common_interfaces/issues/271>`_)
