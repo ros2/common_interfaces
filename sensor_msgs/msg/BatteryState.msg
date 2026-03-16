@@ -32,7 +32,7 @@ uint8 POWER_SUPPLY_TECHNOLOGY_NICD = 5    # Nickel-Cadmium battery
 uint8 POWER_SUPPLY_TECHNOLOGY_LIMN = 6    # Lithium Manganese Dioxide battery
 uint8 POWER_SUPPLY_TECHNOLOGY_TERNARY = 7 # Ternary Lithium battery
 uint8 POWER_SUPPLY_TECHNOLOGY_VRLA = 8    # Valve Regulated Lead-Acid battery
-uint8 POWER_SUPPLY_TECHNOLOGY_LTO = 9     # Lithium Titanium oxyde battery
+uint8 POWER_SUPPLY_TECHNOLOGY_LTO = 9     # Lithium Titanium Oxide battery
 
 std_msgs/Header  header
 float32 voltage          # Voltage in Volts (Mandatory)
