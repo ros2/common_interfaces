@@ -1,0 +1,18 @@
+# This expresses the timestamped velocity vector of a frame
+# 'body_frame_id' in the reference frame 'reference_frame_id' expressed
+# from arbitrary observation frame 'header.frame_id' with uncertainty.
+# - If 'body_frame_id' and 'header.frame_id' are identical, the velocity
+#   is observed and defined in the local coordinate system of the body,
+#   which is the usual use case in mobile robotics and is also known as
+#   a body twist.
+
+std_msgs/Header header
+string body_frame_id
+string reference_frame_id
+Twist velocity
+
+# Row-major representation of the 6x6 covariance matrix
+# The orientation parameters use a fixed-axis representation.
+# In order, the parameters are:
+# (x, y, z, rotation about X axis, rotation about Y axis, rotation about Z axis)
+float64[36] covariance
