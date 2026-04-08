@@ -266,7 +266,9 @@ def create_cloud(
                 points,
                 dtype=dtype_from_fields(fields, point_step))
         else:
-            assert points.dtype == dtype_from_fields(fields, point_step), \
+            assert points.dtype == dtype_from_fields(
+                fields,
+                point_step or points.dtype.itemsize), \
                 'PointFields and structured NumPy array dtype do not match for all fields! \
                     Check their field order, names and types.'
     else:
