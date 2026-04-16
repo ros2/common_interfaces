@@ -12,8 +12,13 @@ For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros
 * [Inertia](msg/Inertia.msg): Expresses the inertial properties of a link.
 * [InertiaStamped](msg/InertiaStamped.msg): An Inertia with reference coordinate frame and timestamp.
 * [Point32](msg/Point32.msg): The position of a 3-dimensional point in free space, with 32-bit fields.
+* [Point32Stamped](msg/Point32Stamped.msg): Point with reference coordinate frame and timestamp, with 32-bit fields.
+* [Point32WithCovariance](msg/Point32WithCovariance.msg): The position of a point in free space with uncertainty, with 32-bit fields.
+* [Point32WithCovarianceStamped](msg/Point32WithCovarianceStamped.msg): An estimated point with reference coordinate frame and timestamp, with 32-bit fields.
 * [Point](msg/Point.msg): The position of a 3-dimensional point in free space.
 * [PointStamped](msg/PointStamped.msg): Point with reference coordinate frame and timestamp.
+* [PointWithCovariance](msg/PointWithCovariance.msg): The position of a point in free space with uncertainty.
+* [PointWithCovarianceStamped](msg/PointWithCovarianceStamped.msg): An estimated point with reference coordinate frame and timestamp.
 * [Polygon](msg/Polygon.msg): A specification of a polygon where the first and last points are assumed to be connected.
 * [PolygonInstance](msg/PolygonInstance.msg): A specification of a polygon where the first and last points are assumed to be connected. Contains an identification field for disambiguation of multiple instances.
 * [PolygonInstanceStamped](msg/PolygonInstanceStamped.msg): A Polygon with reference coordinate frame and timestamp. Contains an identification field for disambiguation of multiple instances.
