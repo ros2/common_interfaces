@@ -9,10 +9,4 @@
 std_msgs/Header header
 string body_frame_id
 string reference_frame_id
-Twist velocity
-
-# Row-major representation of the 6x6 covariance matrix
-# The orientation parameters use a fixed-axis representation.
-# In order, the parameters are:
-# (x, y, z, rotation about X axis, rotation about Y axis, rotation about Z axis)
-float64[36] covariance
+TwistWithCovariance velocity_with_covariance
