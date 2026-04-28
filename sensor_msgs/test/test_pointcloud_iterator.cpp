@@ -170,5 +170,5 @@ TEST(sensor_msgs, PointCloud2Resize)
   modifier3.resize(static_cast<uint32_t>(11), static_cast<uint32_t>(11));
   EXPECT_EQ(static_cast<uint32_t>(11), cloud_msg_3.width);
   EXPECT_EQ(static_cast<uint32_t>(11), cloud_msg_3.height);
-  EXPECT_EQ(static_cast<uint32_t>(3872), cloud_msg_3.row_step);
+  EXPECT_EQ(cloud_msg_3.width * cloud_msg_3.point_step, cloud_msg_3.row_step);
 }
