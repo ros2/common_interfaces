@@ -2,6 +2,9 @@
 Changelog for package common_interfaces
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 5.9.1 (2025-10-17)
 ------------------
 
