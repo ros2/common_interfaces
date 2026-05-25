@@ -9,4 +9,4 @@
 std_msgs/Header header
 string body_frame_id
 string reference_frame_id
-TwistWithCovariance velocity_with_covariance
+TwistWithCovariance velocity
