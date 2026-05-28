@@ -28,11 +28,11 @@
 
 # Time of image acquisition, camera coordinate frame ID
 std_msgs/Header header # Header timestamp should be acquisition time of image
-                             # Header frame_id should be optical frame of camera
-                             # origin of frame should be optical center of camera
-                             # +x should point to the right in the image
-                             # +y should point down in the image
-                             # +z should point into the plane of the image
+                       # Header frame_id should be optical frame of camera
+                       # origin of frame should be optical center of camera
+                       # +x should point to the right in the image
+                       # +y should point down in the image
+                       # +z should point into the plane of the image
 
 
 #######################################################################
@@ -70,13 +70,13 @@ float64[] d
 # Projects 3D points in the camera coordinate frame to 2D pixel
 # coordinates using the focal lengths (fx, fy) and principal point
 # (cx, cy).
-float64[9]  k # 3x3 row-major matrix
+float64[9] k # 3x3 row-major matrix
 
 # Rectification matrix (stereo cameras only)
 # A rotation matrix aligning the camera coordinate system to the ideal
 # stereo image plane so that epipolar lines in both stereo images are
 # parallel.
-float64[9]  r # 3x3 row-major matrix
+float64[9] r # 3x3 row-major matrix
 
 # Projection/camera matrix
 #     [fx'  0  cx' Tx]
