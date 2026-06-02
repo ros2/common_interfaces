@@ -46,6 +46,7 @@ set(msg_files
   "msg/Vector3.msg"
   "msg/Vector3Stamped.msg"
   "msg/VelocityStamped.msg"
+  "msg/VelocityWithCovarianceStamped.msg"
   "msg/Wrench.msg"
   "msg/WrenchStamped.msg"
 )
