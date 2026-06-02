@@ -33,6 +33,8 @@ For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros
 * [TwistWithCovarianceStamped](msg/TwistWithCovarianceStamped.msg): An estimated twist with reference coordinate frame and timestamp.
 * [Vector3](msg/Vector3.msg): Represents a vector in 3-dimensional free space.
 * [Vector3Stamped](msg/Vector3Stamped.msg): Represents a Vector3 with reference coordinate frame and timestamp.
+* [VelocityStamped](msg/VelocityStamped.msg): A fully-qualified velocity in 3-dimensional space with timestamp.
+* [VelocityWithCovarianceStamped](msg/VelocityWithCovarianceStamped.msg): A fully-qualified velocity in 3-dimensional space with uncertainty and timestamp.
 * [Wrench](msg/Wrench.msg): Represents force in free space, separated into its linear and angular parts.
 * [WrenchStamped](msg/WrenchStamped.msg): A wrench with reference coordinate frame and timestamp.
 
