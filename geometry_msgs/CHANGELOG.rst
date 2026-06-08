@@ -2,8 +2,8 @@
 Changelog for package geometry_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+5.3.8 (2026-06-08)
+------------------
 * Add `geometry_msgs/msg/VelocityWithCovarianceStamped` (`#323 <https://github.com/ros2/common_interfaces/issues/323>`_) (`#336 <https://github.com/ros2/common_interfaces/issues/336>`_)
   (cherry picked from commit bae9a4897bbfd0d57425f085ae08c6a6d155625c)
   Co-authored-by: Ethan J. Musser <ethanmusser1@gmail.com>
