@@ -1,0 +1,4 @@
+string data # e.g. for selecting a profile or a configuration name
+---
+bool success   # indicate successful run of triggered service
+string message # informational, e.g. for error messages

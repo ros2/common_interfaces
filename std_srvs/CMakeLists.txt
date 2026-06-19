@@ -17,6 +17,11 @@ find_package(rosidl_default_generators REQUIRED)
 set(srv_files
   "srv/Empty.srv"
   "srv/SetBool.srv"
+  "srv/SetFloat32.srv"
+  "srv/SetInt32.srv"
+  "srv/SetString.srv"
+  "srv/SetUInt8.srv"
+  "srv/SetUInt8Array.srv"
   "srv/Trigger.srv"
 )
 rosidl_generate_interfaces(${PROJECT_NAME}

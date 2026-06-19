@@ -1,0 +1,4 @@
+uint8 data # e.g. for setting a small command code
+---
+bool success   # indicate successful run of triggered service
+string message # informational, e.g. for error messages

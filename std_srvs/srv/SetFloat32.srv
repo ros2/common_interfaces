@@ -1,0 +1,4 @@
+float32 data # e.g. for setting a numeric threshold
+---
+bool success   # indicate successful run of triggered service
+string message # informational, e.g. for error messages

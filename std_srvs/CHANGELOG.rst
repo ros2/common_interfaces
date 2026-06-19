@@ -2,6 +2,12 @@
 Changelog for package std_srvs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-------------------
+* Add additional std_srvs service definitions:
+  SetFloat32, SetInt32, SetString, SetUInt8, and SetUInt8Array.
+* Contributors: Xavier BROQUERE
+
 5.10.0 (2026-05-06)
 -------------------
 
