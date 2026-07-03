@@ -296,10 +296,18 @@ class TestPointCloud2Methods(unittest.TestCase):
     def test_create_cloud_itemsize(self):
 
         with self.assertRaises(AssertionError):
+            dtype_from_fields = point_cloud2.dtype_from_fields(fields)
             point_cloud2.create_cloud(
                 Header(frame_id='frame'),
                 fields,
+                points_end_padding,
+                dtype_from_fields.itemsize)
+
+        thispcd = point_cloud2.create_cloud(
+                Header(frame_id='frame'),
+                fields,
                 points_end_padding)
+        self.assertEqual(thispcd.point_step, itemsize_end_padding)
 
         thispcd = point_cloud2.create_cloud(
             Header(frame_id='frame'),
