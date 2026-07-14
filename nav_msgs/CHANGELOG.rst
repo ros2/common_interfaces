@@ -2,6 +2,9 @@
 Changelog for package nav_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.5.3 (2026-07-14)
+------------------
+
 5.5.2 (2026-02-25)
 ------------------
 * Adding the Trajectory and trajectoryPoint messages (`#296 <https://github.com/ros2/common_interfaces/issues/296>`_) (`#317 <https://github.com/ros2/common_interfaces/issues/317>`_)
