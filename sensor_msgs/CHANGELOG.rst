@@ -2,6 +2,12 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.10.1 (2026-07-14)
+-------------------
+* use C++ 20 in default. (`#339 <https://github.com/ros2/common_interfaces/issues/339>`_)
+* fix whitespace in CameraInfo (`#332 <https://github.com/ros2/common_interfaces/issues/332>`_)
+* Contributors: Christian Rauch, Tomoya Fujita
+
 5.10.0 (2026-05-06)
 -------------------
 
