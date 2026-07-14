@@ -2,6 +2,9 @@
 Changelog for package sensor_msgs_py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.9.3 (2026-07-14)
+------------------
+
 5.9.1 (2025-10-17)
 ------------------
 * Use structured NumPy points.dtype.itemsize as default point_step in create_cloud (`#295 <https://github.com/ros2/common_interfaces/issues/295>`_)
