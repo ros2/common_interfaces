@@ -2,6 +2,11 @@
 Changelog for package geometry_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+4.9.2 (2026-07-14)
+------------------
+* Add `geometry_msgs/msg/VelocityWithCovarianceStamped` (`#323 <https://github.com/ros2/common_interfaces/issues/323>`_) (`#337 <https://github.com/ros2/common_interfaces/issues/337>`_)
+* Contributors: mergify[bot]
+
 4.9.1 (2026-02-16)
 ------------------
 * Update Inertia.msg documentation to clarify inertia is express about the center of mass (`#313 <https://github.com/ros2/common_interfaces/issues/313>`_) (`#316 <https://github.com/ros2/common_interfaces/issues/316>`_)
