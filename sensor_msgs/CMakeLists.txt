@@ -37,7 +37,6 @@ set(msg_files
   "msg/MultiEchoLaserScan.msg"
   "msg/NavSatFix.msg"
   "msg/NavSatStatus.msg"
-  "msg/PointCloud.msg"
   "msg/PointCloud2.msg"
   "msg/PointField.msg"
   "msg/Range.msg"
@@ -88,7 +87,6 @@ if(TARGET "${cpp_typesupport_target}")
   if(BUILD_TESTING)
     ament_add_gtest(test_sensor_msgs
       test/test_image_encodings.cpp
-      test/test_pointcloud_conversion.cpp
       test/test_pointcloud_iterator.cpp)
     target_link_libraries(test_sensor_msgs ${PROJECT_NAME}_library)
   endif()
