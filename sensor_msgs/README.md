@@ -24,6 +24,7 @@ This package provides some common C++ functionality relating to manipulating a c
 * [Illuminance](msg/Illuminance.msg): Single photometric illuminance measurement.
 * [Image](msg/Image.msg): An uncompressed image.
 * [Imu](msg/Imu.msg): Holds data from an IMU (Inertial Measurement Unit).
+* [ImuSensor](msg/ImuSensor.msg): Holds data from an IMU (Inertial Measurement Unit) Sensor.
 * [JointState](msg/JointState.msg): Holds data to describe the state of a set of torque controlled joints.
 * [JoyFeedbackArray](msg/JoyFeedbackArray.msg): An array of JoyFeedback messages.
 * [JoyFeedback](msg/JoyFeedback.msg): Describes user feedback in a joystick, like an LED, rumble pad, or buzzer.
@@ -31,6 +32,7 @@ This package provides some common C++ functionality relating to manipulating a c
 * [LaserEcho](msg/LaserEcho.msg): A submessage of MultiEchoLaserScan and is not intended to be used separately.
 * [LaserScan](msg/LaserScan.msg): Single scan from a planar laser range-finder.
 * [MagneticField](msg/MagneticField.msg): Measurement of the Magnetic Field vector at a specific location.
+* [Magnetometer](msg/Magnetometer.msg): Measurement of planets Magnetic Field vector in microTesla.
 * [MultiDOFJointState](msg/MultiDOFJointState.msg): Representation of state for joints with multiple degrees of freedom, following the structure of JointState.
 * [MultiEchoLaserScan](msg/MultiEchoLaserScan.msg): Single scan from a multi-echo planar laser range-finder.
 * [NavSatFix](msg/NavSatFix.msg): Navigation Satellite fix for any Global Navigation Satellite System.
@@ -38,6 +40,7 @@ This package provides some common C++ functionality relating to manipulating a c
 * [PointCloud2](msg/PointCloud2.msg): Holds a collection of N-dimensional points, which may contain additional information such as normals, intensity, etc.
 * [PointCloud](msg/PointCloud.msg): **THIS MESSAGE IS DEPRECATED AS OF FOXY, use PointCloud2 instead**
 * [PointField](msg/PointField.msg): Holds the description of one point entry in the PointCloud2 message format.
+* [PressureSensor](msg/PressureSensor.msg): Single pressure sensor reading like static atmospheric and differential pressures.
 * [Range](msg/Range.msg): Single range reading from an active ranger that emits energy and reports one range reading that is valid along an arc at the distance measured.
 * [RegionOfInterest](msg/RegionOfInterest.msg): Used to specify a region of interest within an image.
 * [RelativeHumidity](msg/RelativeHumidity.msg): A single reading from a relative humidity sensor.
