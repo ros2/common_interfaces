@@ -153,6 +153,7 @@ inline void PointCloud2Modifier::resize(uint32_t width, uint32_t height)
 
   cloud_msg_.width = width;
   cloud_msg_.height = height;
+  cloud_msg_.row_step = cloud_msg_.width * cloud_msg_.point_step;
 }
 
 inline void PointCloud2Modifier::clear()
