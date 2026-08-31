@@ -14,6 +14,7 @@ For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros
 * [Point32](msg/Point32.msg): The position of a 3-dimensional point in free space, with 32-bit fields.
 * [Point](msg/Point.msg): The position of a 3-dimensional point in free space.
 * [PointStamped](msg/PointStamped.msg): Point with reference coordinate frame and timestamp.
+* [PointWithCovariance](msg/PointWithCovariance.msg): The position of a point in free space with uncertainty.
 * [Polygon](msg/Polygon.msg): A specification of a polygon where the first and last points are assumed to be connected.
 * [PolygonInstance](msg/PolygonInstance.msg): A specification of a polygon where the first and last points are assumed to be connected. Contains an identification field for disambiguation of multiple instances.
 * [PolygonInstanceStamped](msg/PolygonInstanceStamped.msg): A Polygon with reference coordinate frame and timestamp. Contains an identification field for disambiguation of multiple instances.
