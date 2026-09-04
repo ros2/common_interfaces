@@ -2,6 +2,11 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.10.2 (2026-09-04)
+-------------------
+* [sensor_msgs] Fix row_step when resizing organized PointCloud2 (`#340 <https://github.com/ros2/common_interfaces/issues/340>`_)
+* Contributors: Manchun Xie
+
 5.10.1 (2026-07-14)
 -------------------
 * use C++ 20 in default. (`#339 <https://github.com/ros2/common_interfaces/issues/339>`_)
