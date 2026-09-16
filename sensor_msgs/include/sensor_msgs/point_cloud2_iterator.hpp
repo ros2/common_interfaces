@@ -33,9 +33,9 @@
 #define SENSOR_MSGS__POINT_CLOUD2_ITERATOR_HPP_
 
 #include <sensor_msgs/msg/point_cloud2.hpp>
-#include <cstdarg>
+#include <cstddef>
+#include <cstdint>
 #include <string>
-#include <vector>
 
 /**
  * @brief Tools for manipulating sensor_msgs

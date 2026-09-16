@@ -31,6 +31,8 @@
 
 #include <gtest/gtest.h>
 
+#include <cstddef>
+#include <cstdint>
 #include <vector>
 
 #include "sensor_msgs/msg/point_cloud2.hpp"

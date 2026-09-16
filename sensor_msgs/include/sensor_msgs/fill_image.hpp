@@ -32,6 +32,8 @@
 #ifndef SENSOR_MSGS__FILL_IMAGE_HPP_
 #define SENSOR_MSGS__FILL_IMAGE_HPP_
 
+#include <cstddef>
+#include <cstdint>
 #include <cstring>
 #include <string>
 

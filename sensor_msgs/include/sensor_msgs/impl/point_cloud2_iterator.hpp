@@ -36,7 +36,10 @@
 
 #include <sensor_msgs/msg/point_cloud2.hpp>
 #include <cstdarg>
+#include <cstddef>
+#include <cstdint>
 #include <sstream>
+#include <stdexcept>
 #include <string>
 #include <vector>
 
