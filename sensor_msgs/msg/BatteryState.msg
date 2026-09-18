@@ -53,5 +53,5 @@ float32[] cell_temperature # An array of individual cell temperatures for each c
 string location          # The location into which the battery is inserted. (slot number or plug)
 string serial_number     # The best approximation of the battery serial number
 
-uint32 charging_time_elapsed   # Elapsed charging time in charging mode (in seconds)
-uint32 charging_time_remaining # Remaining charging time in charging mode (in seconds)
+builtin_interfaces/Duration charging_time_elapsed   # Elapsed charging time in charging mode (in seconds)
+builtin_interfaces/Duration charging_time_remaining # Remaining charging time in charging mode (in seconds)
