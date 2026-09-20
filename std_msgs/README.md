@@ -8,6 +8,7 @@ For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros
 * [ColorRGBA](msg/ColorRGBA.msg): A single RGBA value for representing colors.
 * [Empty](msg/Empty.msg): Does not hold any information, useful when the sending of a message would provide sufficient information.
 * [Header](msg/Header.msg): Standard metadata for higher-level stamped data types used to communicate timestamped data in a particular coordinate frame.
+* [HeaderBounded48](msg/HeaderBounded48.msg): Standard metadata for higher-level stamped data types used to communicate timestamped data in a particular bounded length (48) string coordinate frame.
 
 ### Primitive Types
 `std_msgs` provides the following wrappers for ROS primitive types, which are documented in the msg specification. It also contains the Empty type, which is useful for sending an empty signal. However, these types do not convey semantic meaning about their contents: every message simply has a field called "data". Therefore, while the messages in this package can be useful for quick prototyping, they are NOT intended for "long-term" usage. For ease of documentation and collaboration, we recommend that existing messages be used, or new messages created, that provide meaningful field name(s).
