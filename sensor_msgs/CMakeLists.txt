@@ -79,9 +79,6 @@ if(TARGET "${cpp_typesupport_target}")
     TARGETS ${PROJECT_NAME}_library EXPORT export_${PROJECT_NAME}
   )
 
-  # Export old-style CMake variables
-  ament_export_include_directories("include/${PROJECT_NAME}")
-
   # Export modern CMake targets
   ament_export_targets(export_${PROJECT_NAME})
 
