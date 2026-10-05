@@ -16,6 +16,7 @@ find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 set(msg_files
+  "msg/Bounds.msg"
   "msg/Mesh.msg"
   "msg/MeshTriangle.msg"
   "msg/Plane.msg"
