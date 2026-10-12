@@ -172,3 +172,21 @@ TEST(sensor_msgs, PointCloud2Resize)
   EXPECT_EQ(static_cast<uint32_t>(11), cloud_msg_3.height);
   EXPECT_EQ(static_cast<uint32_t>(3872), cloud_msg_3.row_step);
 }
+
+TEST(sensor_msgs, PointCloud2IteratorEmpty)
+{
+  sensor_msgs::msg::PointCloud2 cloud_msg;
+  sensor_msgs::PointCloud2Modifier modifier(cloud_msg);
+  modifier.setPointCloud2FieldsByString(2, "xyz", "rgb");
+  modifier.resize(0);
+  ASSERT_TRUE(cloud_msg.data.empty());
+
+  sensor_msgs::PointCloud2Iterator<float> iter_x(cloud_msg, "x");
+  EXPECT_FALSE(iter_x != iter_x.end());
+
+  const sensor_msgs::msg::PointCloud2 & const_cloud_msg = cloud_msg;
+  sensor_msgs::PointCloud2ConstIterator<float> iter_z(const_cloud_msg, "z");
+  EXPECT_FALSE(iter_z != iter_z.end());
+  sensor_msgs::PointCloud2ConstIterator<uint8_t> iter_r(const_cloud_msg, "r");
+  EXPECT_FALSE(iter_r != iter_r.end());
+}
