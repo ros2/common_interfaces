@@ -84,6 +84,7 @@ if(TARGET "${cpp_typesupport_target}")
 
   if(BUILD_TESTING)
     ament_add_gtest(test_sensor_msgs
+      test/test_fill_image.cpp
       test/test_image_encodings.cpp
       test/test_pointcloud_conversion.cpp
       test/test_pointcloud_iterator.cpp)
