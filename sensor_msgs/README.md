@@ -16,6 +16,7 @@ This package provides some common C++ functionality relating to manipulating a c
 * [point_field_conversion.hpp](include/sensor_msgs/point_field_conversion.hpp): A type to enum mapping for the different PointField types, and methods to read and write in a PointCloud2 buffer for the different PointField types.
 
 ## Messages (.msg)
+* [Altitude](msg/Altitude.msg): Single vertical position (altitude/depth) measurement.
 * [BatteryState](msg/BatteryState.msg): Describes the power state of the battery.
 * [CameraInfo](msg/CameraInfo.msg): Meta information for a camera.
 * [ChannelFloat32](msg/ChannelFloat32.msg): Holds optional data associated with each point in a PointCloud message.

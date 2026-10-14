@@ -18,6 +18,7 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
 
 set(msg_files
+  "msg/Altitude.msg"
   "msg/BatteryState.msg"
   "msg/CameraInfo.msg"
   "msg/ChannelFloat32.msg"
