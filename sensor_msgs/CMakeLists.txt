@@ -22,6 +22,7 @@ set(msg_files
   "msg/CameraInfo.msg"
   "msg/ChannelFloat32.msg"
   "msg/CompressedImage.msg"
+  "msg/Contact.msg"
   "msg/FluidPressure.msg"
   "msg/Illuminance.msg"
   "msg/Image.msg"
