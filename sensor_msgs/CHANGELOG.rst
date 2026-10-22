@@ -2,6 +2,11 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.9.4 (2026-10-22)
+------------------
+* Fix PointCloud2Iterator on an empty cloud (`#348 <https://github.com/ros2/common_interfaces/issues/348>`_) (`#350 <https://github.com/ros2/common_interfaces/issues/350>`_)
+* Contributors: mergify[bot]
+
 5.9.3 (2026-07-14)
 ------------------
 
