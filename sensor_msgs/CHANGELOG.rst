@@ -2,6 +2,14 @@
 Changelog for package sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+5.10.3 (2026-10-22)
+-------------------
+* Fix fillImage on an empty image (`#349 <https://github.com/ros2/common_interfaces/issues/349>`_)
+* Fix PointCloud2Iterator on an empty cloud (`#348 <https://github.com/ros2/common_interfaces/issues/348>`_)
+* Include what you use (`#342 <https://github.com/ros2/common_interfaces/issues/342>`_)
+* Delete old-style ament_export_include_directories() call in sensor_msgs (`#345 <https://github.com/ros2/common_interfaces/issues/345>`_)
+* Contributors: Alejandro Hernández Cordero, Francois Gonothi Toure, Vahap Oguz TOKMAK
+
 5.10.2 (2026-09-04)
 -------------------
 * [sensor_msgs] Fix row_step when resizing organized PointCloud2 (`#340 <https://github.com/ros2/common_interfaces/issues/340>`_)
