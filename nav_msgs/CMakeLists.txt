@@ -38,7 +38,6 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
   ${srv_files}
   DEPENDENCIES builtin_interfaces geometry_msgs std_msgs
-  ADD_LINTER_TESTS
 )
 
 ament_export_dependencies(rosidl_default_runtime)

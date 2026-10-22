@@ -21,7 +21,6 @@ set(srv_files
 )
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${srv_files}
-  ADD_LINTER_TESTS
 )
 
 ament_export_dependencies(rosidl_default_runtime)
