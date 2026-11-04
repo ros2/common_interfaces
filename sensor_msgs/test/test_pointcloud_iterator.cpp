@@ -193,3 +193,61 @@ TEST(sensor_msgs, PointCloud2IteratorEmpty)
   sensor_msgs::PointCloud2ConstIterator<uint8_t> iter_r(const_cloud_msg, "r");
   EXPECT_FALSE(iter_r != iter_r.end());
 }
+
+TEST(sensor_msgs, PointCloud2IteratorIntensity)
+{
+  size_t n_points = 4;
+  sensor_msgs::msg::PointCloud2 cloud_msg;
+  cloud_msg.height = 1;
+  cloud_msg.width = static_cast<uint32_t>(n_points);
+  sensor_msgs::PointCloud2Modifier modifier(cloud_msg);
+  modifier.setPointCloud2FieldsByString(2, "xyz", "intensity");
+
+  ASSERT_EQ(cloud_msg.fields.size(), 4u);
+  EXPECT_EQ(cloud_msg.fields[0].name, "x");
+  EXPECT_EQ(cloud_msg.fields[0].offset, 0u);
+  EXPECT_EQ(cloud_msg.fields[0].datatype, sensor_msgs::msg::PointField::FLOAT32);
+  EXPECT_EQ(cloud_msg.fields[1].name, "y");
+  EXPECT_EQ(cloud_msg.fields[1].offset, 4u);
+  EXPECT_EQ(cloud_msg.fields[1].datatype, sensor_msgs::msg::PointField::FLOAT32);
+  EXPECT_EQ(cloud_msg.fields[2].name, "z");
+  EXPECT_EQ(cloud_msg.fields[2].offset, 8u);
+  EXPECT_EQ(cloud_msg.fields[2].datatype, sensor_msgs::msg::PointField::FLOAT32);
+  EXPECT_EQ(cloud_msg.fields[3].name, "intensity");
+  EXPECT_EQ(cloud_msg.fields[3].offset, 16u);
+  EXPECT_EQ(cloud_msg.fields[3].datatype, sensor_msgs::msg::PointField::FLOAT32);
+  EXPECT_EQ(cloud_msg.point_step, 32u);
+
+  modifier.resize(n_points);
+  EXPECT_EQ(cloud_msg.data.size(), n_points * 32u);
+
+  float point_data_raw[] = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f,
+    12.0f};
+  float intensity_raw[] = {100.0f, 200.0f, 300.0f, 400.0f};
+
+  sensor_msgs::PointCloud2Iterator<float> iter_x(cloud_msg, "x");
+  sensor_msgs::PointCloud2Iterator<float> iter_y(cloud_msg, "y");
+  sensor_msgs::PointCloud2Iterator<float> iter_z(cloud_msg, "z");
+  sensor_msgs::PointCloud2Iterator<float> iter_i(cloud_msg, "intensity");
+
+  for (size_t i = 0; i < n_points; ++i, ++iter_x, ++iter_y, ++iter_z, ++iter_i) {
+    *iter_x = point_data_raw[3 * i];
+    *iter_y = point_data_raw[3 * i + 1];
+    *iter_z = point_data_raw[3 * i + 2];
+    *iter_i = intensity_raw[i];
+  }
+
+  sensor_msgs::PointCloud2ConstIterator<float> const_iter_x(cloud_msg, "x");
+  sensor_msgs::PointCloud2ConstIterator<float> const_iter_y(cloud_msg, "y");
+  sensor_msgs::PointCloud2ConstIterator<float> const_iter_z(cloud_msg, "z");
+  sensor_msgs::PointCloud2ConstIterator<float> const_iter_i(cloud_msg, "intensity");
+
+  for (size_t i = 0; i < n_points;
+    ++i, ++const_iter_x, ++const_iter_y, ++const_iter_z, ++const_iter_i)
+  {
+    EXPECT_EQ(*const_iter_x, point_data_raw[3 * i]);
+    EXPECT_EQ(*const_iter_y, point_data_raw[3 * i + 1]);
+    EXPECT_EQ(*const_iter_z, point_data_raw[3 * i + 2]);
+    EXPECT_EQ(*const_iter_i, intensity_raw[i]);
+  }
+}
