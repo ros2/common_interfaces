@@ -93,9 +93,10 @@ def read_points(
         # Mask fields
         points = points[list(field_names)]
 
-    # Swap array if byte order does not match
+    # Swap array if byte order does not match. Swap a copy, because the array
+    # shares its memory with cloud.data and swapping in place would change the message.
     if bool(sys.byteorder != 'little') != bool(cloud.is_bigendian):
-        points = points.byteswap(inplace=True)
+        points = points.byteswap()
 
     # Check if we want to drop points with nan values
     if skip_nans and not cloud.is_dense:
