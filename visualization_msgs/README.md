@@ -2,7 +2,7 @@
 
 This package provides messages for visualizing 3D information in ROS GUI programs, particularly RViz.
 
-These messages were ported from ROS 1 and for now the [visualization_msgs wiki](http://wiki.ros.org/visualization_msgs) is still a good place for information about these messages and how they are used.
+See the [RViz marker tutorials](https://docs.ros.org/en/rolling/Developer-Tools/Visualization/RViz/Marker-Display-types/Marker-Display-types.html) for information about these messages and how they are used.
 
 For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros.org/en/rolling/Concepts/About-ROS-Interfaces.html).
 
