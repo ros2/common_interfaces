@@ -11,7 +11,7 @@
 # The image_pipeline contains packages (image_proc, stereo_image_proc)
 # for producing the four processed image topics from image_raw and
 # camera_info. The meaning of the camera parameters are described in
-# detail at https://docs.ros.org/en/rolling/p/image_pipeline/camera_info.html.
+# detail at http://www.ros.org/wiki/image_pipeline/CameraInfo.
 #
 # The image_geometry package provides a user-friendly interface to
 # common operations using this meta information. If you want to, e.g.,

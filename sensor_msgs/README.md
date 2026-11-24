@@ -2,7 +2,7 @@
 
 This package provides many messages and services relating to sensor devices.
 
-The API documentation can be found in the [sensor_msgs package documentation](https://docs.ros.org/en/rolling/p/sensor_msgs/).
+Many of these messages were ported from ROS 1 and a lot of still-relevant documentation can be found through the [ROS 1 sensor_msgs wiki](http://wiki.ros.org/sensor_msgs?distro=noetic).
 
 For more information about ROS 2 interfaces, see [docs.ros.org](https://docs.ros.org/en/rolling/Concepts/About-ROS-Interfaces.html).
 
