@@ -18,6 +18,8 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
 
 set(msg_files
+  "msg/BaseTrajectory.msg"
+  "msg/BaseTrajectoryPoint.msg"
   "msg/JointTrajectory.msg"
   "msg/JointTrajectoryPoint.msg"
   "msg/MultiDOFJointTrajectory.msg"
