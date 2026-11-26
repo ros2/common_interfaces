@@ -27,6 +27,7 @@ set(msg_files
   "msg/Float64.msg"
   "msg/Float64MultiArray.msg"
   "msg/Header.msg"
+  "msg/HeaderBounded48.msg"
   "msg/Int16.msg"
   "msg/Int16MultiArray.msg"
   "msg/Int32.msg"
