@@ -75,6 +75,7 @@ def read_points(
     :param uvs: If specified, then only return the points at the given
         coordinates. (Type: Iterable, Default: None)
     :param reshape_organized_cloud: Returns the array as an 2D organized point cloud if set.
+        The array has shape (height, width).
     :return: Structured NumPy array containing all points.
     """
     assert isinstance(cloud, PointCloud2), \
@@ -116,9 +117,10 @@ def read_points(
         # Index requested points
         points = points[uvs]
 
-    # Cast into 2d array if cloud is 'organized'
+    # Cast into 2d array if cloud is 'organized'.
+    # The data is stored row by row, so the array has shape (height, width).
     if reshape_organized_cloud and cloud.height > 1:
-        points = points.reshape(cloud.width, cloud.height)
+        points = points.reshape(cloud.height, cloud.width)
 
     return points
 
@@ -286,9 +288,10 @@ def create_cloud(
             Points can only be organized in max. two dimensional space'
     height = 1
     width = points.shape[0]
-    # Check if input points are an organized cloud (2D array of points)
+    # Check if input points are an organized cloud (2D array of points).
+    # The array is indexed as [row, column], so it has shape (height, width).
     if len(points.shape) == 2:
-        height = points.shape[1]
+        height, width = points.shape
 
     # Convert numpy points to array.array
     memory_view = memoryview(points)

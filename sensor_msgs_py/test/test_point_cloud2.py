@@ -93,14 +93,14 @@ pcd2 = PointCloud2(
 points3 = points.reshape(2, 3, -1)
 pcd3 = PointCloud2(
     header=Header(frame_id='frame'),
-    height=points3.shape[1],
-    width=points3.shape[0],
+    height=points3.shape[0],
+    width=points3.shape[1],
     is_dense=False,
     is_bigendian=sys.byteorder != 'little',
     fields=fields,
     # Every point consists of three float32s.
     point_step=(itemsize * points3.shape[-1]),
-    row_step=(itemsize * points3.shape[-1] * points3.shape[0]),
+    row_step=(itemsize * points3.shape[-1] * points3.shape[1]),
     data=points3.tobytes()
 )
 
@@ -244,6 +244,24 @@ class TestPointCloud2Methods(unittest.TestCase):
         # unstructured NumPy array instead of converting it into a list of lists
         pcd_points = structured_to_unstructured(pcd_points)
         self.assertTrue(np.allclose(pcd_points, points3, equal_nan=True))
+
+    def test_read_points_organized_row_major(self):
+        # Organized clouds store their data row by row, so the point in row r and
+        # column c must end up at [r, c] of the reshaped array.
+        height, width = 2, 3
+        grid = np.array(
+            [(r, c, 0.0) for r in range(height) for c in range(width)],
+            dtype=np.float32).reshape(height, width, 3)
+        cloud = point_cloud2.create_cloud_xyz32(Header(frame_id='frame'), grid)
+        self.assertEqual(cloud.height, height)
+        self.assertEqual(cloud.width, width)
+        self.assertEqual(cloud.row_step, cloud.point_step * width)
+        organized = point_cloud2.read_points(cloud, reshape_organized_cloud=True)
+        self.assertEqual(organized.shape, (height, width))
+        for r in range(height):
+            for c in range(width):
+                self.assertEqual(organized[r, c]['x'], r)
+                self.assertEqual(organized[r, c]['y'], c)
 
     def test_read_points_numpy(self):
         # Checks if the deserialization to an unstructured numpy array works
