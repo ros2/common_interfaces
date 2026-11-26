@@ -37,6 +37,7 @@ set(msg_files
   "msg/Int8MultiArray.msg"
   "msg/MultiArrayDimension.msg"
   "msg/MultiArrayLayout.msg"
+  "msg/Result.msg"
   "msg/String.msg"
   "msg/UInt16.msg"
   "msg/UInt16MultiArray.msg"
