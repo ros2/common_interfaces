@@ -57,9 +57,9 @@
  *                                            "y", 1, sensor_msgs::msg::PointField::FLOAT32,
  *                                            "z", 1, sensor_msgs::msg::PointField::FLOAT32,
  *                                            "rgb", 1, sensor_msgs::msg::PointField::FLOAT32);
- *   // For convenience and the xyz, rgb, rgba fields, you can also use the following overloaded function.
+ *   // For convenience and the xyz, rgb, rgba, intensity fields, you can also use the following overloaded function.
  *   // You have to be aware that the following function does add extra padding for backward compatibility though
- *   // so it is definitely the solution of choice for PointXYZ and PointXYZRGB
+ *   // so it is definitely the solution of choice for PointXYZ, PointXYZRGB and PointXYZI
  *   // 2 is for the number of fields to add
  *   modifier.setPointCloud2FieldsByString(2, "xyz", "rgb");
  *   // You can then reserve / resize as usual
@@ -160,7 +160,7 @@ public:
    *        internals of the PointCloud2
    * @param n_fields the number of fields to add. The fields are given as
    *        strings: "xyz" (3 floats), "rgb" (3 uchar stacked in a float),
-   *        "rgba" (4 uchar stacked in a float)
+   *        "rgba" (4 uchar stacked in a float), "intensity" (float)
    * @return void
    *
    * WARNING: THIS FUNCTION ADDS ANY NECESSARY PADDING TRANSPARENTLY
