@@ -37,7 +37,6 @@ set(msg_files
   "msg/MultiEchoLaserScan.msg"
   "msg/NavSatFix.msg"
   "msg/NavSatStatus.msg"
-  "msg/PointCloud.msg"
   "msg/PointCloud2.msg"
   "msg/PointField.msg"
   "msg/Range.msg"
