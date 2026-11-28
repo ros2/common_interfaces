@@ -375,6 +375,31 @@ class TestPointCloud2Methods(unittest.TestCase):
         reconstructed_points = point_cloud2.read_points_numpy(pc)
         self.assertTrue(np.allclose(points, reconstructed_points, equal_nan=True))
 
+    def test_read_points_foreign_byte_order(self):
+        # Store the points in the byte order opposite to this machine's
+        foreign_order = '>' if sys.byteorder == 'little' else '<'
+        foreign_points = points.astype(np.dtype(np.float32).newbyteorder(foreign_order))
+        data = foreign_points.tobytes()
+        pc = PointCloud2(
+            header=Header(frame_id='frame'),
+            height=1,
+            width=foreign_points.shape[0],
+            is_dense=False,
+            is_bigendian=foreign_order == '>',
+            fields=fields,
+            point_step=12,
+            row_step=12 * foreign_points.shape[0],
+            data=data)
+
+        # Reading must not change the message, so every read gives the same points
+        for _ in range(2):
+            self.assertTrue(np.allclose(
+                points, point_cloud2.read_points_numpy(pc), equal_nan=True))
+        self.assertTrue(np.allclose(
+            points[:, :1], point_cloud2.read_points_numpy(pc, field_names=['x']),
+            equal_nan=True))
+        self.assertEqual(bytes(pc.data), data)
+
 
 if __name__ == '__main__':
     unittest.main()
